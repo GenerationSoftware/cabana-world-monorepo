@@ -47,7 +47,12 @@ export async function GET(): Promise<NextResponse> {
         }
       ]
     }
-    return NextResponse.json(tokenPriceApiOutput, { status: 200 })
+    return NextResponse.json(tokenPriceApiOutput, {
+      status: 200,
+      headers: {
+        'CDN-Cache-Control': 'public, s-maxage=300'
+      }
+    })
   } catch {
     return NextResponse.json({ message: 'Could not fetch token price data' }, { status: 500 })
   }

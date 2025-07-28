@@ -27,7 +27,7 @@
     "json-autotranslate": "^1.16.1",
     "lottie-react": "^2.4.0",
     "next": "14.1.0",
-    "next-intl": "^3.11.0",
+    "next-intl": "^4.3.4",
     "react": "^18.2.0",
     "react-confetti-explosion": "^3.0.3",
     "react-dom": "^18.2.0",

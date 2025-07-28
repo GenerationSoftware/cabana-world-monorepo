@@ -69,7 +69,8 @@ export const AppContainer = (props: AppProps & CustomAppProps) => {
 
   useSelectedLanguage({
     onLanguageChange: (newLanguage) => {
-      router.push({ pathname, query }, asPath, { locale: newLanguage })
+      console.log('in here?')
+      // router.push({ pathname, query }, asPath, { locale: newLanguage })
 
       // Tiny delay to avoid flickering on differing language selection to locale default
       setTimeout(() => {
