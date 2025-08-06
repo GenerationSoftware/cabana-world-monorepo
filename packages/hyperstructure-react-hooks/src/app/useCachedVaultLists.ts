@@ -5,8 +5,8 @@ import { LOCAL_STORAGE_KEYS } from '../constants'
 
 const getInitialCachedVaultLists = (): { [id: string]: VaultList } => {
   if (typeof window === 'undefined') return {}
-  const cachedVaultLists = localStorage.getItem(LOCAL_STORAGE_KEYS.cachedVaultLists)
-  return JSON.parse(cachedVaultLists ?? '{}')
+  // const cachedVaultLists = localStorage.getItem(LOCAL_STORAGE_KEYS.cachedVaultLists)
+  return JSON.parse('{}')
 }
 
 const cachedVaultListsAtom = atom<{ [id: string]: VaultList | undefined }>(
