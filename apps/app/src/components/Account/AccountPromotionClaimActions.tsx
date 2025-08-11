@@ -1,14 +1,17 @@
-import {
-  useSendClaimRewardsTransaction,
-  useSendPoolWideClaimRewardsTransaction,
-  useToken
-} from '@generationsoftware/hyperstructure-react-hooks'
+import { useToken } from '@generationsoftware/hyperstructure-react-hooks'
+import { useWorldPublicClient } from '@generationsoftware/hyperstructure-react-hooks'
 import { useAccount } from '@shared/generic-react-hooks'
 import { TokenAmount, TransactionButton } from '@shared/react-components'
-import { getSecondsSinceEpoch, lower } from '@shared/utilities'
+import {
+  getSecondsSinceEpoch,
+  lower,
+  POOL_WIDE_TWAB_REWARDS_ADDRESSES,
+  TWAB_REWARDS_ADDRESSES
+} from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
+import { claimPoolWideRewards, claimRewards, type ClaimRewardsTxOptions } from 'src/minikit_txs'
 import { addRecentTransaction, signInWithWallet } from 'src/utils'
 import { Address, formatUnits } from 'viem'
 // import { useCapabilities } from 'wagmi'
@@ -67,6 +70,10 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
   const t_common = useTranslations('Common')
   const t_account = useTranslations('Account')
 
+  const [isConfirming, setIsConfirming] = useState<boolean>(false)
+  const [isSuccessful, setIsSuccessful] = useState<boolean>(false)
+  const [txHash, setTxHash] = useState<string>('')
+
   // const { openConnectModal } = useConnectModal()
   // const { openChainModal } = useChainModal()
   // const addRecentTransaction = useAddRecentTransaction()
@@ -101,35 +108,67 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
       ? Object.keys(promotion.epochRewards).map((k) => parseInt(k))
       : []
 
-  const dataClaimRewardsTx = useSendClaimRewardsTransaction(
-    chainId,
-    userAddress,
-    { [promotionId.toString()]: epochsToClaim },
-    {
-      onSuccess: () => {
-        refetchClaimed()
-        refetchClaimable()
-      }
-    }
-  )
+  const publicClient = useWorldPublicClient()
 
-  const dataPoolWideClaimRewardsTx = useSendPoolWideClaimRewardsTransaction(
-    chainId,
-    userAddress,
-    [{ id: promotionId.toString(), vaultAddress: promotion?.vault!, epochs: epochsToClaim }],
-    {
-      onSuccess: () => {
+  // Get the appropriate twabRewards contract address
+  const twabRewardsAddress = isPoolWide
+    ? POOL_WIDE_TWAB_REWARDS_ADDRESSES[chainId]
+    : TWAB_REWARDS_ADDRESSES[chainId]
+
+  const options: ClaimRewardsTxOptions = {
+    onSend: () => {
+      setIsConfirming(true)
+    },
+    onSuccess: (txHash: Address) => {
+      setIsSuccessful(true)
+      setTxHash(txHash)
+      refetchClaimed()
+      refetchClaimable()
+      if (isPoolWide) {
         refetchPoolWideClaimed()
         refetchPoolWideClaimable()
       }
+    },
+    onSettled: () => {
+      setIsConfirming(false)
+    },
+    onError: () => {
+      setIsConfirming(false)
+      setIsSuccessful(false)
     }
-  )
+  }
 
-  const { isWaiting, isConfirming, isSuccess } = dataClaimRewardsTx
-  const txHash = dataClaimRewardsTx.txHash
-  const sendTransaction = dataClaimRewardsTx.sendClaimRewardsTransaction
+  const sendClaimRewardsTransaction = () => {
+    if (!promotion || !twabRewardsAddress) return
 
-  if (!!promotion && !!token) {
+    if (isPoolWide) {
+      // For pool-wide promotions, we need to access the vault address differently
+      // The promotion object has a different structure for pool-wide vs regular promotions
+      const vaultAddress = (promotion as any).vaultAddress || promotion.vault
+      if (!vaultAddress) return
+
+      return claimPoolWideRewards(
+        vaultAddress,
+        userAddress,
+        promotionId,
+        epochsToClaim,
+        publicClient,
+        twabRewardsAddress,
+        options
+      )
+    } else {
+      return claimRewards(
+        userAddress,
+        promotionId,
+        epochsToClaim,
+        publicClient,
+        twabRewardsAddress,
+        options
+      )
+    }
+  }
+
+  if (!!promotion && !!token && !!twabRewardsAddress) {
     const claimableAmount = Object.values(promotion.epochRewards).reduce((a, b) => a + b, 0n)
 
     if (claimableAmount > 0n) {
@@ -144,9 +183,9 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
         <div className='flex flex-col'>
           <TransactionButton
             chainId={chainId}
-            isTxLoading={isWaiting || isConfirming}
-            isTxSuccess={isSuccess}
-            write={sendTransaction}
+            isTxLoading={isConfirming}
+            isTxSuccess={isSuccessful}
+            write={sendClaimRewardsTransaction}
             txHash={txHash}
             txDescription={t_account('claimRewardsTx', { symbol: token.symbol })}
             addRecentTransaction={addRecentTransaction}
