@@ -139,7 +139,7 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
   }
 
   const sendClaimRewardsTransaction = () => {
-    if (!promotion || !twabRewardsAddress) return
+    if (!promotion) return
 
     if (isPoolWide) {
       // For pool-wide promotions, we need to access the vault address differently
@@ -168,7 +168,7 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
     }
   }
 
-  if (!!promotion && !!token && !!twabRewardsAddress) {
+  if (!!promotion && !!token) {
     const claimableAmount = Object.values(promotion.epochRewards).reduce((a, b) => a + b, 0n)
 
     if (claimableAmount > 0n) {
