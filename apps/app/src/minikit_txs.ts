@@ -1,4 +1,10 @@
-import { permitDepositABI, redeemABI, vaultABI } from '@shared/utilities'
+import {
+  permitDepositABI,
+  poolWideTwabRewardsABI,
+  redeemABI,
+  twabRewardsABI,
+  vaultABI
+} from '@shared/utilities'
 import { lower } from '@shared/utilities'
 import { type MiniAppSendTransactionSuccessPayload, MiniKit } from '@worldcoin/minikit-js'
 import { Address, decodeEventLog, type Hash, type TransactionReceipt } from 'viem'
@@ -21,6 +27,13 @@ export type WithdrawTxOptions = {
 }
 
 export type WithdrawAndDepositTxOptions = {
+  onSend?: () => void
+  onSuccess?: (txHash: Address) => void
+  onSettled?: () => void
+  onError?: () => void
+}
+
+export type ClaimRewardsTxOptions = {
   onSend?: () => void
   onSuccess?: (txHash: Address) => void
   onSettled?: () => void
@@ -329,4 +342,51 @@ export const sendTx = async (
   } finally {
     options?.onSettled?.()
   }
+}
+
+export const claimRewards = async (
+  userAddress: Address,
+  promotionId: bigint,
+  epochIds: number[],
+  publicClient: any,
+  twabRewardsAddress: Address,
+  options?: ClaimRewardsTxOptions
+) => {
+  return await sendTx(
+    {
+      address: twabRewardsAddress,
+      abi: twabRewardsABI,
+      functionName: 'claimRewards',
+      args: [userAddress, promotionId.toString(), epochIds]
+    },
+    publicClient,
+    {
+      ...options,
+      onSuccess: (txHash: Address) => options?.onSuccess?.(txHash)
+    }
+  )
+}
+
+export const claimPoolWideRewards = async (
+  vaultAddress: Address,
+  userAddress: Address,
+  promotionId: bigint,
+  epochIds: number[],
+  publicClient: any,
+  poolWideTwabRewardsAddress: Address,
+  options?: ClaimRewardsTxOptions
+) => {
+  return await sendTx(
+    {
+      address: poolWideTwabRewardsAddress,
+      abi: poolWideTwabRewardsABI,
+      functionName: 'claimRewards',
+      args: [vaultAddress, userAddress, promotionId.toString(), epochIds]
+    },
+    publicClient,
+    {
+      ...options,
+      onSuccess: (txHash: Address) => options?.onSuccess?.(txHash)
+    }
+  )
 }
