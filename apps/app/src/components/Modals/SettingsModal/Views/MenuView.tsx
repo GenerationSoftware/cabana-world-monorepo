@@ -1,5 +1,6 @@
 import {
   ArrowTopRightOnSquareIcon,
+  BellIcon,
   CubeTransparentIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
@@ -15,6 +16,7 @@ import { LINKS } from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { ReactNode } from 'react'
+import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useSettingsModalView } from '@hooks/useSettingsModalView'
 import { SettingsModalOption } from '..'
 
@@ -32,6 +34,7 @@ export const MenuView = (props: MenuViewProps) => {
 
   const { selectedCurrency } = useSelectedCurrency()
   const { selectedLanguage } = useSelectedLanguage()
+  const { isGranted } = useNotificationPermission()
 
   return (
     <div className='flex flex-col gap-4'>
@@ -52,6 +55,17 @@ export const MenuView = (props: MenuViewProps) => {
             onClick: () => setSettingsModalView('currency'),
             disabled: disable?.includes('currency'),
             hidden: hide?.includes('currency')
+          },
+          {
+            iconContent: (
+              <BellIcon
+                className={`h-6 w-6 ${isGranted ? 'text-green-400' : 'text-pt-purple-100'}`}
+              />
+            ),
+            title: t('notifications'),
+            onClick: () => setSettingsModalView('notifications'),
+            disabled: disable?.includes('notifications'),
+            hidden: hide?.includes('notifications')
           },
           {
             iconContent: <SparklesIcon className='h-6 w-6 text-pt-purple-100' />,

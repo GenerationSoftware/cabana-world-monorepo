@@ -36,8 +36,7 @@
     "migrationRequired": "Migração necessária",
     "notice": "Aviso",
     "oldVaultBalance": "Saldo do cofre antigo",
-    "toContinueWinning": "Para continuar a ganhar prémios, tem de migrar o seu depósito para a nova caixa-forte",
-    "rewardsBackdated": "Os prémios POOL para depósitos WLD podem agora ser reclamados na página da conta!"
+    "toContinueWinning": "Para continuar a ganhar prémios, tem de migrar o seu depósito para a nova caixa-forte"
   },
   "Navigation": {
     "home": "Início",
@@ -271,7 +270,14 @@
     "changeLanguage": "Alterar idioma",
     "viewEcosystem": "Ver Ecossistema",
     "getHelp": "Obter ajuda",
-    "getHelpWithCabana": "Obter ajuda para utilizar a Cabana"
+    "getHelpWithCabana": "Obter ajuda para utilizar a Cabana",
+    "notifications": "Notificações",
+    "notificationSettings": "Definições de notificação",
+    "enableNotifications": "Ativar as notificações",
+    "requesting": "Pedido de...",
+    "notificationsDisabled": "As notificações estão atualmente desactivadas.",
+    "enableInSettings": "Para as ativar, vá às definições do seu dispositivo e permita notificações para esta aplicação.",
+    "notificationsEnabled": "Ótimo! Receberá actualizações importantes sobre os seus cofres, prémios e outras actividades."
   },
   "Abbreviations": {
     "days": "dias",
@@ -346,6 +352,13 @@
       "uhOh": "Uh oh!",
       "failedTx": "Algo correu mal....",
       "tryAgain": "Tentar de novo"
+    },
+    "notifications": {
+      "permissionGranted": "Autorização de notificação concedida! Passará a receber actualizações importantes sobre os seus cofres e prémios.",
+      "permissionDeclined": "A permissão de notificação foi recusada. Pode activá-la mais tarde nas definições da aplicação.",
+      "permissionError": "Ocorreu um erro ao solicitar a permissão de notificação.",
+      "permissionAlreadyRequested": "A permissão de notificação foi recusada anteriormente. Active-a nas definições da aplicação.",
+      "permissionDisabled": "As notificações estão desactivadas para a World App. Active-as nas definições do seu dispositivo."
     }
   }
 }

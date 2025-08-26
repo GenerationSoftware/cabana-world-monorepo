@@ -36,8 +36,7 @@
     "migrationRequired": "Migrazione richiesta",
     "notice": "Avviso",
     "oldVaultBalance": "Saldo del vecchio caveau",
-    "toContinueWinning": "Per continuare a vincere i premi è necessario migrare il proprio deposito nel nuovo caveau.",
-    "rewardsBackdated": "I POOL Rewards per i depositi WLD sono ora richiedibili sulla pagina del conto!"
+    "toContinueWinning": "Per continuare a vincere i premi è necessario migrare il proprio deposito nel nuovo caveau."
   },
   "Navigation": {
     "home": "Home",
@@ -281,7 +280,14 @@
     "changeLanguage": "Cambia lingua",
     "viewEcosystem": "Visualizza l'ecosistema",
     "getHelp": "Chiedere aiuto",
-    "getHelpWithCabana": "Chiedere aiuto per l'utilizzo di Cabana"
+    "getHelpWithCabana": "Chiedere aiuto per l'utilizzo di Cabana",
+    "notifications": "Notifiche",
+    "notificationSettings": "Impostazioni di notifica",
+    "enableNotifications": "Abilita le notifiche",
+    "requesting": "Richiesta...",
+    "notificationsDisabled": "Le notifiche sono attualmente disattivate.",
+    "enableInSettings": "Per attivarle, accedere alle impostazioni del dispositivo e consentire le notifiche per questa applicazione.",
+    "notificationsEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività."
   },
   "Abbreviations": {
     "days": "giorni",
@@ -356,6 +362,13 @@
       "uhOh": "Oh, oh!",
       "failedTx": "Qualcosa è andato storto....",
       "tryAgain": "Riprova"
+    },
+    "notifications": {
+      "permissionGranted": "Autorizzazione alla notifica concessa! Ora riceverai aggiornamenti importanti sui tuoi caveau e sui premi.",
+      "permissionDeclined": "L'autorizzazione alla notifica è stata rifiutata. È possibile attivarla in seguito nelle impostazioni dell'app.",
+      "permissionError": "Si è verificato un errore durante la richiesta di autorizzazione alla notifica.",
+      "permissionAlreadyRequested": "L'autorizzazione alla notifica è stata precedentemente rifiutata. Si prega di attivarla nelle impostazioni dell'app.",
+      "permissionDisabled": "Le notifiche sono disattivate per World App. Si prega di attivarle nelle impostazioni del dispositivo."
     }
   }
 }

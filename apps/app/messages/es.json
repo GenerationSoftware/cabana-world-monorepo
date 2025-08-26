@@ -36,8 +36,7 @@
     "migrationRequired": "Migración necesaria",
     "notice": "Aviso",
     "oldVaultBalance": "Saldo de la bóveda antigua",
-    "toContinueWinning": "Para seguir ganando premios debe migrar su depósito a la nueva cámara acorazada",
-    "rewardsBackdated": "Las recompensas POOL por depósitos WLD ahora se pueden reclamar en la página de la cuenta."
+    "toContinueWinning": "Para seguir ganando premios debe migrar su depósito a la nueva cámara acorazada"
   },
   "Navigation": {
     "home": "Inicio",
@@ -274,7 +273,14 @@
     "changeLanguage": "Cambiar idioma",
     "viewEcosystem": "Ver Ecosistema",
     "getHelp": "Obtener ayuda",
-    "getHelpWithCabana": "Obtén ayuda con el uso de Cabana"
+    "getHelpWithCabana": "Obtén ayuda con el uso de Cabana",
+    "notifications": "Notificaciones",
+    "notificationSettings": "Ajustes de notificación",
+    "enableNotifications": "Activar notificaciones",
+    "requesting": "Solicitando...",
+    "notificationsDisabled": "Actualmente, las notificaciones están desactivadas.",
+    "enableInSettings": "Para activarlas, ve a la configuración de tu dispositivo y permite las notificaciones para esta aplicación.",
+    "notificationsEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades."
   },
   "Abbreviations": {
     "days": "días",
@@ -349,6 +355,16 @@
       "uhOh": "¡Uh oh!",
       "failedTx": "Algo salió mal....",
       "tryAgain": "Inténtelo de nuevo"
+    },
+    "notifications": {
+      "permissionGranted": "¡Permiso de notificación concedido! Ahora recibirás actualizaciones importantes sobre tus bóvedas y premios.",
+      "permissionDeclined": "Se ha denegado el permiso de notificación. Puedes activarlo más tarde en los ajustes de tu aplicación.",
+      "permissionError": "Se ha producido un error al solicitar el permiso de notificación.",
+      "permissionAlreadyRequested": "El permiso de notificación fue rechazado anteriormente. Habilítalo en la configuración de la aplicación.",
+      "permissionDisabled": "Las notificaciones están desactivadas para World App. Actívalas en los ajustes de tu dispositivo.",
+      "checkingPermissions": "Verificando permisos...",
+      "refreshPermissions": "Actualizar Permisos",
+      "refreshing": "Verificando..."
     }
   }
 }

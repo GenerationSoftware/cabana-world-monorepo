@@ -36,8 +36,7 @@
     "migrationRequired": "Migration requise",
     "notice": "Avis",
     "oldVaultBalance": "Ancienne balance de la chambre forte",
-    "toContinueWinning": "Pour continuer à gagner des prix, vous devez migrer votre dépôt vers le nouveau coffre-fort.",
-    "rewardsBackdated": "Les POOL Rewards pour les dépôts WLD peuvent désormais être réclamés sur la page du compte !"
+    "toContinueWinning": "Pour continuer à gagner des prix, vous devez migrer votre dépôt vers le nouveau coffre-fort."
   },
   "Navigation": {
     "home": "Accueil",
@@ -271,7 +270,14 @@
     "changeLanguage": "Changer de langue",
     "viewEcosystem": "Voir l'écosystème",
     "getHelp": "Obtenir de l'aide",
-    "getHelpWithCabana": "Obtenir de l'aide sur l'utilisation de Cabana"
+    "getHelpWithCabana": "Obtenir de l'aide sur l'utilisation de Cabana",
+    "notifications": "Notifications",
+    "notificationSettings": "Paramètres de notification",
+    "enableNotifications": "Activer les notifications",
+    "requesting": "Demande...",
+    "notificationsDisabled": "Les notifications sont actuellement désactivées.",
+    "enableInSettings": "Pour les activer, allez dans les paramètres de votre appareil et autorisez les notifications pour cette application.",
+    "notificationsEnabled": "Génial ! Vous recevrez des mises à jour importantes concernant vos coffres, vos prix et d'autres activités."
   },
   "Abbreviations": {
     "days": "jours",
@@ -346,6 +352,13 @@
       "uhOh": "Oh oh !",
       "failedTx": "Quelque chose n'a pas fonctionné....",
       "tryAgain": "Réessayer"
+    },
+    "notifications": {
+      "permissionGranted": "Autorisation de notification accordée ! Vous recevrez désormais des mises à jour importantes concernant vos coffres et vos prix.",
+      "permissionDeclined": "L'autorisation de notification a été refusée. Vous pouvez l'activer ultérieurement dans les paramètres de votre application.",
+      "permissionError": "Une erreur s'est produite lors de la demande d'autorisation de notification.",
+      "permissionAlreadyRequested": "L'autorisation de notification a été refusée précédemment. Veuillez l'activer dans les paramètres de votre application.",
+      "permissionDisabled": "Les notifications sont désactivées pour l'application mondiale. Veuillez les activer dans les paramètres de votre appareil."
     }
   }
 }

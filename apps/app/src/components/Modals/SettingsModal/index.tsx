@@ -6,8 +6,9 @@ import { useSettingsModalView } from '@hooks/useSettingsModalView'
 import { CurrencyView } from './Views/CurrencyView'
 import { LanguageView } from './Views/LanguageView'
 import { MenuView } from './Views/MenuView'
+import { NotificationsView } from './Views/NotificationsView'
 
-export type SettingsModalOption = 'currency' | 'language'
+export type SettingsModalOption = 'currency' | 'language' | 'notifications'
 
 export type SettingsModalView = 'menu' | SettingsModalOption
 
@@ -31,7 +32,8 @@ export const SettingsModal = (props: SettingsModalProps) => {
   const modalViews: Record<SettingsModalView, ReactNode> = {
     menu: <MenuView disable={disable} hide={hide} />,
     currency: <CurrencyView onCurrencyChange={onCurrencyChange} />,
-    language: <LanguageView locales={locales} onLanguageChange={onLanguageChange} />
+    language: <LanguageView locales={locales} onLanguageChange={onLanguageChange} />,
+    notifications: <NotificationsView />
   }
 
   if (isModalOpen) {

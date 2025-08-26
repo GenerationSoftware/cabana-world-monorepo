@@ -36,8 +36,7 @@
     "migrationRequired": "Göç Gerekli",
     "notice": "Uyarı",
     "oldVaultBalance": "Eski Kasa Bakiyesi",
-    "toContinueWinning": "Ödül kazanmaya devam etmek için depozitonuzu yeni kasaya taşımanız gerekir",
-    "rewardsBackdated": "WLD depozitoları için POOL Ödülleri artık Hesap sayfasında talep edilebilir!"
+    "toContinueWinning": "Ödül kazanmaya devam etmek için depozitonuzu yeni kasaya taşımanız gerekir"
   },
   "Navigation": {
     "home": "Ev",
@@ -271,7 +270,14 @@
     "changeLanguage": "Dil Değiştir",
     "viewEcosystem": "Ekosistemi Görüntüle",
     "getHelp": "Yardım Alın",
-    "getHelpWithCabana": "Cabana Kullanımı ile Yardım Alın"
+    "getHelpWithCabana": "Cabana Kullanımı ile Yardım Alın",
+    "notifications": "Bildirimler",
+    "notificationSettings": "Bildirim Ayarları",
+    "enableNotifications": "Bildirimleri Etkinleştir",
+    "requesting": "İstiyorum.",
+    "notificationsDisabled": "Bildirimler şu anda devre dışıdır.",
+    "enableInSettings": "Bunları etkinleştirmek için lütfen cihaz ayarlarınıza gidin ve bu uygulama için bildirimlere izin verin.",
+    "notificationsEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer faaliyetleriniz hakkında önemli güncellemeler alacaksınız."
   },
   "Abbreviations": {
     "days": "günler",
@@ -346,6 +352,13 @@
       "uhOh": "Uh oh!",
       "failedTx": "Bir şeyler ters gitti....",
       "tryAgain": "Tekrar Deneyin"
+    },
+    "notifications": {
+      "permissionGranted": "Bildirim izni verildi! Artık kasalarınız ve ödülleriniz hakkında önemli güncellemeler alacaksınız.",
+      "permissionDeclined": "Bildirim izni reddedildi. Daha sonra uygulama ayarlarınızdan etkinleştirebilirsiniz.",
+      "permissionError": "Bildirim izni talep edilirken bir hata oluştu.",
+      "permissionAlreadyRequested": "Bildirim izni daha önce reddedilmişti. Lütfen uygulama ayarlarınızdan etkinleştirin.",
+      "permissionDisabled": "World Uygulaması için bildirimler devre dışı bırakılmıştır. Lütfen cihaz ayarlarınızdan etkinleştirin."
     }
   }
 }

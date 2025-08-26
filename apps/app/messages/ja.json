@@ -36,8 +36,7 @@
     "migrationRequired": "マイグレーションが必要",
     "notice": "お知らせ",
     "oldVaultBalance": "旧ボールト残高",
-    "toContinueWinning": "賞金を獲得し続けるには、新しい金庫に預金を移行する必要があります。",
-    "rewardsBackdated": "WLDデポジットのPOOLリワードがアカウントページで請求できるようになりました！"
+    "toContinueWinning": "賞金を獲得し続けるには、新しい金庫に預金を移行する必要があります。"
   },
   "Navigation": {
     "home": "ホーム",
@@ -271,7 +270,14 @@
     "changeLanguage": "言語の変更",
     "viewEcosystem": "エコシステムを見る",
     "getHelp": "ヘルプ",
-    "getHelpWithCabana": "カバナの使い方"
+    "getHelpWithCabana": "カバナの使い方",
+    "notifications": "お知らせ",
+    "notificationSettings": "通知設定",
+    "enableNotifications": "通知を有効にする",
+    "requesting": "リクエスト...",
+    "notificationsDisabled": "現在、通知は無効になっています。",
+    "enableInSettings": "通知を有効にするには、端末の設定でこのアプリの通知を許可してください。",
+    "notificationsEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。"
   },
   "Abbreviations": {
     "days": "日",
@@ -346,6 +352,13 @@
       "uhOh": "ああ、ああ！",
       "failedTx": "何かが間違っていた......。",
       "tryAgain": "再挑戦"
+    },
+    "notifications": {
+      "permissionGranted": "通知許可が与えられました！あなたの金庫や賞品に関する重要な最新情報が届くようになります。",
+      "permissionDeclined": "通知許可が拒否されました。後でアプリの設定で有効にできます。",
+      "permissionError": "通知許可のリクエスト中にエラーが発生しました。",
+      "permissionAlreadyRequested": "以前は通知許可が拒否されていました。アプリの設定で有効にしてください。",
+      "permissionDisabled": "ワールドアプリは通知が無効になっています。端末の設定で有効にしてください。"
     }
   }
 }

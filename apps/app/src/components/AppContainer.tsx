@@ -12,7 +12,8 @@ import { CustomAppProps } from '@pages/_app'
 import { AccountFrame } from './Frames/AccountFrame'
 import { DefaultFrame } from './Frames/DefaultFrame'
 import { VaultFrame } from './Frames/VaultFrame'
-import { RewardsBackdatedBanner } from './RewardsBackdatedBanner'
+
+// import { RewardsBackdatedBanner } from './RewardsBackdatedBanner'
 
 export const AppContainer = (props: AppProps & CustomAppProps) => {
   const { Component, pageProps, serverProps, router } = props
@@ -48,9 +49,9 @@ export const AppContainer = (props: AppProps & CustomAppProps) => {
   useEffect(() => {
     const initEruda = async () => {
       if (typeof window !== 'undefined') {
-        // Staging check
+        // Staging/dev check
         // @ts-ignore
-        if (window?.location.href.match(/staging/)?.length > 0) {
+        if (window?.location.href.match(/staging|ngrok|localhost/)?.length > 0) {
           const eruda = (await import('eruda')).default
           eruda.init()
         }
@@ -101,7 +102,7 @@ export const AppContainer = (props: AppProps & CustomAppProps) => {
           messages={pageProps.messages}
         >
           <div id='modal-root' />
-          <RewardsBackdatedBanner />
+          {/* <RewardsBackdatedBanner /> */}
           {isReady && <Component {...pageProps} />}
         </NextIntlClientProvider>
       </Flowbite>

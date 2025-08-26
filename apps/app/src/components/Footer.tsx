@@ -6,6 +6,7 @@ import { Footer as FlowbiteFooter } from 'flowbite-react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useState } from 'react'
+import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useSettingsModalView } from '@hooks/useSettingsModalView'
 
 interface FooterItem {
@@ -28,6 +29,7 @@ export const Footer = () => {
   const { setView: setSettingsModalView } = useSettingsModalView()
 
   const { setIsModalOpen: setIsCaptchaModalOpen } = useIsModalOpen(MODAL_KEYS.captcha)
+  const { isGranted } = useNotificationPermission()
 
   // NOTE: This is necessary due to hydration errors otherwise.
   const [isBrowser, setIsBrowser] = useState(false)
@@ -88,6 +90,13 @@ export const Footer = () => {
           content: t_settings('changeLanguage'),
           onClick: () => {
             setSettingsModalView('language')
+            setIsSettingsModalOpen(true)
+          }
+        },
+        {
+          content: t_settings('notifications'),
+          onClick: () => {
+            setSettingsModalView('notifications')
             setIsSettingsModalOpen(true)
           }
         }

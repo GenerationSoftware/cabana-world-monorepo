@@ -36,8 +36,7 @@
     "migrationRequired": "需要迁移",
     "notice": "通知",
     "oldVaultBalance": "旧金库余额",
-    "toContinueWinning": "要继续赢奖，您需要将存款转移到新保险库",
-    "rewardsBackdated": "现在可在账户页面上申请 WLD 存款的 POOL 奖励！"
+    "toContinueWinning": "要继续赢奖，您需要将存款转移到新保险库"
   },
   "Navigation": {
     "home": "首页",
@@ -271,7 +270,14 @@
     "changeLanguage": "更改语言",
     "viewEcosystem": "查看生态系统",
     "getHelp": "获取帮助",
-    "getHelpWithCabana": "获取使用卡巴纳的帮助"
+    "getHelpWithCabana": "获取使用卡巴纳的帮助",
+    "notifications": "通知",
+    "notificationSettings": "通知设置",
+    "enableNotifications": "启用通知",
+    "requesting": "要求...",
+    "notificationsDisabled": "目前已禁用通知功能。",
+    "enableInSettings": "要启用这些通知，请进入设备设置并允许此应用程序发出通知。",
+    "notificationsEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。"
   },
   "Abbreviations": {
     "days": "天数",
@@ -346,6 +352,13 @@
       "uhOh": "啊哦",
       "failedTx": "出问题了....",
       "tryAgain": "再试一次"
+    },
+    "notifications": {
+      "permissionGranted": "已授予通知权限！现在您将收到有关保险库和奖品的重要更新。",
+      "permissionDeclined": "通知权限被拒绝。您可以稍后在应用设置中启用。",
+      "permissionError": "请求通知权限时发生错误。",
+      "permissionAlreadyRequested": "之前拒绝了通知权限。请在应用程序设置中启用。",
+      "permissionDisabled": "世界应用程序的通知功能已禁用。请在设备设置中启用。"
     }
   }
 }

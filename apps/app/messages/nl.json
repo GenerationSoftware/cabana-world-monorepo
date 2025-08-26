@@ -36,8 +36,7 @@
     "migrationRequired": "Migratie vereist",
     "notice": "Kennisgeving",
     "oldVaultBalance": "Balans oude kluis",
-    "toContinueWinning": "Om prijzen te kunnen blijven winnen, moet je je storting migreren naar de nieuwe kluis",
-    "rewardsBackdated": "POOL Rewards voor WLD-stortingen kunnen nu worden opgeëist op de Account-pagina!"
+    "toContinueWinning": "Om prijzen te kunnen blijven winnen, moet je je storting migreren naar de nieuwe kluis"
   },
   "Navigation": {
     "home": "Startpagina",
@@ -277,7 +276,14 @@
     "changeLanguage": "Verander van taal",
     "viewEcosystem": "Ecosysteem bekijken",
     "getHelp": "Hulp krijgen",
-    "getHelpWithCabana": "Krijg hulp bij het gebruik van Cabana"
+    "getHelpWithCabana": "Krijg hulp bij het gebruik van Cabana",
+    "notifications": "Meldingen",
+    "notificationSettings": "Instellingen meldingen",
+    "enableNotifications": "Meldingen inschakelen",
+    "requesting": "Verzoek...",
+    "notificationsDisabled": "Meldingen zijn momenteel uitgeschakeld.",
+    "enableInSettings": "Om ze in te schakelen, moet je naar de instellingen van je apparaat gaan en meldingen voor deze app toestaan.",
+    "notificationsEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten."
   },
   "Abbreviations": {
     "days": "dagen",
@@ -352,6 +358,13 @@
       "uhOh": "Uh oh!",
       "failedTx": "Er ging iets mis....",
       "tryAgain": "Probeer het opnieuw"
+    },
+    "notifications": {
+      "permissionGranted": "Meldingen toegestaan! Je ontvangt nu belangrijke updates over je kluizen en prijzen.",
+      "permissionDeclined": "De meldingstoestemming is geweigerd. Je kunt het later inschakelen in je app-instellingen.",
+      "permissionError": "Er is een fout opgetreden tijdens het aanvragen van de notificatie-toestemming.",
+      "permissionAlreadyRequested": "De meldingstoestemming is eerder geweigerd. Schakel deze toestemming in bij de instellingen van je app.",
+      "permissionDisabled": "Meldingen zijn uitgeschakeld voor World App. Schakel ze in via de instellingen van je apparaat."
     }
   }
 }

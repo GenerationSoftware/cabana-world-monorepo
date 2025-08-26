@@ -13,6 +13,7 @@ import Head from 'next/head'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useState } from 'react'
+import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useWalletId } from '@hooks/useWalletId'
 import { Footer } from './Footer'
 import { CheckPrizesModal } from './Modals/CheckPrizesModal'
@@ -36,6 +37,22 @@ export const Layout = (props: LayoutProps) => {
 
   const t_common = useTranslations('Common')
   const t_nav = useTranslations('Navigation')
+
+  const { requestNotificationPermission, canRequest } = useNotificationPermission()
+
+  // Request notification permission after MiniKit is ready
+  useEffect(() => {
+    console.log('canRequest')
+    console.log(canRequest)
+    if (canRequest) {
+      // Add a small delay to ensure the app is fully loaded
+      const timer = setTimeout(() => {
+        requestNotificationPermission()
+      }, 2000) // 2 second delay after app is ready
+
+      return () => clearTimeout(timer)
+    }
+  }, [canRequest, requestNotificationPermission])
 
   const { vaults } = useSelectedVaults()
   const { address: userAddress } = useAccount()
