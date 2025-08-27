@@ -1,18 +1,18 @@
 import { toast } from '@shared/ui'
 import { MiniKit, Permission } from '@worldcoin/minikit-js'
 import { useTranslations } from 'next-intl'
-import { useCallback, useEffect, useState } from 'react'
-
-export type NotificationPermissionStatus = 'granted' | 'denied' | 'default' | 'requesting'
+import { useCallback, useState } from 'react'
+import { useNotificationState } from '@hooks/useNotificationState'
 
 export const useNotificationPermission = () => {
-  const [permissionStatus, setPermissionStatus] = useState<NotificationPermissionStatus>('default')
   const [hasRequested, setHasRequested] = useState(false)
+  const [requestingPermissionStatus, setRequestingPermissionStatus] = useState(false)
   const [isCheckingPermissions, setIsCheckingPermissions] = useState(false)
 
   const t = useTranslations('Toasts.notifications')
 
-  // Check current permissions using getPermissions API
+  const { setHasFetched, permissionStatus, setPermissionStatus } = useNotificationState()
+
   const getCurrentPermissions = useCallback(async () => {
     if (!MiniKit.isInstalled()) {
       console.warn('MiniKit is not installed, cannot get permissions')
@@ -20,25 +20,17 @@ export const useNotificationPermission = () => {
     }
 
     try {
-      setIsCheckingPermissions(true)
       const { commandPayload, finalPayload } = await MiniKit.commandsAsync.getPermissions()
-      
+
       if (finalPayload.status === 'success') {
-        console.log('Current permissions:', finalPayload.permissions)
-        
-        // Check if notifications permission is granted
-        const hasNotifications = finalPayload.permissions.notifications === true
-        
-        if (hasNotifications) {
+        const notificationsEnabled = finalPayload.permissions.notifications
+
+        if (notificationsEnabled) {
           setPermissionStatus('granted')
-          setHasRequested(true)
-          console.log('Notification permission already granted')
-        } else {
-          setPermissionStatus('denied')
-          setHasRequested(true)
-          console.log('Notification permission not granted')
         }
-        
+
+        setHasFetched(true)
+
         return finalPayload.permissions
       } else {
         console.error('Failed to get permissions:', finalPayload.error_code)
@@ -48,7 +40,7 @@ export const useNotificationPermission = () => {
       console.error('Error getting permissions:', error)
       return null
     } finally {
-      setIsCheckingPermissions(false)
+      // setIsCheckingPermissions(false)
     }
   }, [])
 
@@ -58,12 +50,13 @@ export const useNotificationPermission = () => {
       return
     }
 
-    // First check if we already have permission
-    const currentPermissions = await getCurrentPermissions()
-    if (currentPermissions?.notifications === true) {
-      console.log('Notification permission already granted, no need to request')
-      return true
-    }
+    // const currentPermissions = await getCurrentPermissions()
+    // console.log('currentPermissions')
+    // console.log(currentPermissions)
+    // if (currentPermissions?.notifications === true) {
+    //   console.log('Notification permission already granted, no need to request')
+    //   return
+    // }
 
     if (hasRequested) {
       console.log('Notification permission already requested')
@@ -71,7 +64,7 @@ export const useNotificationPermission = () => {
     }
 
     try {
-      setPermissionStatus('requesting')
+      setRequestingPermissionStatus(true)
 
       const requestPermissionPayload = {
         permission: Permission.Notifications
@@ -82,26 +75,19 @@ export const useNotificationPermission = () => {
       )
 
       if (finalPayload.status === 'success') {
-        console.log('Notification permission granted:', finalPayload)
         setPermissionStatus('granted')
-        setHasRequested(true)
-
-        toast.success(t('permissionGranted'))
-        return true
+        return
       } else {
-        console.error('Permission request failed:', finalPayload.error_code)
+        console.error('Perm/ission request failed:', finalPayload.error_code)
         setPermissionStatus('denied')
-        setHasRequested(true)
 
-        // Handle different error codes
         switch (finalPayload.error_code) {
           case 'user_rejected':
             toast.error(t('permissionDeclined'))
             break
           case 'already_granted':
             setPermissionStatus('granted')
-            setHasRequested(true)
-            return true
+            return
           case 'already_requested':
             toast.error(t('permissionAlreadyRequested'))
             break
@@ -118,31 +104,26 @@ export const useNotificationPermission = () => {
             toast.error(t('permissionError'))
         }
 
-        return false
+        return
       }
     } catch (error) {
       console.error('Error requesting notification permission:', error)
-      setPermissionStatus('denied')
-      setHasRequested(true)
+      setPermissionStatus('default')
       toast.error(t('permissionError'))
-      return false
+      return
+    } finally {
+      setHasRequested(true)
     }
   }, [hasRequested, permissionStatus, getCurrentPermissions])
-
-  // Check if permission is already granted using World App permissions
-  useEffect(() => {
-    if (typeof window !== 'undefined' && MiniKit.isInstalled()) {
-      getCurrentPermissions()
-    }
-  }, [getCurrentPermissions])
 
   return {
     permissionStatus,
     hasRequested,
     isCheckingPermissions,
     requestNotificationPermission,
+    requestingPermissionStatus,
     getCurrentPermissions,
     isGranted: permissionStatus === 'granted',
-    canRequest: !hasRequested || permissionStatus === 'default'
+    canRequest: !hasRequested // || permissionStatus === 'default'
   }
 }

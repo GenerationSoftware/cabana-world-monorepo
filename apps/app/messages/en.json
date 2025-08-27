@@ -297,9 +297,10 @@
     "notificationSettings": "Notification Settings",
     "enableNotifications": "Enable Notifications",
     "requesting": "Requesting...",
+    "notificationsEnabled": "Notifications are currently enabled.",
     "notificationsDisabled": "Notifications are currently disabled.",
     "enableInSettings": "To enable them, please go to your device settings and allow notifications for this app.",
-    "notificationsEnabled": "Great! You'll receive important updates about your vaults, prizes, and other activities."
+    "notificationsHaveBeenEnabled": "Great! You'll receive important updates about your vaults, prizes, and other activities."
   },
   "Abbreviations": {
     "days": "days",

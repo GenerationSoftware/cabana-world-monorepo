@@ -18,18 +18,13 @@ interface FooterItem {
 }
 
 export const Footer = () => {
-  const router = useRouter()
-
   const t_settings = useTranslations('Settings')
   const t_footer = useTranslations('Footer')
-
-  const { isTestnets, setIsTestnets } = useIsTestnets()
 
   const { setIsModalOpen: setIsSettingsModalOpen } = useIsModalOpen(MODAL_KEYS.settings)
   const { setView: setSettingsModalView } = useSettingsModalView()
 
   const { setIsModalOpen: setIsCaptchaModalOpen } = useIsModalOpen(MODAL_KEYS.captcha)
-  const { isGranted } = useNotificationPermission()
 
   // NOTE: This is necessary due to hydration errors otherwise.
   const [isBrowser, setIsBrowser] = useState(false)

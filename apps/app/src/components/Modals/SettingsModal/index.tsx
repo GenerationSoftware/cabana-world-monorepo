@@ -33,7 +33,7 @@ export const SettingsModal = (props: SettingsModalProps) => {
     menu: <MenuView disable={disable} hide={hide} />,
     currency: <CurrencyView onCurrencyChange={onCurrencyChange} />,
     language: <LanguageView locales={locales} onLanguageChange={onLanguageChange} />,
-    notifications: <NotificationsView />
+    notifications: <NotificationsView showHeader />
   }
 
   if (isModalOpen) {

@@ -7,6 +7,7 @@ import { useAccount } from '@shared/generic-react-hooks'
 import { CaptchaModal } from '@shared/react-components'
 import { toast } from '@shared/ui'
 import { getDiscordInvite } from '@shared/utilities'
+import { MiniKit } from '@worldcoin/minikit-js'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
@@ -19,6 +20,7 @@ import { Footer } from './Footer'
 import { CheckPrizesModal } from './Modals/CheckPrizesModal'
 // import { DelegateModal } from './Modals/DelegateModal'
 import { DepositModal } from './Modals/DepositModal'
+import { GetNotifiedModal } from './Modals/GetNotifiedModal'
 import { SettingsModal } from './Modals/SettingsModal'
 import { WithdrawModal } from './Modals/WithdrawModal'
 import { Navbar } from './Navbar'
@@ -38,22 +40,6 @@ export const Layout = (props: LayoutProps) => {
   const t_common = useTranslations('Common')
   const t_nav = useTranslations('Navigation')
 
-  const { requestNotificationPermission, canRequest } = useNotificationPermission()
-
-  // Request notification permission after MiniKit is ready
-  useEffect(() => {
-    console.log('canRequest')
-    console.log(canRequest)
-    if (canRequest) {
-      // Add a small delay to ensure the app is fully loaded
-      const timer = setTimeout(() => {
-        requestNotificationPermission()
-      }, 2000) // 2 second delay after app is ready
-
-      return () => clearTimeout(timer)
-    }
-  }, [canRequest, requestNotificationPermission])
-
   const { vaults } = useSelectedVaults()
   const { address: userAddress } = useAccount()
   const { refetch: refetchUserVaultBalances } = useAllUserVaultBalances(vaults, userAddress!, {
@@ -64,6 +50,15 @@ export const Layout = (props: LayoutProps) => {
     userAddress!,
     { refetchOnWindowFocus: true }
   )
+
+  const { getCurrentPermissions } = useNotificationPermission()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && MiniKit.isInstalled()) {
+      console.log('run getCurrentPermission from Layout')
+      getCurrentPermissions()
+    }
+  }, [])
 
   const refetchUserBalances = () => {
     refetchUserVaultBalances()
@@ -114,6 +109,16 @@ export const Layout = (props: LayoutProps) => {
         <title>{`Cabana App${!!pageTitle ? ` | ${pageTitle}` : ''}`}</title>
       </Head>
       <Navbar />
+
+      <GetNotifiedModal />
+
+      <SettingsModal
+        locales={['en', 'es', 'de', 'fr', 'it', 'ja', 'ko', 'pt', 'tr', 'zh', 'ru', 'uk']}
+        onCurrencyChange={() => {}}
+        onLanguageChange={() => {}}
+        onVaultListImport={() => {}}
+        onRpcChange={() => {}}
+      />
 
       <SettingsModal
         locales={['en', 'es', 'de', 'fr', 'it', 'ja', 'ko', 'pt', 'tr', 'zh', 'ru', 'uk']}

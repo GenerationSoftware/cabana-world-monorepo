@@ -26,6 +26,7 @@ export const MODAL_KEYS = {
   captcha: 'captcha',
   deposit: 'deposit',
   drawWinners: 'drawWinners',
+  getNotified: 'getNotified',
   settings: 'settings',
   withdraw: 'withdraw',
   checkPrizes: 'checkPrizes',

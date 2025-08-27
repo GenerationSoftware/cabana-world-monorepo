@@ -57,11 +57,7 @@ export const MenuView = (props: MenuViewProps) => {
             hidden: hide?.includes('currency')
           },
           {
-            iconContent: (
-              <BellIcon
-                className={`h-6 w-6 ${isGranted ? 'text-green-400' : 'text-pt-purple-100'}`}
-              />
-            ),
+            iconContent: <BellIcon className={`h-6 w-6 text-pt-purple-100`} />,
             title: t('notifications'),
             onClick: () => setSettingsModalView('notifications'),
             disabled: disable?.includes('notifications'),
