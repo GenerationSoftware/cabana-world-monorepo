@@ -1,12 +1,10 @@
-import { MODAL_KEYS, useIsModalOpen, useIsTestnets } from '@shared/generic-react-hooks'
+import { MODAL_KEYS, useIsModalOpen } from '@shared/generic-react-hooks'
 import { SocialIcon } from '@shared/ui'
 import { LINKS } from '@shared/utilities'
 import classNames from 'classnames'
 import { Footer as FlowbiteFooter } from 'flowbite-react'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useState } from 'react'
-import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useSettingsModalView } from '@hooks/useSettingsModalView'
 
 interface FooterItem {

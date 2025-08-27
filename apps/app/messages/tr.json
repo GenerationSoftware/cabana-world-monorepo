@@ -277,7 +277,9 @@
     "requesting": "İstiyorum.",
     "notificationsDisabled": "Bildirimler şu anda devre dışıdır.",
     "enableInSettings": "Bunları etkinleştirmek için lütfen cihaz ayarlarınıza gidin ve bu uygulama için bildirimlere izin verin.",
-    "notificationsEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer faaliyetleriniz hakkında önemli güncellemeler alacaksınız."
+    "notificationsEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer faaliyetleriniz hakkında önemli güncellemeler alacaksınız.",
+    "notificationsHaveBeenEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer etkinlikleriniz hakkında önemli güncellemeler alacaksınız.",
+    "dontShowAgain": "Bunu bir daha gösterme."
   },
   "Abbreviations": {
     "days": "günler",
@@ -358,7 +360,10 @@
       "permissionDeclined": "Bildirim izni reddedildi. Daha sonra uygulama ayarlarınızdan etkinleştirebilirsiniz.",
       "permissionError": "Bildirim izni talep edilirken bir hata oluştu.",
       "permissionAlreadyRequested": "Bildirim izni daha önce reddedilmişti. Lütfen uygulama ayarlarınızdan etkinleştirin.",
-      "permissionDisabled": "World Uygulaması için bildirimler devre dışı bırakılmıştır. Lütfen cihaz ayarlarınızdan etkinleştirin."
+      "permissionDisabled": "World Uygulaması için bildirimler devre dışı bırakılmıştır. Lütfen cihaz ayarlarınızdan etkinleştirin.",
+      "checkingPermissions": "İzinler kontrol ediliyor...",
+      "refreshPermissions": "İzinleri Yenile",
+      "refreshing": "Kontrol ediyorum."
     }
   }
 }

@@ -1,5 +1,6 @@
-import { MODAL_KEYS, useIsModalOpen } from '@shared/generic-react-hooks'
+import { MODAL_KEYS, useIsDismissed, useIsModalOpen } from '@shared/generic-react-hooks'
 import { Modal } from '@shared/ui'
+import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 import { NotificationsView } from '@components/Modals/SettingsModal/Views/NotificationsView'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
@@ -15,31 +16,28 @@ export const GetNotifiedModal = (props: GetNotifiedModalProps) => {
   const {} = props
 
   const { isModalOpen, setIsModalOpen } = useIsModalOpen(MODAL_KEYS.getNotified)
+  const { isDismissed, dismiss } = useIsDismissed('getNotifiedModal')
 
   const { permissionStatus, canRequest } = useNotificationPermission()
   const { hasFetched } = useNotificationState()
 
   useEffect(() => {
-    console.log('re-run ...')
-    console.log(permissionStatus)
-    if (hasFetched && permissionStatus === 'default' && canRequest) {
+    if (hasFetched && permissionStatus === 'default' && canRequest && !isDismissed) {
       const timer = setTimeout(() => {
-        console.log('show modal')
         setIsModalOpen(true)
       }, 2000)
 
-      // requestNotificationPermission()
-
       return () => clearTimeout(timer)
     }
-  }, [hasFetched])
+  }, [hasFetched, isDismissed, permissionStatus, canRequest])
 
   if (isModalOpen) {
     return (
       <Modal
-        bodyContent={<MainView />}
+        bodyContent={<MainView onDismiss={dismiss} />}
         onClose={() => {
           setIsModalOpen(false)
+          dismiss() // Mark as dismissed when closed
         }}
         label='GetNotified'
         mobileStyle='cover'
@@ -50,16 +48,29 @@ export const GetNotifiedModal = (props: GetNotifiedModalProps) => {
   return <></>
 }
 
-const MainView = () => {
-  // const t_common = useTranslations('Common')
+interface MainViewProps {
+  onDismiss: () => void
+}
+
+const MainView = ({ onDismiss }: MainViewProps) => {
+  const t = useTranslations('Settings')
 
   return (
     <div className='flex flex-col gap-6 mb-6 items-center'>
       <h1 className='text-xl font-bold'>Get notified!</h1>
+
       <p className='text-center'>
         Receive updates from PoolTogether regarding prizes and improvements!
       </p>
+
       <NotificationsView />
+
+      <button
+        onClick={onDismiss}
+        className='px-4 py-2 text-sm text-pt-purple-400 hover:text-pt-purple-100 transition-colors'
+      >
+        {t('dontShowAgain')}
+      </button>
     </div>
   )
 }

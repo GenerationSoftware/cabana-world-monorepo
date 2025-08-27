@@ -283,7 +283,9 @@
     "requesting": "Verzoek...",
     "notificationsDisabled": "Meldingen zijn momenteel uitgeschakeld.",
     "enableInSettings": "Om ze in te schakelen, moet je naar de instellingen van je apparaat gaan en meldingen voor deze app toestaan.",
-    "notificationsEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten."
+    "notificationsEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten.",
+    "notificationsHaveBeenEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten.",
+    "dontShowAgain": "Laat dit niet meer zien"
   },
   "Abbreviations": {
     "days": "dagen",
@@ -364,7 +366,10 @@
       "permissionDeclined": "De meldingstoestemming is geweigerd. Je kunt het later inschakelen in je app-instellingen.",
       "permissionError": "Er is een fout opgetreden tijdens het aanvragen van de notificatie-toestemming.",
       "permissionAlreadyRequested": "De meldingstoestemming is eerder geweigerd. Schakel deze toestemming in bij de instellingen van je app.",
-      "permissionDisabled": "Meldingen zijn uitgeschakeld voor World App. Schakel ze in via de instellingen van je apparaat."
+      "permissionDisabled": "Meldingen zijn uitgeschakeld voor World App. Schakel ze in via de instellingen van je apparaat.",
+      "checkingPermissions": "Toestemmingen controleren...",
+      "refreshPermissions": "Rechten vernieuwen",
+      "refreshing": "Controleren..."
     }
   }
 }

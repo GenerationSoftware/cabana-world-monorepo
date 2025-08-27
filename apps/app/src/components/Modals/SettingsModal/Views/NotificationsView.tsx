@@ -12,21 +12,15 @@ export const NotificationsView = (props: NotificationsViewProps) => {
   const { showHeader } = props
 
   const t = useTranslations('Settings')
-  const t_toasts = useTranslations('Toasts.notifications')
   const {
     permissionStatus,
     requestNotificationPermission,
     isGranted,
     canRequest,
-    isCheckingPermissions,
     requestingPermissionStatus
   } = useNotificationPermission()
 
   const getStatusText = () => {
-    if (isCheckingPermissions) {
-      return t_toasts('checkingPermissions')
-    }
-
     if (requestingPermissionStatus) {
       return t('requesting')
     }
@@ -75,21 +69,9 @@ export const NotificationsView = (props: NotificationsViewProps) => {
           </div>
         </div>
 
-        {/* <Button
-          onClick={getCurrentPermissions}
-          disabled={isCheckingPermissions}
-          className='w-full px-4 py-2 bg-pt-transparent/10 hover:bg-pt-transparent/20 disabled:bg-pt-transparent/5 disabled:cursor-not-allowed text-pt-purple-200 font-medium rounded-lg transition-colors border border-pt-transparent/20'
-        >
-          {isCheckingPermissions ? t_toasts('refreshing') : t_toasts('refreshPermissions')}
-        </Button> */}
-
         {canRequest && !isGranted && (
-          <Button
-            onClick={handleRequestPermission}
-            disabled={permissionStatus === 'requesting'}
-            className='w-full px-6 py-3'
-          >
-            {permissionStatus === 'requesting' ? t('requesting') : t('enableNotifications')}
+          <Button onClick={handleRequestPermission} className='w-full px-6 py-3'>
+            {t('enableNotifications')}
           </Button>
         )}
 

@@ -280,7 +280,9 @@
     "requesting": "Solicitando...",
     "notificationsDisabled": "Actualmente, las notificaciones están desactivadas.",
     "enableInSettings": "Para activarlas, ve a la configuración de tu dispositivo y permite las notificaciones para esta aplicación.",
-    "notificationsEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades."
+    "notificationsEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades.",
+    "notificationsHaveBeenEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades.",
+    "dontShowAgain": "No mostrar de nuevo"
   },
   "Abbreviations": {
     "days": "días",

@@ -277,7 +277,9 @@
     "requesting": "リクエスト...",
     "notificationsDisabled": "現在、通知は無効になっています。",
     "enableInSettings": "通知を有効にするには、端末の設定でこのアプリの通知を許可してください。",
-    "notificationsEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。"
+    "notificationsEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。",
+    "notificationsHaveBeenEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。",
+    "dontShowAgain": "二度と見せるな"
   },
   "Abbreviations": {
     "days": "日",
@@ -358,7 +360,10 @@
       "permissionDeclined": "通知許可が拒否されました。後でアプリの設定で有効にできます。",
       "permissionError": "通知許可のリクエスト中にエラーが発生しました。",
       "permissionAlreadyRequested": "以前は通知許可が拒否されていました。アプリの設定で有効にしてください。",
-      "permissionDisabled": "ワールドアプリは通知が無効になっています。端末の設定で有効にしてください。"
+      "permissionDisabled": "ワールドアプリは通知が無効になっています。端末の設定で有効にしてください。",
+      "checkingPermissions": "パーミッションのチェック...",
+      "refreshPermissions": "アクセス許可の更新",
+      "refreshing": "チェック..."
     }
   }
 }

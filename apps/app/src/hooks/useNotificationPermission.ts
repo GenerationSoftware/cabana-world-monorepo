@@ -7,7 +7,6 @@ import { useNotificationState } from '@hooks/useNotificationState'
 export const useNotificationPermission = () => {
   const [hasRequested, setHasRequested] = useState(false)
   const [requestingPermissionStatus, setRequestingPermissionStatus] = useState(false)
-  const [isCheckingPermissions, setIsCheckingPermissions] = useState(false)
 
   const t = useTranslations('Toasts.notifications')
 
@@ -39,8 +38,6 @@ export const useNotificationPermission = () => {
     } catch (error) {
       console.error('Error getting permissions:', error)
       return null
-    } finally {
-      // setIsCheckingPermissions(false)
     }
   }, [])
 
@@ -49,14 +46,6 @@ export const useNotificationPermission = () => {
       console.warn('MiniKit is not installed, cannot request notification permission')
       return
     }
-
-    // const currentPermissions = await getCurrentPermissions()
-    // console.log('currentPermissions')
-    // console.log(currentPermissions)
-    // if (currentPermissions?.notifications === true) {
-    //   console.log('Notification permission already granted, no need to request')
-    //   return
-    // }
 
     if (hasRequested) {
       console.log('Notification permission already requested')
@@ -119,11 +108,10 @@ export const useNotificationPermission = () => {
   return {
     permissionStatus,
     hasRequested,
-    isCheckingPermissions,
     requestNotificationPermission,
     requestingPermissionStatus,
     getCurrentPermissions,
     isGranted: permissionStatus === 'granted',
-    canRequest: !hasRequested // || permissionStatus === 'default'
+    canRequest: !hasRequested
   }
 }

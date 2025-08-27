@@ -287,7 +287,9 @@
     "requesting": "Richiesta...",
     "notificationsDisabled": "Le notifiche sono attualmente disattivate.",
     "enableInSettings": "Per attivarle, accedere alle impostazioni del dispositivo e consentire le notifiche per questa applicazione.",
-    "notificationsEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività."
+    "notificationsEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività.",
+    "notificationsHaveBeenEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività.",
+    "dontShowAgain": "Non mostrarlo più"
   },
   "Abbreviations": {
     "days": "giorni",
@@ -368,7 +370,10 @@
       "permissionDeclined": "L'autorizzazione alla notifica è stata rifiutata. È possibile attivarla in seguito nelle impostazioni dell'app.",
       "permissionError": "Si è verificato un errore durante la richiesta di autorizzazione alla notifica.",
       "permissionAlreadyRequested": "L'autorizzazione alla notifica è stata precedentemente rifiutata. Si prega di attivarla nelle impostazioni dell'app.",
-      "permissionDisabled": "Le notifiche sono disattivate per World App. Si prega di attivarle nelle impostazioni del dispositivo."
+      "permissionDisabled": "Le notifiche sono disattivate per World App. Si prega di attivarle nelle impostazioni del dispositivo.",
+      "checkingPermissions": "Controllo delle autorizzazioni...",
+      "refreshPermissions": "Aggiornare le autorizzazioni",
+      "refreshing": "Controllo..."
     }
   }
 }

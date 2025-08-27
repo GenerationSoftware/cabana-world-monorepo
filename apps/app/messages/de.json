@@ -320,7 +320,9 @@
     "requesting": "Ich bitte um...",
     "notificationsDisabled": "Benachrichtigungen sind derzeit deaktiviert.",
     "enableInSettings": "Um sie zu aktivieren, gehen Sie bitte zu den Einstellungen Ihres Geräts und erlauben Sie Benachrichtigungen für diese App.",
-    "notificationsEnabled": "Großartig! Sie erhalten wichtige Informationen über Ihre Tresore, Preise und andere Aktivitäten."
+    "notificationsEnabled": "Großartig! Sie erhalten wichtige Informationen über Ihre Tresore, Preise und andere Aktivitäten.",
+    "notificationsHaveBeenEnabled": "Großartig! Sie erhalten wichtige Informationen über Ihre Tresore, Preise und andere Aktivitäten.",
+    "dontShowAgain": "Zeigen Sie das nicht mehr"
   },
   "Abbreviations": {
     "days": "Tg",
@@ -417,7 +419,10 @@
       "permissionDeclined": "Die Benachrichtigungserlaubnis wurde abgelehnt. Sie können sie später in den Einstellungen Ihrer App aktivieren.",
       "permissionError": "Bei der Anforderung der Benachrichtigungserlaubnis ist ein Fehler aufgetreten.",
       "permissionAlreadyRequested": "Die Berechtigung zur Benachrichtigung wurde zuvor abgelehnt. Bitte aktivieren Sie sie in den Einstellungen Ihrer App.",
-      "permissionDisabled": "Benachrichtigungen sind für die World App deaktiviert. Bitte aktivieren Sie sie in den Einstellungen Ihres Geräts."
+      "permissionDisabled": "Benachrichtigungen sind für die World App deaktiviert. Bitte aktivieren Sie sie in den Einstellungen Ihres Geräts.",
+      "checkingPermissions": "Überprüfen der Berechtigungen...",
+      "refreshPermissions": "Berechtigungen aktualisieren",
+      "refreshing": "Prüfen..."
     }
   }
 }

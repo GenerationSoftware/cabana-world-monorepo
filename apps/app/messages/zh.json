@@ -277,7 +277,9 @@
     "requesting": "要求...",
     "notificationsDisabled": "目前已禁用通知功能。",
     "enableInSettings": "要启用这些通知，请进入设备设置并允许此应用程序发出通知。",
-    "notificationsEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。"
+    "notificationsEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。",
+    "notificationsHaveBeenEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。",
+    "dontShowAgain": "不要再放这个了"
   },
   "Abbreviations": {
     "days": "天数",
@@ -358,7 +360,10 @@
       "permissionDeclined": "通知权限被拒绝。您可以稍后在应用设置中启用。",
       "permissionError": "请求通知权限时发生错误。",
       "permissionAlreadyRequested": "之前拒绝了通知权限。请在应用程序设置中启用。",
-      "permissionDisabled": "世界应用程序的通知功能已禁用。请在设备设置中启用。"
+      "permissionDisabled": "世界应用程序的通知功能已禁用。请在设备设置中启用。",
+      "checkingPermissions": "检查权限...",
+      "refreshPermissions": "刷新权限",
+      "refreshing": "检查..."
     }
   }
 }

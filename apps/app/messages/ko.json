@@ -277,7 +277,9 @@
     "requesting": "요청...",
     "notificationsDisabled": "알림은 현재 비활성화되어 있습니다.",
     "enableInSettings": "알림을 사용하려면 디바이스 설정으로 이동하여 이 앱에 대한 알림을 허용하세요.",
-    "notificationsEnabled": "잘됐네요! 볼트, 상품 및 기타 활동에 대한 중요한 업데이트를 받게 됩니다."
+    "notificationsEnabled": "잘됐네요! 볼트, 상품 및 기타 활동에 대한 중요한 업데이트를 받게 됩니다.",
+    "notificationsHaveBeenEnabled": "잘됐네요! 볼트, 상품 및 기타 활동에 대한 중요한 업데이트를 받게 됩니다.",
+    "dontShowAgain": "다시 보여주지 마세요"
   },
   "Abbreviations": {
     "days": "일",
@@ -358,7 +360,10 @@
       "permissionDeclined": "알림 권한이 거부되었습니다. 나중에 앱 설정에서 활성화할 수 있습니다.",
       "permissionError": "알림 권한을 요청하는 동안 오류가 발생했습니다.",
       "permissionAlreadyRequested": "이전에 알림 권한이 거부되었습니다. 앱 설정에서 활성화하세요.",
-      "permissionDisabled": "월드 앱에 대한 알림이 비활성화되어 있습니다. 기기 설정에서 알림을 활성화하세요."
+      "permissionDisabled": "월드 앱에 대한 알림이 비활성화되어 있습니다. 기기 설정에서 알림을 활성화하세요.",
+      "checkingPermissions": "권한 확인 중...",
+      "refreshPermissions": "권한 새로 고침",
+      "refreshing": "확인 중..."
     }
   }
 }

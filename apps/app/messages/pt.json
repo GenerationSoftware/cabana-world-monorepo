@@ -277,7 +277,9 @@
     "requesting": "Pedido de...",
     "notificationsDisabled": "As notificações estão atualmente desactivadas.",
     "enableInSettings": "Para as ativar, vá às definições do seu dispositivo e permita notificações para esta aplicação.",
-    "notificationsEnabled": "Ótimo! Receberá actualizações importantes sobre os seus cofres, prémios e outras actividades."
+    "notificationsEnabled": "Ótimo! Receberá actualizações importantes sobre os seus cofres, prémios e outras actividades.",
+    "notificationsHaveBeenEnabled": "Ótimo! Receberá actualizações importantes sobre os seus cofres, prémios e outras actividades.",
+    "dontShowAgain": "Não voltar a mostrar isto"
   },
   "Abbreviations": {
     "days": "dias",
@@ -358,7 +360,10 @@
       "permissionDeclined": "A permissão de notificação foi recusada. Pode activá-la mais tarde nas definições da aplicação.",
       "permissionError": "Ocorreu um erro ao solicitar a permissão de notificação.",
       "permissionAlreadyRequested": "A permissão de notificação foi recusada anteriormente. Active-a nas definições da aplicação.",
-      "permissionDisabled": "As notificações estão desactivadas para a World App. Active-as nas definições do seu dispositivo."
+      "permissionDisabled": "As notificações estão desactivadas para a World App. Active-as nas definições do seu dispositivo.",
+      "checkingPermissions": "Verificar as permissões...",
+      "refreshPermissions": "Atualizar permissões",
+      "refreshing": "Verificação..."
     }
   }
 }
