@@ -48,7 +48,7 @@ export const NotificationsView = (props: NotificationsViewProps) => {
   }
 
   return (
-    <div className='flex flex-col items-center gap-6 px-4'>
+    <div className='flex flex-col items-center gap-6 px-4 w-full'>
       {showHeader && (
         <span className='text-lg font-semibold text-pt-purple-50 order-first md:text-xl'>
           {t('notificationSettings')}
@@ -58,7 +58,7 @@ export const NotificationsView = (props: NotificationsViewProps) => {
       <div className='flex flex-col items-center gap-4 w-full'>
         <div className='flex items-center gap-3 p-4 bg-pt-transparent/5 rounded-lg w-full'>
           <BasicIcon content={getStatusIcon()} size='lg' theme='dark' />
-          <div className='flex flex-col'>
+          <div className='flex flex-col w-full'>
             <span className='text-pt-purple-50 font-medium'>{t('notifications')}</span>
             <span className='text-sm text-pt-purple-200'>{getStatusText()}</span>
           </div>
