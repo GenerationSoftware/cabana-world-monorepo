@@ -51,14 +51,15 @@ export const Layout = (props: LayoutProps) => {
     { refetchOnWindowFocus: true }
   )
 
+  // World Notifications Permission
   const { getCurrentPermissions } = useNotificationPermission()
-
   useEffect(() => {
+    console.log('hello?')
+    console.log(MiniKit.isInstalled())
     if (typeof window !== 'undefined' && MiniKit.isInstalled()) {
-      console.log('run getCurrentPermission from Layout')
       getCurrentPermissions()
     }
-  }, [])
+  }, [MiniKit.isInstalled()])
 
   const refetchUserBalances = () => {
     refetchUserVaultBalances()

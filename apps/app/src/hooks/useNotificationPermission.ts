@@ -13,14 +13,20 @@ export const useNotificationPermission = () => {
   const { setHasFetched, permissionStatus, setPermissionStatus } = useNotificationState()
 
   const getCurrentPermissions = useCallback(async () => {
+    console.log('hello?')
+    console.log(MiniKit.isInstalled())
+
     if (!MiniKit.isInstalled()) {
       console.warn('MiniKit is not installed, cannot get permissions')
       return null
     }
 
     try {
+      console.log('getPermissions ...')
       const { commandPayload, finalPayload } = await MiniKit.commandsAsync.getPermissions()
 
+      console.log('finalPayload')
+      console.log(finalPayload)
       if (finalPayload.status === 'success') {
         const notificationsEnabled = finalPayload.permissions.notifications
 

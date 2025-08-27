@@ -47,11 +47,6 @@ export const NotificationsView = (props: NotificationsViewProps) => {
     await requestNotificationPermission()
   }
 
-  console.log('canRequest')
-  console.log(canRequest)
-  console.log('isGranted')
-  console.log(isGranted)
-
   return (
     <div className='flex flex-col items-center gap-6 px-4'>
       {showHeader && (
