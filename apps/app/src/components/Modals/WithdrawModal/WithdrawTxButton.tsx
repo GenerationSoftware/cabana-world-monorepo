@@ -113,7 +113,6 @@ export const WithdrawTxButton = (props: WithdrawTxButtonProps) => {
       setIsConfirming(false)
     },
     onError: () => {
-      console.log('not here?')
       setModalView('error')
       setIsConfirming(false)
       setIsSuccessful(false)

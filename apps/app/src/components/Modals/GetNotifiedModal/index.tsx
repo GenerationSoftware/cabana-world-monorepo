@@ -22,14 +22,6 @@ export const GetNotifiedModal = (props: GetNotifiedModalProps) => {
   const { hasFetched } = useNotificationState()
 
   useEffect(() => {
-    console.log('hasFetched')
-    console.log(hasFetched)
-    console.log('permissionStatus')
-    console.log(permissionStatus)
-    console.log('canRequest')
-    console.log(canRequest)
-    console.log('isDismissed')
-    console.log(isDismissed)
     if (hasFetched && permissionStatus === 'default' && canRequest && !isDismissed) {
       const timer = setTimeout(() => {
         setIsModalOpen(true)

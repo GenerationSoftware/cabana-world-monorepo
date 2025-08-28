@@ -58,7 +58,6 @@ export const SuccessView = (props: SuccessViewProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log('isExplode true')
       setIsExploding(true)
     }, 1000)
 

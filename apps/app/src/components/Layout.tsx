@@ -54,8 +54,6 @@ export const Layout = (props: LayoutProps) => {
   // World Notifications Permission
   const { getCurrentPermissions } = useNotificationPermission()
   useEffect(() => {
-    console.log('hello?')
-    console.log(MiniKit.isInstalled())
     if (typeof window !== 'undefined' && MiniKit.isInstalled()) {
       getCurrentPermissions()
     }
