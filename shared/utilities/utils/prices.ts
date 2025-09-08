@@ -1,6 +1,5 @@
 import { Address, isAddress } from 'viem'
 import {
-  DOMAINS,
   TOKEN_PRICE_API_SUPPORTED_NETWORKS,
   TOKEN_PRICE_REDIRECTS,
   TOKEN_PRICES_API_URL
@@ -20,8 +19,12 @@ export const getTokenPrices = async (
 ): Promise<{ [address: Address]: number }> => {
   try {
     if (TOKEN_PRICE_API_SUPPORTED_NETWORKS.includes(chainId)) {
-      const url = `${TOKEN_PRICES_API_URL}/${chainId}`
+      const url = new URL(`${TOKEN_PRICES_API_URL}/${chainId}`)
       const tokenPrices: { [address: Address]: number } = {}
+
+      if (!!tokenAddresses && tokenAddresses.length > 0) {
+        url.searchParams.set('tokens', tokenAddresses.join(','))
+      }
 
       const response = await fetch(
         url.toString(),
