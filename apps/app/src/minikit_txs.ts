@@ -390,3 +390,39 @@ export const claimPoolWideRewards = async (
     }
   )
 }
+
+export type SetHooksTxOptions = {
+  onSend?: () => void
+  onSuccess?: (txHash: Address) => void
+  onSettled?: () => void
+  onError?: () => void
+}
+
+export const setHooks = async (
+  vaultAddress: Address,
+  hookAddress: Address,
+  useBeforeClaimPrize: boolean,
+  useAfterClaimPrize: boolean,
+  publicClient: any,
+  options?: SetHooksTxOptions
+) => {
+  return await sendTx(
+    {
+      address: vaultAddress,
+      abi: vaultABI,
+      functionName: 'setHooks',
+      args: [
+        {
+          useBeforeClaimPrize,
+          useAfterClaimPrize,
+          implementation: hookAddress
+        }
+      ]
+    },
+    publicClient,
+    {
+      ...options,
+      onSuccess: (txHash: Address) => options?.onSuccess?.(txHash)
+    }
+  )
+}

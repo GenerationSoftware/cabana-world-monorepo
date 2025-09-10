@@ -17,6 +17,7 @@ import { ReactNode, useEffect, useState } from 'react'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useWalletId } from '@hooks/useWalletId'
 import { Footer } from './Footer'
+import { HookActivationBanner } from './HookActivationBanner'
 import { CheckPrizesModal } from './Modals/CheckPrizesModal'
 // import { DelegateModal } from './Modals/DelegateModal'
 import { DepositModal } from './Modals/DepositModal'
@@ -108,6 +109,8 @@ export const Layout = (props: LayoutProps) => {
         <title>{`Cabana App${!!pageTitle ? ` | ${pageTitle}` : ''}`}</title>
       </Head>
       <Navbar />
+
+      <HookActivationBanner />
 
       <GetNotifiedModal />
 

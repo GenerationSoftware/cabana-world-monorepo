@@ -36,7 +36,9 @@
     "migrationRequired": "Migration Required",
     "notice": "Notice",
     "oldVaultBalance": "Old Vault Balance",
-    "toContinueWinning": "To continue winning prizes you need to migrate your deposit to the new vault"
+    "toContinueWinning": "To continue winning prizes you need to migrate your deposit to the new vault",
+    "activateHook": "Activate Prize Hook",
+    "hookActivationDescription": "Enhance your prize experience by activating the new prize hook for your vaults."
   },
   "Toasts": {
     "transactions": {

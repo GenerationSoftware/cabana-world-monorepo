@@ -113,6 +113,14 @@ export const vaultABI = [
   { inputs: [], name: 'PrizePoolZeroAddress', type: 'error' },
   {
     inputs: [
+      { internalType: 'uint256', name: 'returnDataSize', type: 'uint256' },
+      { internalType: 'uint256', name: 'hookDataLimit', type: 'uint256' }
+    ],
+    name: 'ReturnDataOverLimit',
+    type: 'error'
+  },
+  {
+    inputs: [
       { internalType: 'uint256', name: 'shares', type: 'uint256' },
       { internalType: 'uint256', name: 'yieldFeeBalance', type: 'uint256' }
     ],
@@ -219,16 +227,6 @@ export const vaultABI = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: 'address', name: 'caller', type: 'address' },
-      { indexed: false, internalType: 'uint256', name: 'assets', type: 'uint256' },
-      { indexed: false, internalType: 'uint256', name: 'shares', type: 'uint256' }
-    ],
-    name: 'Sponsor',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [
       { indexed: true, internalType: 'address', name: 'from', type: 'address' },
       { indexed: true, internalType: 'address', name: 'to', type: 'address' },
       { indexed: false, internalType: 'uint256', name: 'value', type: 'uint256' }
@@ -294,6 +292,13 @@ export const vaultABI = [
     inputs: [],
     name: 'HOOK_GAS',
     outputs: [{ internalType: 'uint24', name: '', type: 'uint24' }],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'HOOK_RETURN_DATA_LIMIT',
+    outputs: [{ internalType: 'uint16', name: '', type: 'uint16' }],
     stateMutability: 'view',
     type: 'function'
   },
@@ -423,6 +428,20 @@ export const vaultABI = [
       { internalType: 'address', name: '_receiver', type: 'address' }
     ],
     name: 'deposit',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [
+      { internalType: 'uint256', name: '_assets', type: 'uint256' },
+      { internalType: 'address', name: '_owner', type: 'address' },
+      { internalType: 'uint256', name: '_deadline', type: 'uint256' },
+      { internalType: 'uint8', name: '_v', type: 'uint8' },
+      { internalType: 'bytes32', name: '_r', type: 'bytes32' },
+      { internalType: 'bytes32', name: '_s', type: 'bytes32' }
+    ],
+    name: 'depositWithPermit',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'nonpayable',
     type: 'function'
