@@ -1,13 +1,17 @@
 import {
   useAllUserVaultBalances,
   useSelectedVaults,
-  useSortedVaults
+  useSortedVaults,
+  useWorldPublicClient
 } from '@generationsoftware/hyperstructure-react-hooks'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useAccount } from '@shared/generic-react-hooks'
+import { ExternalLink } from '@shared/ui'
 import { Button, Card } from '@shared/ui'
-import { NETWORK } from '@shared/utilities'
+import { LINKS } from '@shared/utilities'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { signInWithWallet } from 'src/utils'
 import { Address } from 'viem'
 import { setHooks } from '../minikit_txs'
 
@@ -17,13 +21,18 @@ const VAULT_ADDRESS = '0x4c7e1f64a4b121d2f10d6fbca0db143787bf64bb' as Address
 export const HookActivationBanner = () => {
   const { address: userAddress } = useAccount()
   const [isActivating, setIsActivating] = useState(false)
-  const [activatedVaults, setActivatedVaults] = useState<Set<string>>(new Set())
 
   const t_common = useTranslations('Common')
+
+  const { setUserAddress } = useAccount()
 
   const { vaults } = useSelectedVaults()
   const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
   const { sortedVaults, isFetched: isFetchedSortedVaults } = useSortedVaults(vaults)
+  const publicClient = useWorldPublicClient()
+
+  const perWinnerBoostLimit = 500
+  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(HOOK_ADDRESS)
 
   const vault = sortedVaults.filter((vault) => vault.address === VAULT_ADDRESS)[0]
 
@@ -33,21 +42,23 @@ export const HookActivationBanner = () => {
   console.log('vaultBalances')
   console.log(vaultBalances)
 
-  const handleActivateHook = async (vaultId: string, vaultAddress: Address, client: any) => {
-    if (isActivating) return
+  const handleActivateHook = async () => {
+    if (isActivating) {
+      return
+    }
 
     setIsActivating(true)
+
     try {
       await setHooks(
-        vaultAddress,
+        VAULT_ADDRESS,
         HOOK_ADDRESS,
         true, // useBeforeClaimPrize
         true, // useAfterClaimPrize
-        client,
+        publicClient,
         {
           onSuccess: (txHash) => {
             console.log('Hook activated successfully:', txHash)
-            setActivatedVaults((prev) => new Set([...prev, vaultId]))
           },
           onError: () => {
             console.error('Failed to activate hook')
@@ -62,15 +73,19 @@ export const HookActivationBanner = () => {
   }
 
   return (
-    <div className='relative w-screen flex justify-center gap-8 overflow-hidden mt-2 mb-4'>
+    <div className='relative w-screen flex justify-center gap-8 overflow-hidden mt-2 mb-4 font-averta'>
       <Card
-        wrapperClassName='bg-gradient-to-r from-blue-500 to-purple-600'
+        wrapperClassName='bg-gradient-to-r from-blue-500 to-purple-600 bg-cover'
         className='w-[calc(100vw-2rem)] shrink-0 lg:w-[38rem] gap-2 text-white'
+        style={{
+          backgroundImage: `url(hook-bg.jpg)`
+        }}
       >
         <h2 className='text-center text-3xl font-semibold'>
-          ☝️ {t_common('activateHookTitle') || '5x Your Prizes!'} ☝️
+          {/* ☝️ {t_common('activateHookTitle') || '5x Your Prizes!'} ☝️ */}
+          {t_common('activateHookTitle') || '5x Your Prizes!'}
         </h2>
-        <p className='text-md text-center text-blue-200/80'>
+        <p className='text-md text-center text-white/70'>
           {t_common('hookActivationDescription') ||
             'As a fully verified World ID depositor you can earn 5x the prizes!.'}
         </p>
@@ -88,9 +103,13 @@ export const HookActivationBanner = () => {
                 {hasBalance && ' • You have a balance'}
               </span>
             </div>
+            
+          </div> */}
+
+          {userAddress ? (
             <Button
-              onClick={() => handleActivateHook(vaultId, vault.address, client)}
-              disabled={isActivating || !userAddress}
+              onClick={() => handleActivateHook()}
+              disabled={isActivating}
               className='disabled:cursor-not-allowed'
             >
               {!userAddress
@@ -99,7 +118,39 @@ export const HookActivationBanner = () => {
                 ? t_common('activating')
                 : t_common('activateButtonCta')}
             </Button>
-          </div> */}
+          ) : (
+            <Button
+              onClick={() => {
+                signInWithWallet(setUserAddress)
+              }}
+            >
+              <div className='inline-flex gap-3 font-medium'>
+                <span>{t_common('signIn')}</span>
+              </div>
+            </Button>
+          )}
+
+          <p className='text-sm text-center text-white/70 px-4'>
+            *{' '}
+            {t_common('hookStipulationOne', {
+              boostTotalPerAccount: perWinnerBoostLimit
+            })}{' '}
+            {t_common('hookStipulationTwo')}
+            <ExternalLink
+              href={LINKS.worldPrizeHookPost}
+              size='sm'
+              className='grow text-blue-400 underline ml-1'
+            >
+              {t_common('learnMore')}
+            </ExternalLink>
+          </p>
+
+          <button
+            onClick={() => {}}
+            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4'
+          >
+            <XMarkIcon className='w-3 h-3 mr-1 stroke-2 stroke-white' /> {t_common('hideThis')}
+          </button>
         </div>
       </Card>
     </div>
