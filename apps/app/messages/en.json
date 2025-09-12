@@ -37,8 +37,13 @@
     "notice": "Notice",
     "oldVaultBalance": "Old Vault Balance",
     "toContinueWinning": "To continue winning prizes you need to migrate your deposit to the new vault",
-    "activateHook": "Activate Prize Hook",
-    "hookActivationDescription": "Enhance your prize experience by activating the new prize hook for your vaults."
+    "activateButtonCta": "Activate 5x Prize Boost",
+    "activating": "Activating ...",
+    "hookStipulationOne": "Up to {boostTotalPerAccount} WLD per account.",
+    "hookStipulationTwo": "While supplies last.",
+    "activateHookTitle": "5x Your Prizes!",
+    "hookActivationDescription": "As a fully verified World ID depositor you can earn 5x the prizes!",
+    "hideThis": "hide this"
   },
   "Toasts": {
     "transactions": {
