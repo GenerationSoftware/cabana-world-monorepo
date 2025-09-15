@@ -1,11 +1,11 @@
 import {
-  useAllUserVaultBalances,
   useSelectedVaults,
   useSortedVaults,
   useWorldPublicClient
 } from '@generationsoftware/hyperstructure-react-hooks'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { LOCAL_STORAGE_KEYS, useAccount } from '@shared/generic-react-hooks'
+import { Tooltip } from '@shared/ui'
 import { Button, Card, ExternalLink } from '@shared/ui'
 import { LINKS } from '@shared/utilities'
 import { useTranslations } from 'next-intl'
@@ -18,8 +18,6 @@ import { setHooks } from '../minikit_txs'
 const HOOK_ADDRESS = '0xc8de74eb7aaf00b0aa35343ba59d3c14b58f52b2' as Address
 const VAULT_ADDRESS = '0x4c7e1f64a4b121d2f10d6fbca0db143787bf64bb' as Address
 
-const BANNER_HIDDEN_KEY = 'hook-activation-banner-hidden'
-
 export const HookActivationBanner = () => {
   const { address: userAddress } = useAccount()
   const [isActivating, setIsActivating] = useState<boolean>(false)
@@ -30,7 +28,7 @@ export const HookActivationBanner = () => {
   const { setUserAddress } = useAccount()
 
   const { vaults } = useSelectedVaults()
-  const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
+  // const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
   const { sortedVaults, isFetched: isFetchedSortedVaults } = useSortedVaults(vaults)
 
   const perWinnerBoostLimit = 500
@@ -48,14 +46,14 @@ export const HookActivationBanner = () => {
 
   const handleHideBanner = () => {
     setIsHidden(true)
-    localStorage.setItem(BANNER_HIDDEN_KEY, 'true')
+    localStorage.setItem(LOCAL_STORAGE_KEYS.hookActivationBannerHidden, 'true')
   }
 
   if (!isFetchedSortedVaults || !vault || isHidden) {
     return null
   }
-  console.log('vaultBalances')
-  console.log(vaultBalances)
+  // console.log('vaultBalances')
+  // console.log(vaultBalances)
 
   return (
     <div className='relative w-screen flex justify-center gap-8 overflow-hidden mt-2 mb-4 font-averta'>
@@ -106,7 +104,7 @@ export const HookActivationBanner = () => {
 
           <button
             onClick={handleHideBanner}
-            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4 hover:opacity-75 transition-opacity'
+            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4 hover:opacity-75 transition-opacity mx-auto'
           >
             <XMarkIcon className='w-3 h-3 mr-1 stroke-2 stroke-white' /> {t_common('hideThis')}
           </button>
@@ -129,13 +127,7 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
   const t_common = useTranslations('Common')
 
   const { address: userAddress } = useAccount()
-  const { data: userHumanityVerified, isFetched: isFetchedUserHumanityVerified } =
-    useUserHumanityVerified(userAddress as Address)
-
-  if (isFetchedUserHumanityVerified) {
-    console.log('userHumanityVerified')
-    console.log(userHumanityVerified)
-  }
+  const { data: userHumanityVerified } = useUserHumanityVerified(userAddress as Address)
 
   const handleActivateHook = async () => {
     if (isActivating) {
@@ -145,21 +137,14 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
     setIsActivating(true)
 
     try {
-      await setHooks(
-        VAULT_ADDRESS,
-        HOOK_ADDRESS,
-        true, // useBeforeClaimPrize
-        true, // useAfterClaimPrize
-        publicClient,
-        {
-          onSuccess: (txHash) => {
-            console.log('Hook activated successfully:', txHash)
-          },
-          onError: () => {
-            console.error('Failed to activate hook')
-          }
+      await setHooks(VAULT_ADDRESS, HOOK_ADDRESS, publicClient, {
+        onSuccess: (txHash) => {
+          console.log('Hook activated successfully:', txHash)
+        },
+        onError: () => {
+          console.error('Failed to activate hook')
         }
-      )
+      })
     } catch (error) {
       console.error('Error activating hook:', error)
     } finally {
@@ -171,21 +156,25 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
     return null
   }
 
-  const needsVerification = userHumanityVerified?.needsVerification
+  const needsVerification = !userHumanityVerified?.isVerified
 
-  const disabled = needsVerification || isActivating
-
-  return (
+  return needsVerification ? (
+    <Tooltip content={<span className={''}>Needs verfieid</span>}>
+      <Button
+        onClick={() => handleActivateHook()}
+        disabled={true}
+        className='disabled:cursor-not-allowed'
+      >
+        {t_common('activateButtonCta')}
+      </Button>
+    </Tooltip>
+  ) : (
     <Button
       onClick={() => handleActivateHook()}
-      disabled={disabled || isActivating}
+      disabled={isActivating}
       className='disabled:cursor-not-allowed'
     >
-      {needsVerification
-        ? 'please verify first'
-        : isActivating
-        ? t_common('activating')
-        : t_common('activateButtonCta')}
+      {isActivating ? t_common('activating') : t_common('activateButtonCta')}
     </Button>
   )
 }

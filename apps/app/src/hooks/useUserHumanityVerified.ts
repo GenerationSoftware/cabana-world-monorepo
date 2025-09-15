@@ -22,15 +22,12 @@ export const useUserHumanityVerified = (userAddress: Address) => {
         functionName: 'addressVerifiedUntil',
         args: [userAddress]
       })
-      console.log('verifiedUntil')
-      console.log(verifiedUntil)
-      const needsVerification = !!verifiedUntil && verifiedUntil < Date.now() / 1000
-      console.log('needsVerification')
-      console.log(needsVerification)
+
+      const isVerified = !!verifiedUntil && verifiedUntil > Date.now() / 1000
 
       return {
-        verifiedUntil,
-        needsVerification
+        isVerified,
+        verifiedUntil
       }
     },
     enabled: !!userAddress,

@@ -320,7 +320,10 @@ export const sendTx = async (
 
     if (finalPayload.status === 'error') {
       console.error('debugUrl')
-      console.error(finalPayload?.details?.debugUrl)
+      // @ts-ignore
+      console.error(finalPayload?.description)
+      console.error(finalPayload?.error_code)
+      console.error(finalPayload?.details)
       console.error('simulationError')
       console.error(finalPayload?.details?.simulationError)
       options?.onError?.()
@@ -401,8 +404,6 @@ export type SetHooksTxOptions = {
 export const setHooks = async (
   vaultAddress: Address,
   hookAddress: Address,
-  useBeforeClaimPrize: boolean,
-  useAfterClaimPrize: boolean,
   publicClient: any,
   options?: SetHooksTxOptions
 ) => {
@@ -413,8 +414,8 @@ export const setHooks = async (
       functionName: 'setHooks',
       args: [
         {
-          useBeforeClaimPrize,
-          useAfterClaimPrize,
+          useBeforeClaimPrize: false,
+          useAfterClaimPrize: true,
           implementation: hookAddress
         }
       ]
