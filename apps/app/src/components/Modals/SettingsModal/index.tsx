@@ -7,8 +7,9 @@ import { CurrencyView } from './Views/CurrencyView'
 import { LanguageView } from './Views/LanguageView'
 import { MenuView } from './Views/MenuView'
 import { NotificationsView } from './Views/NotificationsView'
+import { PrizeHookView } from './Views/PrizeHookView'
 
-export type SettingsModalOption = 'currency' | 'language' | 'notifications'
+export type SettingsModalOption = 'currency' | 'language' | 'notifications' | 'prizeHook'
 
 export type SettingsModalView = 'menu' | SettingsModalOption
 
@@ -33,7 +34,8 @@ export const SettingsModal = (props: SettingsModalProps) => {
     menu: <MenuView disable={disable} hide={hide} />,
     currency: <CurrencyView onCurrencyChange={onCurrencyChange} />,
     language: <LanguageView locales={locales} onLanguageChange={onLanguageChange} />,
-    notifications: <NotificationsView showHeader />
+    notifications: <NotificationsView showHeader />,
+    prizeHook: <PrizeHookView showHeader />
   }
 
   if (isModalOpen) {

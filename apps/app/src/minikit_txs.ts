@@ -427,3 +427,29 @@ export const setHooks = async (
     }
   )
 }
+
+export const unsetHooks = async (
+  vaultAddress: Address,
+  publicClient: any,
+  options?: SetHooksTxOptions
+) => {
+  return await sendTx(
+    {
+      address: vaultAddress,
+      abi: vaultABI,
+      functionName: 'setHooks',
+      args: [
+        {
+          useBeforeClaimPrize: false,
+          useAfterClaimPrize: false,
+          implementation: zeroAddress
+        }
+      ]
+    },
+    publicClient,
+    {
+      ...options,
+      onSuccess: (txHash: Address) => options?.onSuccess?.(txHash)
+    }
+  )
+}

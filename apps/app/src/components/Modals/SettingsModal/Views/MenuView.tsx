@@ -1,4 +1,4 @@
-import { ArrowTopRightOnSquareIcon, BellIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, BellIcon, SparklesIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
 import {
   SUPPORTED_CURRENCIES,
   useSelectedCurrency,
@@ -56,6 +56,13 @@ export const MenuView = (props: MenuViewProps) => {
             onClick: () => setSettingsModalView('notifications'),
             disabled: disable?.includes('notifications'),
             hidden: hide?.includes('notifications')
+          },
+          {
+            iconContent: <WrenchScrewdriverIcon className='h-6 w-6 text-pt-purple-100' />,
+            title: t('prizeHook'),
+            onClick: () => setSettingsModalView('prizeHook'),
+            disabled: disable?.includes('prizeHook'),
+            hidden: hide?.includes('prizeHook')
           },
           {
             iconContent: <SparklesIcon className='h-6 w-6 text-pt-purple-100' />,

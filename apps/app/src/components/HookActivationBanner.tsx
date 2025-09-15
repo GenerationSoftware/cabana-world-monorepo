@@ -1,21 +1,15 @@
-import {
-  useSelectedVaults,
-  useSortedVaults,
-  useWorldPublicClient
-} from '@generationsoftware/hyperstructure-react-hooks'
+import { useSelectedVaults, useSortedVaults } from '@generationsoftware/hyperstructure-react-hooks'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { LOCAL_STORAGE_KEYS, useAccount } from '@shared/generic-react-hooks'
-import { Tooltip } from '@shared/ui'
 import { Button, Card, ExternalLink } from '@shared/ui'
-import { LINKS, PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
+import { LINKS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
 import { type Address } from 'viem'
+import { ActivateHookTxButton } from '@components/ActivateHookTxButton'
 import { useIsHookSetStatus } from '@hooks/useIsHookSetStatus'
-import { useUserHumanityVerified } from '@hooks/useUserHumanityVerified'
-import { setHooks } from '../minikit_txs'
 
 export const HookActivationBanner = () => {
   const { address: userAddress, setUserAddress } = useAccount()
@@ -32,8 +26,9 @@ export const HookActivationBanner = () => {
 
   useEffect(() => {
     if (!isActivating === false) {
-      console.log('refetching prize hook status ...')
-      refetchPrizeHookStatus()
+      setTimeout(() => {
+        refetchPrizeHookStatus()
+      }, 3000)
     }
   }, [isActivating])
 
@@ -133,78 +128,5 @@ export const HookActivationBanner = () => {
         </div>
       </Card>
     </div>
-  )
-}
-
-type ActivateHookTxButtonProps = {
-  isActivating: boolean
-  setIsActivating: (val: boolean) => void
-}
-
-const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
-  const { isActivating, setIsActivating } = props
-
-  const publicClient = useWorldPublicClient()
-
-  const t_common = useTranslations('Common')
-
-  const { address: userAddress } = useAccount()
-  const { data: userHumanityVerified } = useUserHumanityVerified(userAddress as Address)
-
-  const handleActivateHook = async () => {
-    if (isActivating) {
-      return
-    }
-
-    setIsActivating(true)
-
-    try {
-      await setHooks(PRIZE_VAULT_ADDRESS, PRIZE_HOOK_ADDRESS, publicClient, {
-        onSuccess: (txHash) => {
-          console.log('Hook activated successfully:', txHash)
-        },
-        onError: () => {
-          console.error('Failed to activate hook')
-        }
-      })
-    } catch (error) {
-      console.error('Error activating hook:', error)
-    } finally {
-      setIsActivating(false)
-    }
-  }
-
-  if (!userAddress) {
-    return null
-  }
-
-  const needsVerification = !userHumanityVerified?.isVerified
-
-  // if (needsVerification) {
-  //   return (
-  //     <Tooltip
-  //       className='bg-red-400 text-white border-red-400'
-  //       fullSized={true}
-  //       content={<span>{t_common('prizeBoostHookNeedToBeVerified')}</span>}
-  //     >
-  //       <Button
-  //         onClick={() => handleActivateHook()}
-  //         disabled={true}
-  //         className='disabled:cursor-not-allowed w-full'
-  //       >
-  //         {t_common('activateButtonCta')}
-  //       </Button>
-  //     </Tooltip>
-  //   )
-  // }
-
-  return (
-    <Button
-      onClick={() => handleActivateHook()}
-      disabled={isActivating}
-      className='disabled:cursor-not-allowed'
-    >
-      {isActivating ? t_common('activating') : t_common('activateButtonCta')}
-    </Button>
   )
 }
