@@ -12,17 +12,23 @@ import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
 import { type Address } from 'viem'
+import { useIsHookSetStatus } from '@hooks/useIsHookSetStatus'
 import { useUserHumanityVerified } from '@hooks/useUserHumanityVerified'
 import { setHooks } from '../minikit_txs'
 
 export const HookActivationBanner = () => {
-  const { address: userAddress } = useAccount()
+  const { address: userAddress, setUserAddress } = useAccount()
   const [isActivating, setIsActivating] = useState<boolean>(false)
   const [isHidden, setIsHidden] = useState(false)
 
   const t_common = useTranslations('Common')
 
-  const { setUserAddress } = useAccount()
+  const { data: prizeHookStatus } = useIsHookSetStatus(userAddress as Address)
+
+  console.log('prizeHookStatus')
+  console.log(prizeHookStatus)
+  console.log('prizeHookStatus')
+  console.log(prizeHookStatus)
 
   const { vaults } = useSelectedVaults()
   // const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
@@ -82,7 +88,13 @@ export const HookActivationBanner = () => {
             </Button>
           )}
 
-          <ActivateHookTxButton isActivating={isActivating} setIsActivating={setIsActivating} />
+          {prizeHookStatus?.isPrizeHookSet ? (
+            <div className='text-center text-sm text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
+              <p>{t_common('prizeHookIsSet')}</p>
+            </div>
+          ) : (
+            <ActivateHookTxButton isActivating={isActivating} setIsActivating={setIsActivating} />
+          )}
 
           <p className='text-sm text-center text-white/70 px-4'>
             *{' '}
@@ -155,21 +167,25 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
 
   const needsVerification = !userHumanityVerified?.isVerified
 
-  return needsVerification ? (
-    <Tooltip
-      className='bg-red-400 text-white border-red-400'
-      fullSized={true}
-      content={<span>{t_common('prizeBoostHookNeedToBeVerified')}</span>}
-    >
-      <Button
-        onClick={() => handleActivateHook()}
-        disabled={true}
-        className='disabled:cursor-not-allowed w-full'
-      >
-        {t_common('activateButtonCta')}
-      </Button>
-    </Tooltip>
-  ) : (
+  // if (needsVerification) {
+  //   return (
+  //     <Tooltip
+  //       className='bg-red-400 text-white border-red-400'
+  //       fullSized={true}
+  //       content={<span>{t_common('prizeBoostHookNeedToBeVerified')}</span>}
+  //     >
+  //       <Button
+  //         onClick={() => handleActivateHook()}
+  //         disabled={true}
+  //         className='disabled:cursor-not-allowed w-full'
+  //       >
+  //         {t_common('activateButtonCta')}
+  //       </Button>
+  //     </Tooltip>
+  //   )
+  // }
+
+  return (
     <Button
       onClick={() => handleActivateHook()}
       disabled={isActivating}

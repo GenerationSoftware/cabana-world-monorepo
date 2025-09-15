@@ -38,6 +38,7 @@
     "oldVaultBalance": "Old Vault Balance",
     "toContinueWinning": "To continue winning prizes you need to migrate your deposit to the new vault",
     "activateButtonCta": "Activate 5x Prize Boost",
+    "prizeHookIsSet": "Prize hook is set up correctly. Enjoy 5x prizes while supplies last!",
     "activating": "Activating ...",
     "prizeBoostHookNeedToBeVerified": "You require a World Verified ID to activate 5x prizes.",
     "hookStipulationOne": "Up to {boostTotalPerAccount} WLD per account.",
