@@ -547,3 +547,9 @@ export const OLD_DAI_PERMIT_TYPES = {
     { name: 'allowed', type: 'bool' }
   ]
 } as const
+
+/**
+ * 5x Prize Boost Hook and valid Vault
+ */
+export const PRIZE_HOOK_ADDRESS = '0xc8de74eb7aaf00b0aa35343ba59d3c14b58f52b2' as Address
+export const PRIZE_VAULT_ADDRESS = '0x4c7e1f64a4b121d2f10d6fbca0db143787bf64bb' as Address

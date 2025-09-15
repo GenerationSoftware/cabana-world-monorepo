@@ -7,7 +7,7 @@ import {
 } from '@shared/utilities'
 import { lower } from '@shared/utilities'
 import { type MiniAppSendTransactionSuccessPayload, MiniKit } from '@worldcoin/minikit-js'
-import { Address, decodeEventLog, type Hash, type TransactionReceipt } from 'viem'
+import { Address, decodeEventLog, type Hash, type TransactionReceipt, zeroAddress } from 'viem'
 import { waitForTransactionReceipt } from 'viem/actions'
 
 const PERMIT_2_VAULT_DEPOSIT_ADDRESS: Address = '0x263f95fF28347F14956dA6c26d51b2701Ed95013'

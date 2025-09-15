@@ -7,16 +7,13 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 import { LOCAL_STORAGE_KEYS, useAccount } from '@shared/generic-react-hooks'
 import { Tooltip } from '@shared/ui'
 import { Button, Card, ExternalLink } from '@shared/ui'
-import { LINKS } from '@shared/utilities'
+import { LINKS, PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
 import { type Address } from 'viem'
 import { useUserHumanityVerified } from '@hooks/useUserHumanityVerified'
 import { setHooks } from '../minikit_txs'
-
-const HOOK_ADDRESS = '0xc8de74eb7aaf00b0aa35343ba59d3c14b58f52b2' as Address
-const VAULT_ADDRESS = '0x4c7e1f64a4b121d2f10d6fbca0db143787bf64bb' as Address
 
 export const HookActivationBanner = () => {
   const { address: userAddress } = useAccount()
@@ -32,9 +29,9 @@ export const HookActivationBanner = () => {
   const { sortedVaults, isFetched: isFetchedSortedVaults } = useSortedVaults(vaults)
 
   const perWinnerBoostLimit = 500
-  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(HOOK_ADDRESS)
+  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(PRIZE_HOOK_ADDRESS)
 
-  const vault = sortedVaults.filter((vault) => vault.address === VAULT_ADDRESS)[0]
+  const vault = sortedVaults.filter((vault) => vault.address === PRIZE_VAULT_ADDRESS)[0]
 
   // Check if banner was previously hidden
   useEffect(() => {
@@ -137,7 +134,7 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
     setIsActivating(true)
 
     try {
-      await setHooks(VAULT_ADDRESS, HOOK_ADDRESS, publicClient, {
+      await setHooks(PRIZE_VAULT_ADDRESS, PRIZE_HOOK_ADDRESS, publicClient, {
         onSuccess: (txHash) => {
           console.log('Hook activated successfully:', txHash)
         },

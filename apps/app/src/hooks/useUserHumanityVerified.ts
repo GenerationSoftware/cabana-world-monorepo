@@ -7,7 +7,7 @@ import { type Address } from 'viem'
 const WORLD_ID_ADDRESS_BOOK_ADDRESS = '0x57b930D551e677CC36e2fA036Ae2fe8FdaE0330D'
 
 /**
- * Returns currently selected SUPPORTED_NETWORKS
+ * Returns World ID Verification status for a userAddress
  * @returns
  */
 export const useUserHumanityVerified = (userAddress: Address) => {
