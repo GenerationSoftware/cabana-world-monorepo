@@ -8,6 +8,7 @@ import { LOCAL_STORAGE_KEYS, useAccount } from '@shared/generic-react-hooks'
 import { Tooltip } from '@shared/ui'
 import { Button, Card, ExternalLink } from '@shared/ui'
 import { LINKS, PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
+import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
@@ -23,12 +24,18 @@ export const HookActivationBanner = () => {
 
   const t_common = useTranslations('Common')
 
-  const { data: prizeHookStatus } = useIsHookSetStatus(userAddress as Address)
+  const { data: prizeHookStatus, refetch: refetchPrizeHookStatus } = useIsHookSetStatus(
+    userAddress as Address
+  )
+  console.log('prizeHookStatus')
+  console.log(prizeHookStatus)
 
-  console.log('prizeHookStatus')
-  console.log(prizeHookStatus)
-  console.log('prizeHookStatus')
-  console.log(prizeHookStatus)
+  useEffect(() => {
+    if (!isActivating === false) {
+      console.log('refetching prize hook status ...')
+      refetchPrizeHookStatus()
+    }
+  }, [isActivating])
 
   const { vaults } = useSelectedVaults()
   // const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
@@ -89,7 +96,7 @@ export const HookActivationBanner = () => {
           )}
 
           {prizeHookStatus?.isPrizeHookSet ? (
-            <div className='text-center text-sm text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
+            <div className='text-center text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
               <p>{t_common('prizeHookIsSet')}</p>
             </div>
           ) : (
@@ -113,7 +120,13 @@ export const HookActivationBanner = () => {
 
           <button
             onClick={handleHideBanner}
-            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4 hover:opacity-75 transition-opacity mx-auto'
+            className={classNames(
+              'flex items-center justify-center font-semibold text-white mt-4 hover:opacity-75 transition-opacity mx-auto',
+              {
+                'text-md': prizeHookStatus?.isPrizeHookSet,
+                'text-sm opacity-50': !prizeHookStatus?.isPrizeHookSet
+              }
+            )}
           >
             <XMarkIcon className='w-3 h-3 mr-1 stroke-2 stroke-white' /> {t_common('hideThis')}
           </button>

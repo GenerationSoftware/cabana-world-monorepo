@@ -1,21 +1,15 @@
-import {
-  ArrowTopRightOnSquareIcon,
-  BellIcon,
-  CubeTransparentIcon,
-  SparklesIcon
-} from '@heroicons/react/24/outline'
-import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, BellIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import {
   SUPPORTED_CURRENCIES,
   useSelectedCurrency,
   useSelectedLanguage
 } from '@shared/generic-react-hooks'
-import { ClipboardListIcon } from '@shared/react-components'
 import { BasicIcon } from '@shared/ui'
 import { LINKS } from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { ReactNode } from 'react'
+import { useAcceptHeaderLanguage } from '@hooks/useAcceptHeaderLanguage'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useSettingsModalView } from '@hooks/useSettingsModalView'
 import { SettingsModalOption } from '..'
@@ -34,7 +28,7 @@ export const MenuView = (props: MenuViewProps) => {
 
   const { selectedCurrency } = useSelectedCurrency()
   const { selectedLanguage } = useSelectedLanguage()
-  const { isGranted } = useNotificationPermission()
+  const { acceptHeaderLanguage } = useAcceptHeaderLanguage()
 
   return (
     <div className='flex flex-col gap-4'>
@@ -42,7 +36,7 @@ export const MenuView = (props: MenuViewProps) => {
         title={t('customizeExperience')}
         items={[
           {
-            iconContent: selectedLanguage?.toUpperCase(),
+            iconContent: selectedLanguage?.toUpperCase() || acceptHeaderLanguage.toUpperCase(),
             iconClassName: '!text-base font-semibold',
             title: t('changeLanguage'),
             onClick: () => setSettingsModalView('language'),
