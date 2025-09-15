@@ -19,6 +19,7 @@ export * from './abis/twabController'
 export * from './abis/twabRewards'
 export * from './abis/vault'
 export * from './abis/vaultFactory'
+export * from './abis/worldId'
 export * from './abis/zapRouter'
 export * from './abis/zapTokenManager'
 
