@@ -12,6 +12,7 @@ export const QUERY_KEYS = {
  * Local storage keys
  */
 export const LOCAL_STORAGE_KEYS = {
+  hookActivationBannerHidden: 'hookActivationBannerHidden',
   isTestnets: 'isTestnets',
   isDismissed: 'isDismissed',
   selectedCurrency: 'selectedCurrency',

@@ -2,6 +2,7 @@ import { BellIcon, BellSlashIcon } from '@heroicons/react/24/outline'
 import { BasicIcon } from '@shared/ui'
 import { Button } from '@shared/ui'
 import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
 
 type NotificationsViewProps = {
@@ -12,6 +13,9 @@ export const NotificationsView = (props: NotificationsViewProps) => {
   const { showHeader } = props
 
   const t = useTranslations('Settings')
+
+  const [statusText, setStatusText] = useState('')
+
   const {
     permissionStatus,
     requestNotificationPermission,
@@ -20,20 +24,20 @@ export const NotificationsView = (props: NotificationsViewProps) => {
     requestingPermissionStatus
   } = useNotificationPermission()
 
-  const getStatusText = () => {
+  useEffect(() => {
     if (requestingPermissionStatus) {
-      return t('requesting')
+      setStatusText(t('requesting'))
+    } else {
+      switch (permissionStatus) {
+        case 'granted':
+          setStatusText(t('notificationsEnabled'))
+        case 'denied':
+          setStatusText(t('notificationsDisabled'))
+        default:
+          setStatusText('')
+      }
     }
-
-    switch (permissionStatus) {
-      case 'granted':
-        return t('notificationsEnabled')
-      case 'denied':
-        return t('notificationsDisabled')
-      default:
-        return t('notificationsDisabled')
-    }
-  }
+  }, [permissionStatus, isGranted, requestingPermissionStatus])
 
   const getStatusIcon = () => {
     if (isGranted) {
@@ -60,7 +64,7 @@ export const NotificationsView = (props: NotificationsViewProps) => {
           <BasicIcon content={getStatusIcon()} size='lg' theme='dark' />
           <div className='flex flex-col w-full'>
             <span className='text-pt-purple-50 font-medium'>{t('notifications')}</span>
-            <span className='text-sm text-pt-purple-200'>{getStatusText()}</span>
+            <span className='text-sm text-pt-purple-200'>{statusText}</span>
           </div>
         </div>
 

@@ -5,12 +5,12 @@ import {
   useWorldPublicClient
 } from '@generationsoftware/hyperstructure-react-hooks'
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import { useAccount } from '@shared/generic-react-hooks'
+import { LOCAL_STORAGE_KEYS, useAccount } from '@shared/generic-react-hooks'
 import { ExternalLink } from '@shared/ui'
 import { Button, Card } from '@shared/ui'
 import { LINKS } from '@shared/utilities'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
 import { Address } from 'viem'
 import { setHooks } from '../minikit_txs'
@@ -18,9 +18,12 @@ import { setHooks } from '../minikit_txs'
 const HOOK_ADDRESS = '0xc8de74eb7aaf00b0aa35343ba59d3c14b58f52b2' as Address
 const VAULT_ADDRESS = '0x4c7e1f64a4b121d2f10d6fbca0db143787bf64bb' as Address
 
+const BANNER_HIDDEN_KEY = 'hook-activation-banner-hidden'
+
 export const HookActivationBanner = () => {
   const { address: userAddress } = useAccount()
   const [isActivating, setIsActivating] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
 
   const t_common = useTranslations('Common')
 
@@ -34,9 +37,24 @@ export const HookActivationBanner = () => {
   const perWinnerBoostLimit = 500
   // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(HOOK_ADDRESS)
 
+  const { userHumanityVerified } = useUserHumanityVerified(userAddress)
+
   const vault = sortedVaults.filter((vault) => vault.address === VAULT_ADDRESS)[0]
 
-  if (!isFetchedSortedVaults || !vault) {
+  // Check if banner was previously hidden
+  useEffect(() => {
+    const hidden = localStorage.getItem(LOCAL_STORAGE_KEYS.hookActivationBannerHidden)
+    if (hidden === 'true') {
+      setIsHidden(true)
+    }
+  }, [])
+
+  const handleHideBanner = () => {
+    setIsHidden(true)
+    localStorage.setItem(BANNER_HIDDEN_KEY, 'true')
+  }
+
+  if (!isFetchedSortedVaults || !vault || isHidden) {
     return null
   }
   console.log('vaultBalances')
@@ -90,23 +108,7 @@ export const HookActivationBanner = () => {
             'As a fully verified World ID depositor you can earn 5x the prizes!.'}
         </p>
         <div className='flex flex-col gap-2 mt-3'>
-          {/* <div
-            key={vault.id}
-            className='flex items-center justify-between bg-white/10 rounded-lg p-3'
-          >
-            <div className='flex flex-col'>
-              <span className='font-semibold text-sm'>
-                {vault.name || `Vault ${vault.address.slice(0, 6)}...${vault.address.slice(-4)}`}
-              </span>
-              <span className='text-xs text-blue-200'>
-                {NETWORK[vault.chainId] || `Chain ${vault.chainId}`}
-                {hasBalance && ' • You have a balance'}
-              </span>
-            </div>
-            
-          </div> */}
-
-          {userAddress ? (
+          {userAddress && userHumanityVerified ? (
             <Button
               onClick={() => handleActivateHook()}
               disabled={isActivating}
@@ -146,8 +148,8 @@ export const HookActivationBanner = () => {
           </p>
 
           <button
-            onClick={() => {}}
-            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4'
+            onClick={handleHideBanner}
+            className='flex items-center justify-center font-semibold text-white opacity-50 text-sm mt-4 hover:opacity-75 transition-opacity'
           >
             <XMarkIcon className='w-3 h-3 mr-1 stroke-2 stroke-white' /> {t_common('hideThis')}
           </button>

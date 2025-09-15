@@ -102,6 +102,7 @@ export const useNotificationPermission = () => {
       return
     } finally {
       setHasRequested(true)
+      setRequestingPermissionStatus(false)
     }
   }, [hasRequested, permissionStatus, getCurrentPermissions])
 
