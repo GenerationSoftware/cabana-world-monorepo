@@ -159,11 +159,15 @@ const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
   const needsVerification = !userHumanityVerified?.isVerified
 
   return needsVerification ? (
-    <Tooltip content={<span className={''}>Needs verfieid</span>}>
+    <Tooltip
+      className='bg-red-400 text-white border-red-400'
+      fullSized={true}
+      content={<span>{t_common('prizeBoostHookNeedToBeVerified')}</span>}
+    >
       <Button
         onClick={() => handleActivateHook()}
         disabled={true}
-        className='disabled:cursor-not-allowed'
+        className='disabled:cursor-not-allowed w-full'
       >
         {t_common('activateButtonCta')}
       </Button>
