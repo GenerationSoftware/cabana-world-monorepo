@@ -123,21 +123,6 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
           </div>
         )}
 
-        <p className='text-sm text-center text-white/70 px-4'>
-          *{' '}
-          {t_common('hookStipulationOne', {
-            boostTotalPerAccount: perWinnerBoostLimit
-          })}{' '}
-          {t_common('hookStipulationTwo')}
-          <ExternalLink
-            href={LINKS.worldPrizeHookPost}
-            size='sm'
-            className='grow text-blue-400 underline ml-1'
-          >
-            {t_common('learnMore')}
-          </ExternalLink>
-        </p>
-
         {!prizeHookStatus?.isPrizeHookSet && (
           <ActivateHookTxButton
             isActivating={isResetting}
@@ -159,6 +144,21 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
             {isResetting ? t('resettingHooks') : t('resetHooks')}
           </Button>
         )}
+
+        <p className='text-sm text-center text-white/70 px-4'>
+          *{' '}
+          {t_common('hookStipulationOne', {
+            boostTotalPerAccount: perWinnerBoostLimit
+          })}{' '}
+          {t_common('hookStipulationTwo')}
+          <ExternalLink
+            href={LINKS.worldPrizeHookPost}
+            size='sm'
+            className='grow text-blue-400 underline ml-1'
+          >
+            {t_common('learnMore')}
+          </ExternalLink>
+        </p>
 
         <div className='flex flex-col text-xs text-pt-purple-300 text-center w-full mt-4 gap-4'>
           <p>
