@@ -62,7 +62,7 @@ export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
   if (needsVerification) {
     return (
       <Tooltip
-        className='bg-red-400 text-white border-red-400'
+        className='text-pt-purple-800 border-red-400'
         fullSized={true}
         content={<span>{t_common('prizeBoostHookNeedToBeVerified')}</span>}
       >
