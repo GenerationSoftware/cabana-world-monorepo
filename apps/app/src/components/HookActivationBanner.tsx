@@ -7,8 +7,9 @@ import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { signInWithWallet } from 'src/utils'
-import { type Address } from 'viem'
+import { type Address, formatEther } from 'viem'
 import { ActivateHookTxButton } from '@components/ActivateHookTxButton'
+import { useHookPerWinnerBoostLimit } from '@hooks/useHookPerWinnerBoostLimit'
 import { useIsHookSetStatus } from '@hooks/useIsHookSetStatus'
 
 export const HookActivationBanner = () => {
@@ -23,11 +24,9 @@ export const HookActivationBanner = () => {
   )
 
   const { vaults } = useSelectedVaults()
-  // const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
   const { sortedVaults, isFetched: isFetchedSortedVaults } = useSortedVaults(vaults)
 
-  const perWinnerBoostLimit = 500
-  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(PRIZE_HOOK_ADDRESS)
+  const { data: perWinnerBoostLimit } = useHookPerWinnerBoostLimit()
 
   const vault = sortedVaults.filter((vault) => vault.address === PRIZE_VAULT_ADDRESS)[0]
 
@@ -47,8 +46,6 @@ export const HookActivationBanner = () => {
   if (!isFetchedSortedVaults || !vault || isHidden) {
     return null
   }
-  // console.log('vaultBalances')
-  // console.log(vaultBalances)
 
   return (
     <div className='relative w-screen flex justify-center gap-8 overflow-hidden mt-2 mb-4 font-averta'>
@@ -60,7 +57,6 @@ export const HookActivationBanner = () => {
         }}
       >
         <h2 className='text-center text-3xl font-semibold'>
-          {/* ☝️ {t_common('activateHookTitle') || '5x Your Prizes!'} ☝️ */}
           {t_common('activateHookTitle') || '5x Your Prizes!'}
         </h2>
         <p className='text-md text-center text-white/70'>
@@ -99,7 +95,7 @@ export const HookActivationBanner = () => {
           <p className='text-sm text-center text-white/70 px-4'>
             *{' '}
             {t_common('hookStipulationOne', {
-              boostTotalPerAccount: perWinnerBoostLimit
+              boostTotalPerAccount: perWinnerBoostLimit ? formatEther(perWinnerBoostLimit) : '500'
             })}{' '}
             {t_common('hookStipulationTwo')}
             <ExternalLink

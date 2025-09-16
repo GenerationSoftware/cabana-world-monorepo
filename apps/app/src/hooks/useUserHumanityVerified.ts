@@ -14,7 +14,6 @@ export const useUserHumanityVerified = (userAddress: Address) => {
   return useQuery({
     queryKey: ['userHumanityVerified', userAddress],
     queryFn: async () => {
-      console.log('in here?!')
       const verifiedUntil = await publicClient.readContract({
         address: WORLD_ID_ADDRESS_BOOK_ADDRESS,
         abi: worldIdABI,

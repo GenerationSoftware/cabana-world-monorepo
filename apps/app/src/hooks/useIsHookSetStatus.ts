@@ -13,7 +13,7 @@ export const useIsHookSetStatus = (userAddress: Address) => {
   const publicClient = useWorldPublicClient()
 
   return useQuery({
-    queryKey: ['userHumanityVerified', userAddress],
+    queryKey: ['isHookSetStatusUser', userAddress],
     queryFn: async () => {
       let isPrizeHookSet = false
 

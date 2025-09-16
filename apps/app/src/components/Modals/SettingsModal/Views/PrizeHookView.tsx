@@ -7,8 +7,9 @@ import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { unsetHooks } from 'src/minikit_txs'
-import { type Address } from 'viem'
+import { type Address, formatEther } from 'viem'
 import { ActivateHookTxButton } from '@components/ActivateHookTxButton'
+import { useHookPerWinnerBoostLimit } from '@hooks/useHookPerWinnerBoostLimit'
 import { useIsHookSetStatus } from '@hooks/useIsHookSetStatus'
 
 type PrizeHookViewProps = {
@@ -25,8 +26,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
   const [isResetting, setIsResetting] = useState(false)
   const [statusText, setStatusText] = useState('')
 
-  const perWinnerBoostLimit = 500
-  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(PRIZE_HOOK_ADDRESS)
+  const { data: perWinnerBoostLimit } = useHookPerWinnerBoostLimit()
 
   const { data: prizeHookStatus, refetch: refetchPrizeHookStatus } = useIsHookSetStatus(
     userAddress as Address
@@ -148,7 +148,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
         <p className='text-sm text-center text-white/70 px-4'>
           *{' '}
           {t_common('hookStipulationOne', {
-            boostTotalPerAccount: perWinnerBoostLimit
+            boostTotalPerAccount: perWinnerBoostLimit ? formatEther(perWinnerBoostLimit) : '500'
           })}{' '}
           {t_common('hookStipulationTwo')}
           <ExternalLink
