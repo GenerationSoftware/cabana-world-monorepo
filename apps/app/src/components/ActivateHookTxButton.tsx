@@ -2,6 +2,7 @@ import { useWorldPublicClient } from '@generationsoftware/hyperstructure-react-h
 import { useAccount } from '@shared/generic-react-hooks'
 import { Tooltip } from '@shared/ui'
 import { Button } from '@shared/ui'
+import { toast } from '@shared/ui'
 import { PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
 import { useTranslations } from 'next-intl'
 import { setHooks } from 'src/minikit_txs'
@@ -20,6 +21,7 @@ export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
   const publicClient = useWorldPublicClient()
 
   const t_common = useTranslations('Common')
+  const t_toasts = useTranslations('Toasts.hooks')
 
   const { address: userAddress } = useAccount()
   const { data: userHumanityVerified, isFetched: userHumanityVerifiedIsFetched } =
@@ -36,14 +38,17 @@ export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
       await setHooks(PRIZE_VAULT_ADDRESS, PRIZE_HOOK_ADDRESS, publicClient, {
         onSuccess: (txHash) => {
           console.log('Hook activated successfully:', txHash)
+          toast.success(t_toasts('setHooksSuccess'))
           onSuccess?.()
         },
         onError: () => {
           console.error('Failed to activate hook')
+          toast.error(t_toasts('setHooksError'))
         }
       })
     } catch (error) {
       console.error('Error activating hook:', error)
+      toast.error(t_toasts('setHooksError'))
     } finally {
       setIsActivating(false)
     }

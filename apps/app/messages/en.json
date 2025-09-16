@@ -67,6 +67,12 @@
       "checkingPermissions": "Checking permissions...",
       "refreshPermissions": "Refresh Permissions",
       "refreshing": "Checking..."
+    },
+    "hooks": {
+      "setHooksSuccess": "Prize hook activated successfully! Your prizes will now be boosted by 5x.",
+      "setHooksError": "Failed to activate prize hook. Please try again.",
+      "resetHooksSuccess": "Prize hook reset successfully. Your prizes will no longer be boosted.",
+      "resetHooksError": "Failed to reset prize hook. Please try again."
     }
   },
   "Navigation": {

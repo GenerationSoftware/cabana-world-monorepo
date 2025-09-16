@@ -1,7 +1,7 @@
 import { useWorldPublicClient } from '@generationsoftware/hyperstructure-react-hooks'
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import { useAccount } from '@shared/generic-react-hooks'
-import { BasicIcon, Button, ExternalLink } from '@shared/ui'
+import { BasicIcon, Button, ExternalLink, toast } from '@shared/ui'
 import { LINKS, PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
@@ -21,6 +21,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
 
   const t = useTranslations('Settings')
   const t_common = useTranslations('Common')
+  const t_toasts = useTranslations('Toasts.hooks')
 
   const { address: userAddress } = useAccount()
   const [isResetting, setIsResetting] = useState(false)
@@ -58,14 +59,17 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
       await unsetHooks(PRIZE_VAULT_ADDRESS, publicClient, {
         onSuccess: (txHash) => {
           console.log('Hooks reset successfully:', txHash)
+          toast.success(t_toasts('resetHooksSuccess'))
           refetchPrizeHookStatus()
         },
         onError: () => {
           console.error('Failed to reset hooks')
+          toast.error(t_toasts('resetHooksError'))
         }
       })
     } catch (error) {
       console.error('Error resetting hooks:', error)
+      toast.error(t_toasts('resetHooksError'))
     } finally {
       setIsResetting(false)
     }
