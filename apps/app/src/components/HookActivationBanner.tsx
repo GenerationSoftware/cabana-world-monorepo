@@ -21,16 +21,6 @@ export const HookActivationBanner = () => {
   const { data: prizeHookStatus, refetch: refetchPrizeHookStatus } = useIsHookSetStatus(
     userAddress as Address
   )
-  console.log('prizeHookStatus')
-  console.log(prizeHookStatus)
-
-  useEffect(() => {
-    if (!isActivating === false) {
-      setTimeout(() => {
-        refetchPrizeHookStatus()
-      }, 3000)
-    }
-  }, [isActivating])
 
   const { vaults } = useSelectedVaults()
   // const { data: vaultBalances } = useAllUserVaultBalances(vaults, userAddress!)
@@ -91,11 +81,19 @@ export const HookActivationBanner = () => {
           )}
 
           {prizeHookStatus?.isPrizeHookSet ? (
-            <div className='text-center text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
+            <div className='text-center text-teal-400 p-4 bg-teal-400/10 rounded-lg w-full'>
               <p>{t_common('prizeHookIsSet')}</p>
             </div>
           ) : (
-            <ActivateHookTxButton isActivating={isActivating} setIsActivating={setIsActivating} />
+            <ActivateHookTxButton
+              isActivating={isActivating}
+              setIsActivating={setIsActivating}
+              onSuccess={() =>
+                setTimeout(() => {
+                  refetchPrizeHookStatus()
+                }, 3000)
+              }
+            />
           )}
 
           <p className='text-sm text-center text-white/70 px-4'>

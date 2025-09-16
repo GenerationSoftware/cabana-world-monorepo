@@ -24,9 +24,6 @@ export const useIsHookSetStatus = (userAddress: Address) => {
         args: [userAddress]
       })
 
-      console.log(hook.implementation)
-      console.log(hook.useAfterClaimPrize)
-
       if (lower(hook.implementation) === PRIZE_HOOK_ADDRESS && !!hook.useAfterClaimPrize) {
         isPrizeHookSet = true
       }

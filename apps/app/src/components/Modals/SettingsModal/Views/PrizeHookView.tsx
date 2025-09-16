@@ -1,12 +1,14 @@
 import { useWorldPublicClient } from '@generationsoftware/hyperstructure-react-hooks'
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import { useAccount } from '@shared/generic-react-hooks'
-import { BasicIcon, Button } from '@shared/ui'
-import { PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
+import { BasicIcon, Button, ExternalLink } from '@shared/ui'
+import { LINKS, PRIZE_HOOK_ADDRESS, PRIZE_VAULT_ADDRESS } from '@shared/utilities'
+import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { unsetHooks } from 'src/minikit_txs'
 import { type Address } from 'viem'
+import { ActivateHookTxButton } from '@components/ActivateHookTxButton'
 import { useIsHookSetStatus } from '@hooks/useIsHookSetStatus'
 
 type PrizeHookViewProps = {
@@ -23,6 +25,9 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
   const [isResetting, setIsResetting] = useState(false)
   const [statusText, setStatusText] = useState('')
 
+  const perWinnerBoostLimit = 500
+  // const { perWinnerBoostLimit } = useHookPerWinnerBoostLimit(PRIZE_HOOK_ADDRESS)
+
   const { data: prizeHookStatus, refetch: refetchPrizeHookStatus } = useIsHookSetStatus(
     userAddress as Address
   )
@@ -38,7 +43,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
 
   const getStatusIcon = () => {
     if (prizeHookStatus?.isPrizeHookSet) {
-      return <CheckCircleIcon className='h-6 w-6 text-green-400' />
+      return <CheckCircleIcon className='h-6 w-6 text-white' />
     } else {
       return <XCircleIcon className='h-6 w-6 text-pt-purple-100' />
     }
@@ -91,7 +96,15 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
 
       <div className='flex flex-col items-center gap-4 w-full'>
         <div className='flex items-center gap-3 p-4 bg-pt-transparent/5 rounded-lg w-full'>
-          <BasicIcon content={getStatusIcon()} size='lg' theme='dark' />
+          <BasicIcon
+            content={getStatusIcon()}
+            size='lg'
+            theme='dark'
+            className={classNames({
+              'bg-teal-400': prizeHookStatus?.isPrizeHookSet,
+              'bg-pt-purple-400': !prizeHookStatus?.isPrizeHookSet
+            })}
+          />
           <div className='flex flex-col w-full'>
             <span className='text-pt-purple-50 font-medium'>{t('prizeHookStatus')}</span>
             <span className='text-sm text-pt-purple-200'>{statusText}</span>
@@ -99,7 +112,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
         </div>
 
         {prizeHookStatus?.isPrizeHookSet && (
-          <div className='text-center text-sm text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
+          <div className='text-center text-sm text-teal-400 p-4 bg-teal-400/10 rounded-lg w-full'>
             <p>{t('prizeHookActiveDescription')}</p>
           </div>
         )}
@@ -110,17 +123,44 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
           </div>
         )}
 
+        <p className='text-sm text-center text-white/70 px-4'>
+          *{' '}
+          {t_common('hookStipulationOne', {
+            boostTotalPerAccount: perWinnerBoostLimit
+          })}{' '}
+          {t_common('hookStipulationTwo')}
+          <ExternalLink
+            href={LINKS.worldPrizeHookPost}
+            size='sm'
+            className='grow text-blue-400 underline ml-1'
+          >
+            {t_common('learnMore')}
+          </ExternalLink>
+        </p>
+
+        {!prizeHookStatus?.isPrizeHookSet && (
+          <ActivateHookTxButton
+            isActivating={isResetting}
+            setIsActivating={setIsResetting}
+            onSuccess={() =>
+              setTimeout(() => {
+                refetchPrizeHookStatus()
+              }, 3000)
+            }
+          />
+        )}
+
         {prizeHookStatus?.isPrizeHookSet && (
           <Button
             onClick={handleResetHooks}
             disabled={isResetting}
-            className='w-full px-6 py-3 bg-red-500 hover:bg-red-600 disabled:opacity-50'
+            className='w-full disabled:opacity-50'
           >
             {isResetting ? t('resettingHooks') : t('resetHooks')}
           </Button>
         )}
 
-        <div className='text-xs text-pt-purple-300 text-center w-full'>
+        <div className='flex flex-col text-xs text-pt-purple-300 text-center w-full mt-4 gap-4'>
           <p>
             {t('prizeHookAddress')}: {PRIZE_HOOK_ADDRESS}
           </p>

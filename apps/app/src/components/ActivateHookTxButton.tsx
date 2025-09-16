@@ -11,17 +11,19 @@ import { useUserHumanityVerified } from '@hooks/useUserHumanityVerified'
 type ActivateHookTxButtonProps = {
   isActivating: boolean
   setIsActivating: (val: boolean) => void
+  onSuccess?: () => void
 }
 
 export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
-  const { isActivating, setIsActivating } = props
+  const { isActivating, setIsActivating, onSuccess } = props
 
   const publicClient = useWorldPublicClient()
 
   const t_common = useTranslations('Common')
 
   const { address: userAddress } = useAccount()
-  const { data: userHumanityVerified } = useUserHumanityVerified(userAddress as Address)
+  const { data: userHumanityVerified, isFetched: userHumanityVerifiedIsFetched } =
+    useUserHumanityVerified(userAddress as Address)
 
   const handleActivateHook = async () => {
     if (isActivating) {
@@ -34,6 +36,7 @@ export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
       await setHooks(PRIZE_VAULT_ADDRESS, PRIZE_HOOK_ADDRESS, publicClient, {
         onSuccess: (txHash) => {
           console.log('Hook activated successfully:', txHash)
+          onSuccess?.()
         },
         onError: () => {
           console.error('Failed to activate hook')
@@ -50,7 +53,11 @@ export const ActivateHookTxButton = (props: ActivateHookTxButtonProps) => {
     return null
   }
 
-  const needsVerification = !userHumanityVerified?.isVerified
+  if (!userHumanityVerifiedIsFetched) {
+    return null
+  }
+
+  const needsVerification = userHumanityVerifiedIsFetched && !userHumanityVerified?.isVerified
 
   if (needsVerification) {
     return (

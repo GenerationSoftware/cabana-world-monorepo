@@ -1,4 +1,9 @@
-import { ArrowTopRightOnSquareIcon, BellIcon, SparklesIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowTopRightOnSquareIcon,
+  BellIcon,
+  SparklesIcon,
+  WrenchScrewdriverIcon
+} from '@heroicons/react/24/outline'
 import {
   SUPPORTED_CURRENCIES,
   useSelectedCurrency,
@@ -10,7 +15,6 @@ import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { ReactNode } from 'react'
 import { useAcceptHeaderLanguage } from '@hooks/useAcceptHeaderLanguage'
-import { useNotificationPermission } from '@hooks/useNotificationPermission'
 import { useSettingsModalView } from '@hooks/useSettingsModalView'
 import { SettingsModalOption } from '..'
 

@@ -1,6 +1,7 @@
 import { BellIcon, BellSlashIcon } from '@heroicons/react/24/outline'
 import { BasicIcon } from '@shared/ui'
 import { Button } from '@shared/ui'
+import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
@@ -41,9 +42,9 @@ export const NotificationsView = (props: NotificationsViewProps) => {
 
   const getStatusIcon = () => {
     if (isGranted) {
-      return <BellIcon className='h-6 w-6' />
+      return <BellIcon className='h-6 w-6 text-white' />
     } else {
-      return <BellSlashIcon className='h-6 w-6 text-pt-purple-100' />
+      return <BellSlashIcon className='h-6 w-6 text-pt-purple-200' />
     }
   }
 
@@ -61,7 +62,15 @@ export const NotificationsView = (props: NotificationsViewProps) => {
 
       <div className='flex flex-col items-center gap-4 w-full'>
         <div className='flex items-center gap-3 p-4 bg-pt-transparent/5 rounded-lg w-full'>
-          <BasicIcon content={getStatusIcon()} size='lg' theme='dark' />
+          <BasicIcon
+            content={getStatusIcon()}
+            size='lg'
+            theme='dark'
+            className={classNames({
+              'bg-teal-400': isGranted,
+              'bg-pt-purple-400': !isGranted
+            })}
+          />
           <div className='flex flex-col w-full'>
             <span className='text-pt-purple-50 font-medium'>{t('notifications')}</span>
             <span className='text-sm text-pt-purple-200'>{statusText}</span>
@@ -69,7 +78,7 @@ export const NotificationsView = (props: NotificationsViewProps) => {
         </div>
 
         {canRequest && !isGranted && (
-          <Button onClick={handleRequestPermission} className='w-full px-6 py-3'>
+          <Button onClick={handleRequestPermission} className='w-full'>
             {t('enableNotifications')}
           </Button>
         )}
@@ -82,7 +91,7 @@ export const NotificationsView = (props: NotificationsViewProps) => {
         )}
 
         {isGranted && (
-          <div className='text-center text-sm text-green-400 p-4 bg-green-400/10 rounded-lg w-full'>
+          <div className='text-center text-sm text-teal-400 p-4 bg-teal-400/10 rounded-lg w-full'>
             <p>{t('notificationsHaveBeenEnabled')}</p>
           </div>
         )}
