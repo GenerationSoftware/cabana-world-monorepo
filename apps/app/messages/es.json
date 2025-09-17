@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Hasta agotar existencias.",
     "activateHookTitle": "¡5x Tus Premios!",
     "hookActivationDescription": "Como depositante World ID totalmente verificado, ¡podrás ganar 5 veces más premios!",
-    "hideThis": "ocultar esto"
+    "hideThis": "ocultar esto",
+    "signInToManagePrizeBoost": "Identifícate para gestionar tus ajustes de aumento de premios"
   },
   "Navigation": {
     "home": "Inicio",
@@ -389,10 +390,10 @@
       "refreshing": "Verificando..."
     },
     "hooks": {
-      "setHooksSuccess": "¡Gancho de premio activado con éxito! Tus premios se multiplicarán por 5.",
-      "setHooksError": "No se ha podido activar el gancho del premio. Por favor, inténtelo de nuevo.",
-      "resetHooksSuccess": "El gancho de premio se ha reiniciado correctamente. Tus premios ya no se potenciarán.",
-      "resetHooksError": "No se ha podido restablecer el gancho del premio. Por favor, inténtelo de nuevo."
+      "setHooksSuccess": "¡Aumento de premios activado con éxito! Tus premios se multiplicarán por 5.",
+      "setHooksError": "No se ha podido activar el aumento de premio. Por favor, inténtelo de nuevo.",
+      "resetHooksSuccess": "El aumento de premios se ha reiniciado correctamente. Tus premios ya no se potenciarán.",
+      "resetHooksError": "No se ha podido restablecer el premio. Por favor, inténtalo de nuevo."
     }
   }
 }

@@ -45,7 +45,8 @@
     "hookStipulationTwo": "재고 소진 시까지.",
     "activateHookTitle": "5배의 상품을 드립니다!",
     "hookActivationDescription": "완전히 검증된 월드 아이디 입금자는 5배의 상금을 받을 수 있습니다!",
-    "hideThis": "이 숨기기"
+    "hideThis": "이 숨기기",
+    "signInToManagePrizeBoost": "로그인하여 경품 부스트 설정 관리하기"
   },
   "Navigation": {
     "home": "홈",
@@ -386,10 +387,10 @@
       "refreshing": "확인 중..."
     },
     "hooks": {
-      "setHooksSuccess": "경품 후크가 성공적으로 활성화되었습니다! 이제 상품이 5배로 증가합니다.",
-      "setHooksError": "경품 훅을 활성화하지 못했습니다. 다시 시도해 주세요.",
-      "resetHooksSuccess": "경품 후크가 성공적으로 초기화되었습니다. 경품이 더 이상 부스트되지 않습니다.",
-      "resetHooksError": "경품 훅을 재설정하지 못했습니다. 다시 시도해 주세요."
+      "setHooksSuccess": "상품 부스트가 성공적으로 활성화되었습니다! 이제 상품이 5배로 부스트됩니다.",
+      "setHooksError": "상품 부스트를 활성화하지 못했습니다. 다시 시도해 주세요.",
+      "resetHooksSuccess": "경품 부스트가 성공적으로 초기화되었습니다. 더 이상 상품이 부스트되지 않습니다.",
+      "resetHooksError": "상품 부스트를 초기화하지 못했습니다. 다시 시도해 주세요."
     }
   }
 }

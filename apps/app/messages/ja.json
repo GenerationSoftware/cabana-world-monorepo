@@ -45,7 +45,8 @@
     "hookStipulationTwo": "在庫がなくなり次第終了。",
     "activateHookTitle": "賞金5倍！",
     "hookActivationDescription": "完全に認証されたワールドIDの預金者として、5倍の賞金を獲得することができる！",
-    "hideThis": "これを隠す"
+    "hideThis": "これを隠す",
+    "signInToManagePrizeBoost": "サインインして賞品ブースト設定を管理する"
   },
   "Navigation": {
     "home": "ホーム",
@@ -386,10 +387,10 @@
       "refreshing": "チェック..."
     },
     "hooks": {
-      "setHooksSuccess": "賞金フックが正常に作動しました！賞金が5倍になります。",
-      "setHooksError": "賞金フックの起動に失敗しました。もう一度お試しください。",
-      "resetHooksSuccess": "賞金フックのリセットに成功しました。賞品がブーストされなくなります。",
-      "resetHooksError": "賞金フックのリセットに失敗しました。もう一度お試しください。"
+      "setHooksSuccess": "賞金ブーストが正常に作動しました！賞金が5倍になります。",
+      "setHooksError": "賞金ブーストの起動に失敗しました。もう一度お試しください。",
+      "resetHooksSuccess": "賞品ブーストがリセットされました。賞品のブーストは終了します。",
+      "resetHooksError": "賞金ブーストのリセットに失敗しました。もう一度お試しください。"
     }
   }
 }

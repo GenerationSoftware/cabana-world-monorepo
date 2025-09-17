@@ -46,7 +46,8 @@
     "hookStipulationTwo": "Solange der Vorrat reicht.",
     "activateHookTitle": "5x Ihre Preise!",
     "hookActivationDescription": "Als vollständig verifizierter World ID-Einzahler können Sie 5x die Preise verdienen!",
-    "hideThis": "verbergen"
+    "hideThis": "verbergen",
+    "signInToManagePrizeBoost": "Melden Sie sich an, um Ihre Preiserhöhungseinstellungen zu verwalten"
   },
   "Navigation": {
     "home": "Startseite",
@@ -445,10 +446,10 @@
       "refreshing": "Prüfen..."
     },
     "hooks": {
-      "setHooksSuccess": "Preishaken erfolgreich aktiviert! Ihre Preise werden nun um das 5-fache erhöht.",
-      "setHooksError": "Preishaken konnte nicht aktiviert werden. Bitte versuchen Sie es erneut.",
-      "resetHooksSuccess": "Preishaken erfolgreich zurückgesetzt. Ihre Preise werden nicht mehr aufgewertet.",
-      "resetHooksError": "Der Preishaken konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
+      "setHooksSuccess": "Preiserhöhung erfolgreich aktiviert! Ihre Preise werden nun um das 5-fache erhöht.",
+      "setHooksError": "Die Preiserhöhung konnte nicht aktiviert werden. Bitte versuchen Sie es erneut.",
+      "resetHooksSuccess": "Preisboost erfolgreich zurückgesetzt. Ihre Preise werden nicht mehr geboostet.",
+      "resetHooksError": "Der Preisboost konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
     }
   }
 }

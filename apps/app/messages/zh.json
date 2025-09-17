@@ -45,7 +45,8 @@
     "hookStipulationTwo": "售完即止。",
     "activateHookTitle": "5 倍奖金",
     "hookActivationDescription": "作为经过完全验证的 World ID 存款人，您可以获得 5 倍的奖金！",
-    "hideThis": "隐藏"
+    "hideThis": "隐藏",
+    "signInToManagePrizeBoost": "登录以管理您的奖品提升设置"
   },
   "Navigation": {
     "home": "首页",
@@ -386,10 +387,10 @@
       "refreshing": "检查..."
     },
     "hooks": {
-      "setHooksSuccess": "奖品挂钩已成功激活！现在您的奖品将提升 5 倍。",
-      "setHooksError": "激活奖品挂钩失败。请重试。",
-      "resetHooksSuccess": "奖品挂钩重置成功。您的奖品将不再提升。",
-      "resetHooksError": "重置奖品挂钩失败。请重试。"
+      "setHooksSuccess": "奖品提升已成功激活！现在您的奖金将提高 5 倍。",
+      "setHooksError": "激活奖品提升失败。请重试。",
+      "resetHooksSuccess": "奖品提升重置成功。您的奖品将不再提升。",
+      "resetHooksError": "重置奖品提升失败。请重试。"
     }
   }
 }

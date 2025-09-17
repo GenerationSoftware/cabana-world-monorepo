@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Jusqu'à épuisement des stocks.",
     "activateHookTitle": "5x vos prix !",
     "hookActivationDescription": "En tant que déposant World ID entièrement vérifié, vous pouvez gagner 5 fois plus de prix !",
-    "hideThis": "cacher"
+    "hideThis": "cacher",
+    "signInToManagePrizeBoost": "Connectez-vous pour gérer vos paramètres de stimulation des prix"
   },
   "Navigation": {
     "home": "Accueil",
@@ -386,10 +387,10 @@
       "refreshing": "Vérification..."
     },
     "hooks": {
-      "setHooksSuccess": "Crochet de prix activé avec succès ! Vos prix seront désormais multipliés par 5.",
-      "setHooksError": "Échec de l'activation de l'accroche du prix. Veuillez réessayer.",
-      "resetHooksSuccess": "Le crochet de prix a été réinitialisé avec succès. Vos prix ne seront plus augmentés.",
-      "resetHooksError": "Échec de la réinitialisation du crochet du prix. Veuillez réessayer."
+      "setHooksSuccess": "L'augmentation des prix a été activée avec succès ! Vos prix seront désormais multipliés par 5.",
+      "setHooksError": "Échec de l'activation de l'augmentation des prix. Veuillez réessayer.",
+      "resetHooksSuccess": "L'augmentation des prix a été réinitialisée avec succès. Vos prix ne seront plus boostés.",
+      "resetHooksError": "Échec de la réinitialisation de l'augmentation des prix. Veuillez réessayer."
     }
   }
 }

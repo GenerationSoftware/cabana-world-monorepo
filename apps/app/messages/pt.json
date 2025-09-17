@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Enquanto durarem os stocks.",
     "activateHookTitle": "5x os seus prémios!",
     "hookActivationDescription": "Como depositante de um World ID totalmente verificado, pode ganhar 5x os prémios!",
-    "hideThis": "ocultar isto"
+    "hideThis": "ocultar isto",
+    "signInToManagePrizeBoost": "Iniciar sessão para gerir as suas definições de aumento de prémios"
   },
   "Navigation": {
     "home": "Início",
@@ -386,10 +387,10 @@
       "refreshing": "Verificação..."
     },
     "hooks": {
-      "setHooksSuccess": "Gancho de prémios ativado com sucesso! Os seus prémios serão agora aumentados em 5x.",
-      "setHooksError": "Falha ao ativar o gancho do prémio. Por favor, tente novamente.",
-      "resetHooksSuccess": "O gancho de prémios foi reposto com sucesso. Os seus prémios já não serão aumentados.",
-      "resetHooksError": "Falha ao repor o gancho do prémio. Por favor, tente novamente."
+      "setHooksSuccess": "Aumento de prémios ativado com sucesso! Os seus prémios serão agora aumentados em 5x.",
+      "setHooksError": "Falha ao ativar o aumento do prémio. Por favor, tente novamente.",
+      "resetHooksSuccess": "O aumento de prémios foi reiniciado com sucesso. Os seus prémios deixarão de ser reforçados.",
+      "resetHooksError": "Falha ao reiniciar o aumento do prémio. Por favor, tente novamente."
     }
   }
 }

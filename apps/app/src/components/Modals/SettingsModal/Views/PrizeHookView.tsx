@@ -84,7 +84,7 @@ export const PrizeHookView = (props: PrizeHookViewProps) => {
           </span>
         )}
         <div className='text-center text-sm text-pt-purple-200 p-4 bg-pt-transparent/5 rounded-lg w-full'>
-          <p>{t_common('signIn')} to manage your prize hook settings.</p>
+          <p>{t_common('signInToManagePrizeBoost')}.</p>
         </div>
       </div>
     )

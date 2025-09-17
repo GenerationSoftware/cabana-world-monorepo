@@ -37,6 +37,7 @@
     "notice": "Notice",
     "oldVaultBalance": "Old Vault Balance",
     "toContinueWinning": "To continue winning prizes you need to migrate your deposit to the new vault",
+    "signInToManagePrizeBoost": "Sign in to manage your prize boost settings",
     "activateButtonCta": "Activate 5x Prize Boost",
     "prizeHookIsSet": "Prize boost is set up correctly. Enjoy 5x prizes while supplies last!",
     "activating": "Activating ...",
@@ -69,10 +70,10 @@
       "refreshing": "Checking..."
     },
     "hooks": {
-      "setHooksSuccess": "Prize hook activated successfully! Your prizes will now be boosted by 5x.",
-      "setHooksError": "Failed to activate prize hook. Please try again.",
-      "resetHooksSuccess": "Prize hook reset successfully. Your prizes will no longer be boosted.",
-      "resetHooksError": "Failed to reset prize hook. Please try again."
+      "setHooksSuccess": "Prize boost activated successfully! Your prizes will now be boosted by 5x.",
+      "setHooksError": "Failed to activate prize boost. Please try again.",
+      "resetHooksSuccess": "Prize boost reset successfully. Your prizes will no longer be boosted.",
+      "resetHooksError": "Failed to reset prize boost. Please try again."
     }
   },
   "Navigation": {

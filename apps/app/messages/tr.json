@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Stoklar tükenene kadar.",
     "activateHookTitle": "Ödüllerinizi 5 katına çıkarın!",
     "hookActivationDescription": "Tam olarak doğrulanmış bir World ID para yatırıcısı olarak 5 kat ödül kazanabilirsiniz!",
-    "hideThis": "bunu gizle"
+    "hideThis": "bunu gizle",
+    "signInToManagePrizeBoost": "Ödül artırma ayarlarınızı yönetmek için oturum açın"
   },
   "Navigation": {
     "home": "Ev",
@@ -386,10 +387,10 @@
       "refreshing": "Kontrol ediyorum."
     },
     "hooks": {
-      "setHooksSuccess": "Ödül kancası başarıyla etkinleştirildi! Ödülleriniz şimdi 5 kat artacak.",
-      "setHooksError": "Ödül kancası etkinleştirilemedi. Lütfen tekrar deneyin.",
-      "resetHooksSuccess": "Ödül kancası başarıyla sıfırlandı. Ödülleriniz artık artırılmayacak.",
-      "resetHooksError": "Ödül kancası sıfırlanamadı. Lütfen tekrar deneyin."
+      "setHooksSuccess": "Ödül artırımı başarıyla etkinleştirildi! Ödülleriniz şimdi 5 kat artırılacaktır.",
+      "setHooksError": "Ödül desteği etkinleştirilemedi. Lütfen tekrar deneyin.",
+      "resetHooksSuccess": "Ödül takviyesi başarıyla sıfırlandı. Ödülleriniz artık artırılmayacaktır.",
+      "resetHooksError": "Ödül desteği sıfırlanamadı. Lütfen tekrar deneyin."
     }
   }
 }

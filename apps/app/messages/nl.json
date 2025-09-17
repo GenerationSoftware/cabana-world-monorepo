@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Zolang de voorraad strekt.",
     "activateHookTitle": "5x je prijzen!",
     "hookActivationDescription": "Als een volledig geverifieerde World ID storter kun je 5x de prijzen verdienen!",
-    "hideThis": "verberg dit"
+    "hideThis": "verberg dit",
+    "signInToManagePrizeBoost": "Log in om je prijsverhogingsinstellingen te beheren"
   },
   "Navigation": {
     "home": "Startpagina",
@@ -392,10 +393,10 @@
       "refreshing": "Controleren..."
     },
     "hooks": {
-      "setHooksSuccess": "Prijzenhaak succesvol geactiveerd! Je prijzen krijgen nu een boost van 5x.",
-      "setHooksError": "Het is niet gelukt om de prijshaak te activeren. Probeer het opnieuw.",
-      "resetHooksSuccess": "Prijzenhaak succesvol gereset. Je prijzen krijgen geen boost meer.",
-      "resetHooksError": "Het is niet gelukt om de prijshaak opnieuw in te stellen. Probeer het opnieuw."
+      "setHooksSuccess": "Prijsboost succesvol geactiveerd! Je prijzen krijgen nu een boost van 5x.",
+      "setHooksError": "Mislukt om prijsverhoging te activeren. Probeer het opnieuw.",
+      "resetHooksSuccess": "Prijsboost succesvol gereset. Je prijzen krijgen niet langer een boost.",
+      "resetHooksError": "Het is niet gelukt om de prijsverhoging te resetten. Probeer het opnieuw."
     }
   }
 }

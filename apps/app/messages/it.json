@@ -45,7 +45,8 @@
     "hookStipulationTwo": "Fino ad esaurimento scorte.",
     "activateHookTitle": "5 volte i premi!",
     "hookActivationDescription": "In qualità di depositante di World ID pienamente verificato, potete guadagnare 5 volte i premi!",
-    "hideThis": "nascondere questo"
+    "hideThis": "nascondere questo",
+    "signInToManagePrizeBoost": "Accedi per gestire le impostazioni di incremento dei premi"
   },
   "Navigation": {
     "home": "Home",
@@ -396,10 +397,10 @@
       "refreshing": "Controllo..."
     },
     "hooks": {
-      "setHooksSuccess": "Gancio premio attivato con successo! I premi saranno ora incrementati di 5 volte.",
-      "setHooksError": "Non è stato possibile attivare il gancio del premio. Riprovare.",
-      "resetHooksSuccess": "Il gancio dei premi è stato resettato con successo. I premi non saranno più potenziati.",
-      "resetHooksError": "Impossibile reimpostare il gancio del premio. Riprovare."
+      "setHooksSuccess": "Incremento dei premi attivato con successo! I premi saranno ora incrementati di 5x.",
+      "setHooksError": "Non è stato possibile attivare il potenziamento dei premi. Riprovare.",
+      "resetHooksSuccess": "Il potenziamento dei premi è stato ripristinato con successo. I premi non saranno più potenziati.",
+      "resetHooksError": "Impossibile reimpostare il boost dei premi. Riprovare."
     }
   }
 }
