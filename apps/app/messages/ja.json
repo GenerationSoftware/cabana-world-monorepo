@@ -41,7 +41,7 @@
     "prizeHookIsSet": "賞品ブーストは正しく設定されています。在庫がある限り、5倍の賞品をお楽しみください！",
     "activating": "活性化 ...",
     "prizeBoostHookNeedToBeVerified": "5倍賞品を有効にするには、World Verified IDが必要です。",
-    "hookStipulationOne": "最大{boostTotalPerAccount}まで。アカウントあたりのWLD。",
+    "hookStipulationOne": "最大 まで。アカウントあたりの {boostTotalPerAccount} WLD。",
     "hookStipulationTwo": "在庫がなくなり次第終了。",
     "activateHookTitle": "賞金5倍！",
     "hookActivationDescription": "完全に認証されたワールドIDの預金者として、5倍の賞金を獲得することができる！",

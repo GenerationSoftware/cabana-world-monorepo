@@ -41,7 +41,7 @@
     "prizeHookIsSet": "Ödül desteği doğru şekilde ayarlandı. Stoklar tükenene kadar 5 kat ödülün tadını çıkarın!",
     "activating": "Etkinleştirme ...",
     "prizeBoostHookNeedToBeVerified": "5x ödülleri etkinleştirmek için bir World Verified ID'ye ihtiyacınız vardır.",
-    "hookStipulationOne": "Hesap Başına En Fazla {boostTotalPerAccount} Hesap başına WLD.",
+    "hookStipulationOne": "Hesap Başına En Fazla Hesap başına {boostTotalPerAccount} WLD.",
     "hookStipulationTwo": "Stoklar tükenene kadar.",
     "activateHookTitle": "Ödüllerinizi 5 katına çıkarın!",
     "hookActivationDescription": "Tam olarak doğrulanmış bir World ID para yatırıcısı olarak 5 kat ödül kazanabilirsiniz!",
