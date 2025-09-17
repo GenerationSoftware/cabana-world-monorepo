@@ -36,7 +36,16 @@
     "migrationRequired": "Migrazione richiesta",
     "notice": "Avviso",
     "oldVaultBalance": "Saldo del vecchio caveau",
-    "toContinueWinning": "Per continuare a vincere i premi è necessario migrare il proprio deposito nel nuovo caveau."
+    "toContinueWinning": "Per continuare a vincere i premi è necessario migrare il proprio deposito nel nuovo caveau.",
+    "activateButtonCta": "Attivare l'aumento di premio 5x",
+    "prizeHookIsSet": "L'incremento dei premi è impostato correttamente. Godetevi i premi 5x fino ad esaurimento scorte!",
+    "activating": "Attivazione...",
+    "prizeBoostHookNeedToBeVerified": "Per attivare i premi 5x è necessario un ID World Verified.",
+    "hookStipulationOne": "Fino a {boostTotalePerAccount} WLD per account.",
+    "hookStipulationTwo": "Fino ad esaurimento scorte.",
+    "activateHookTitle": "5 volte i premi!",
+    "hookActivationDescription": "In qualità di depositante di World ID pienamente verificato, potete guadagnare 5 volte i premi!",
+    "hideThis": "nascondere questo"
   },
   "Navigation": {
     "home": "Home",
@@ -289,7 +298,18 @@
     "enableInSettings": "Per attivarle, accedere alle impostazioni del dispositivo e consentire le notifiche per questa applicazione.",
     "notificationsEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività.",
     "notificationsHaveBeenEnabled": "Ottimo! Riceverete aggiornamenti importanti sui vostri caveau, sui premi e su altre attività.",
-    "dontShowAgain": "Non mostrarlo più"
+    "dontShowAgain": "Non mostrarlo più",
+    "prizeHook": "Aumento del premio",
+    "prizeHookSettings": "Impostazioni di incremento del premio",
+    "prizeHookStatus": "Stato di incremento del premio",
+    "prizeHookEnabled": "Abilitato",
+    "prizeHookDisabled": "Disabili",
+    "prizeHookActiveDescription": "Il tuo premio 5x è attivo e aumenterà i tuoi premi!",
+    "prizeHookInactiveDescription": "Il tuo incremento di premio 5x non è attivo. Attivatelo per aumentare i vostri premi!",
+    "resetHooks": "Reset Boost",
+    "resettingHooks": "Ripristino...",
+    "prizeHookAddress": "Gancio / Indirizzo di boost",
+    "prizeVaultAddress": "Indirizzo del caveau"
   },
   "Abbreviations": {
     "days": "giorni",
@@ -374,6 +394,12 @@
       "checkingPermissions": "Controllo delle autorizzazioni...",
       "refreshPermissions": "Aggiornare le autorizzazioni",
       "refreshing": "Controllo..."
+    },
+    "hooks": {
+      "setHooksSuccess": "Gancio premio attivato con successo! I premi saranno ora incrementati di 5 volte.",
+      "setHooksError": "Non è stato possibile attivare il gancio del premio. Riprovare.",
+      "resetHooksSuccess": "Il gancio dei premi è stato resettato con successo. I premi non saranno più potenziati.",
+      "resetHooksError": "Impossibile reimpostare il gancio del premio. Riprovare."
     }
   }
 }

@@ -36,7 +36,16 @@
     "migrationRequired": "Göç Gerekli",
     "notice": "Uyarı",
     "oldVaultBalance": "Eski Kasa Bakiyesi",
-    "toContinueWinning": "Ödül kazanmaya devam etmek için depozitonuzu yeni kasaya taşımanız gerekir"
+    "toContinueWinning": "Ödül kazanmaya devam etmek için depozitonuzu yeni kasaya taşımanız gerekir",
+    "activateButtonCta": "5x Ödül Artışını Etkinleştir",
+    "prizeHookIsSet": "Ödül desteği doğru şekilde ayarlandı. Stoklar tükenene kadar 5 kat ödülün tadını çıkarın!",
+    "activating": "Etkinleştirme ...",
+    "prizeBoostHookNeedToBeVerified": "5x ödülleri etkinleştirmek için bir World Verified ID'ye ihtiyacınız vardır.",
+    "hookStipulationOne": "Hesap Başına En Fazla {boostTotalPerAccount} Hesap başına WLD.",
+    "hookStipulationTwo": "Stoklar tükenene kadar.",
+    "activateHookTitle": "Ödüllerinizi 5 katına çıkarın!",
+    "hookActivationDescription": "Tam olarak doğrulanmış bir World ID para yatırıcısı olarak 5 kat ödül kazanabilirsiniz!",
+    "hideThis": "bunu gizle"
   },
   "Navigation": {
     "home": "Ev",
@@ -279,7 +288,18 @@
     "enableInSettings": "Bunları etkinleştirmek için lütfen cihaz ayarlarınıza gidin ve bu uygulama için bildirimlere izin verin.",
     "notificationsEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer faaliyetleriniz hakkında önemli güncellemeler alacaksınız.",
     "notificationsHaveBeenEnabled": "Harika! Kasalarınız, ödülleriniz ve diğer etkinlikleriniz hakkında önemli güncellemeler alacaksınız.",
-    "dontShowAgain": "Bunu bir daha gösterme."
+    "dontShowAgain": "Bunu bir daha gösterme.",
+    "prizeHook": "Ödül Artışı",
+    "prizeHookSettings": "Ödül Yükseltme Ayarları",
+    "prizeHookStatus": "Ödül Artışı Durumu",
+    "prizeHookEnabled": "Etkin",
+    "prizeHookDisabled": "Engelli",
+    "prizeHookActiveDescription": "5x ödül desteğiniz aktiftir ve ödüllerinizi artıracaktır!",
+    "prizeHookInactiveDescription": "5x ödül desteğiniz aktif değil. Ödüllerinizi artırmak için etkinleştirin!",
+    "resetHooks": "Güçlendirmeyi Sıfırla",
+    "resettingHooks": "Sıfırlanıyor...",
+    "prizeHookAddress": "Kanca / Yükseltme Adresi",
+    "prizeVaultAddress": "Kasa Adresi"
   },
   "Abbreviations": {
     "days": "günler",
@@ -364,6 +384,12 @@
       "checkingPermissions": "İzinler kontrol ediliyor...",
       "refreshPermissions": "İzinleri Yenile",
       "refreshing": "Kontrol ediyorum."
+    },
+    "hooks": {
+      "setHooksSuccess": "Ödül kancası başarıyla etkinleştirildi! Ödülleriniz şimdi 5 kat artacak.",
+      "setHooksError": "Ödül kancası etkinleştirilemedi. Lütfen tekrar deneyin.",
+      "resetHooksSuccess": "Ödül kancası başarıyla sıfırlandı. Ödülleriniz artık artırılmayacak.",
+      "resetHooksError": "Ödül kancası sıfırlanamadı. Lütfen tekrar deneyin."
     }
   }
 }

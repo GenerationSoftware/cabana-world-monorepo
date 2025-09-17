@@ -36,7 +36,16 @@
     "migrationRequired": "Migración necesaria",
     "notice": "Aviso",
     "oldVaultBalance": "Saldo de la bóveda antigua",
-    "toContinueWinning": "Para seguir ganando premios debe migrar su depósito a la nueva cámara acorazada"
+    "toContinueWinning": "Para seguir ganando premios debe migrar su depósito a la nueva cámara acorazada",
+    "activateButtonCta": "Activar 5x Prize Boost",
+    "prizeHookIsSet": "El aumento de premios está configurado correctamente. ¡Disfruta de premios 5x hasta agotar existencias!",
+    "activating": "Activar ...",
+    "prizeBoostHookNeedToBeVerified": "Se necesita un World Verified ID para activar los premios 5x.",
+    "hookStipulationOne": "Hasta {boostTotalPerAccount} WLD por cuenta.",
+    "hookStipulationTwo": "Hasta agotar existencias.",
+    "activateHookTitle": "¡5x Tus Premios!",
+    "hookActivationDescription": "Como depositante World ID totalmente verificado, ¡podrás ganar 5 veces más premios!",
+    "hideThis": "ocultar esto"
   },
   "Navigation": {
     "home": "Inicio",
@@ -282,7 +291,18 @@
     "enableInSettings": "Para activarlas, ve a la configuración de tu dispositivo y permite las notificaciones para esta aplicación.",
     "notificationsEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades.",
     "notificationsHaveBeenEnabled": "¡Genial! Recibirás actualizaciones importantes sobre tus bóvedas, premios y otras actividades.",
-    "dontShowAgain": "No mostrar de nuevo"
+    "dontShowAgain": "No mostrar de nuevo",
+    "prizeHook": "Premio Boost",
+    "prizeHookSettings": "Ajustes de Prize Boost",
+    "prizeHookStatus": "Estado del Premio Boost",
+    "prizeHookEnabled": "Activado",
+    "prizeHookDisabled": "Discapacitados",
+    "prizeHookActiveDescription": "Tu aumento de 5x en premios está activo y aumentará tus premios.",
+    "prizeHookInactiveDescription": "Tu premio 5x no está activo. ¡Actívalo para aumentar tus premios!",
+    "resetHooks": "Reset Boost",
+    "resettingHooks": "Reiniciando...",
+    "prizeHookAddress": "Gancho / Dirección Boost",
+    "prizeVaultAddress": "Dirección de la cámara acorazada"
   },
   "Abbreviations": {
     "days": "días",
@@ -367,6 +387,12 @@
       "checkingPermissions": "Verificando permisos...",
       "refreshPermissions": "Actualizar Permisos",
       "refreshing": "Verificando..."
+    },
+    "hooks": {
+      "setHooksSuccess": "¡Gancho de premio activado con éxito! Tus premios se multiplicarán por 5.",
+      "setHooksError": "No se ha podido activar el gancho del premio. Por favor, inténtelo de nuevo.",
+      "resetHooksSuccess": "El gancho de premio se ha reiniciado correctamente. Tus premios ya no se potenciarán.",
+      "resetHooksError": "No se ha podido restablecer el gancho del premio. Por favor, inténtelo de nuevo."
     }
   }
 }

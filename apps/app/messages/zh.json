@@ -36,7 +36,16 @@
     "migrationRequired": "需要迁移",
     "notice": "通知",
     "oldVaultBalance": "旧金库余额",
-    "toContinueWinning": "要继续赢奖，您需要将存款转移到新保险库"
+    "toContinueWinning": "要继续赢奖，您需要将存款转移到新保险库",
+    "activateButtonCta": "激活 5 倍奖金提升",
+    "prizeHookIsSet": "奖品提升设置正确。享受 5 倍奖品，送完即止！",
+    "activating": "激活...",
+    "prizeBoostHookNeedToBeVerified": "您需要世界验证 ID 才能激活 5 倍奖品。",
+    "hookStipulationOne": "每个帐户最多可获得 {boostTotalPerAccount} WLD。每个帐户的 WLD。",
+    "hookStipulationTwo": "售完即止。",
+    "activateHookTitle": "5 倍奖金",
+    "hookActivationDescription": "作为经过完全验证的 World ID 存款人，您可以获得 5 倍的奖金！",
+    "hideThis": "隐藏"
   },
   "Navigation": {
     "home": "首页",
@@ -279,7 +288,18 @@
     "enableInSettings": "要启用这些通知，请进入设备设置并允许此应用程序发出通知。",
     "notificationsEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。",
     "notificationsHaveBeenEnabled": "太棒了您将收到有关您的保险库、奖品和其他活动的重要更新。",
-    "dontShowAgain": "不要再放这个了"
+    "dontShowAgain": "不要再放这个了",
+    "prizeHook": "奖金提升",
+    "prizeHookSettings": "奖金提升设置",
+    "prizeHookStatus": "奖品提升状态",
+    "prizeHookEnabled": "已启用",
+    "prizeHookDisabled": "残疾",
+    "prizeHookActiveDescription": "您的 5 倍奖金提升已激活，并将提升您的奖金！",
+    "prizeHookInactiveDescription": "您的 5 倍奖金提升功能未激活。激活它以提高您的奖金！",
+    "resetHooks": "重置提升",
+    "resettingHooks": "重置...",
+    "prizeHookAddress": "挂钩 / 提升地址",
+    "prizeVaultAddress": "保险库地址"
   },
   "Abbreviations": {
     "days": "天数",
@@ -364,6 +384,12 @@
       "checkingPermissions": "检查权限...",
       "refreshPermissions": "刷新权限",
       "refreshing": "检查..."
+    },
+    "hooks": {
+      "setHooksSuccess": "奖品挂钩已成功激活！现在您的奖品将提升 5 倍。",
+      "setHooksError": "激活奖品挂钩失败。请重试。",
+      "resetHooksSuccess": "奖品挂钩重置成功。您的奖品将不再提升。",
+      "resetHooksError": "重置奖品挂钩失败。请重试。"
     }
   }
 }

@@ -36,7 +36,16 @@
     "migrationRequired": "Migration requise",
     "notice": "Avis",
     "oldVaultBalance": "Ancienne balance de la chambre forte",
-    "toContinueWinning": "Pour continuer à gagner des prix, vous devez migrer votre dépôt vers le nouveau coffre-fort."
+    "toContinueWinning": "Pour continuer à gagner des prix, vous devez migrer votre dépôt vers le nouveau coffre-fort.",
+    "activateButtonCta": "Activer le 5x Prize Boost",
+    "prizeHookIsSet": "L'augmentation des prix est correctement configurée. Profitez de 5x les prix jusqu'à épuisement des stocks !",
+    "activating": "Activer ...",
+    "prizeBoostHookNeedToBeVerified": "Vous avez besoin d'un World Verified ID pour activer les prix 5x.",
+    "hookStipulationOne": "Jusqu'à {boostTotalPerAccount} WLD par compte.",
+    "hookStipulationTwo": "Jusqu'à épuisement des stocks.",
+    "activateHookTitle": "5x vos prix !",
+    "hookActivationDescription": "En tant que déposant World ID entièrement vérifié, vous pouvez gagner 5 fois plus de prix !",
+    "hideThis": "cacher"
   },
   "Navigation": {
     "home": "Accueil",
@@ -279,7 +288,18 @@
     "enableInSettings": "Pour les activer, allez dans les paramètres de votre appareil et autorisez les notifications pour cette application.",
     "notificationsEnabled": "Génial ! Vous recevrez des mises à jour importantes concernant vos coffres, vos prix et d'autres activités.",
     "notificationsHaveBeenEnabled": "Génial ! Vous recevrez des mises à jour importantes concernant vos coffres, vos prix et d'autres activités.",
-    "dontShowAgain": "Ne le montrez plus"
+    "dontShowAgain": "Ne le montrez plus",
+    "prizeHook": "Coup de pouce au prix",
+    "prizeHookSettings": "Réglages de l'augmentation du prix",
+    "prizeHookStatus": "Statut du Prix Boost",
+    "prizeHookEnabled": "Activé",
+    "prizeHookDisabled": "Handicapés",
+    "prizeHookActiveDescription": "Votre bonus de 5 fois les prix est actif et augmentera vos prix !",
+    "prizeHookInactiveDescription": "Votre prime de 5x n'est pas activée. Activez-le pour augmenter vos prix !",
+    "resetHooks": "Réinitialiser le boost",
+    "resettingHooks": "Réinitialisation...",
+    "prizeHookAddress": "Adresse du crochet / de l'amplificateur",
+    "prizeVaultAddress": "Adresse de la chambre forte"
   },
   "Abbreviations": {
     "days": "jours",
@@ -364,6 +384,12 @@
       "checkingPermissions": "Vérification des autorisations...",
       "refreshPermissions": "Actualiser les autorisations",
       "refreshing": "Vérification..."
+    },
+    "hooks": {
+      "setHooksSuccess": "Crochet de prix activé avec succès ! Vos prix seront désormais multipliés par 5.",
+      "setHooksError": "Échec de l'activation de l'accroche du prix. Veuillez réessayer.",
+      "resetHooksSuccess": "Le crochet de prix a été réinitialisé avec succès. Vos prix ne seront plus augmentés.",
+      "resetHooksError": "Échec de la réinitialisation du crochet du prix. Veuillez réessayer."
     }
   }
 }

@@ -36,7 +36,16 @@
     "migrationRequired": "Migratie vereist",
     "notice": "Kennisgeving",
     "oldVaultBalance": "Balans oude kluis",
-    "toContinueWinning": "Om prijzen te kunnen blijven winnen, moet je je storting migreren naar de nieuwe kluis"
+    "toContinueWinning": "Om prijzen te kunnen blijven winnen, moet je je storting migreren naar de nieuwe kluis",
+    "activateButtonCta": "Activeer 5x Prijsverhoging",
+    "prizeHookIsSet": "Prijsboost is correct ingesteld. Geniet van 5x prijzen zolang de voorraad strekt!",
+    "activating": "Activeren ...",
+    "prizeBoostHookNeedToBeVerified": "Je hebt een World Verified ID nodig om 5x prijzen te activeren.",
+    "hookStipulationOne": "Tot {boostTotalPerAccount} WLD per account.",
+    "hookStipulationTwo": "Zolang de voorraad strekt.",
+    "activateHookTitle": "5x je prijzen!",
+    "hookActivationDescription": "Als een volledig geverifieerde World ID storter kun je 5x de prijzen verdienen!",
+    "hideThis": "verberg dit"
   },
   "Navigation": {
     "home": "Startpagina",
@@ -285,7 +294,18 @@
     "enableInSettings": "Om ze in te schakelen, moet je naar de instellingen van je apparaat gaan en meldingen voor deze app toestaan.",
     "notificationsEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten.",
     "notificationsHaveBeenEnabled": "Geweldig! Je ontvangt belangrijke updates over je kluizen, prijzen en andere activiteiten.",
-    "dontShowAgain": "Laat dit niet meer zien"
+    "dontShowAgain": "Laat dit niet meer zien",
+    "prizeHook": "Prijsverhoging",
+    "prizeHookSettings": "Instellingen prijsverhoging",
+    "prizeHookStatus": "Status prijsverhoging",
+    "prizeHookEnabled": "Ingeschakeld",
+    "prizeHookDisabled": "Uitgeschakeld",
+    "prizeHookActiveDescription": "Je 5x prijsboost is actief en zal je prijzen een boost geven!",
+    "prizeHookInactiveDescription": "Je 5x prijzenboost is niet actief. Activeer hem om je prijzen een boost te geven!",
+    "resetHooks": "Opnieuw instellen Boost",
+    "resettingHooks": "Resetten...",
+    "prizeHookAddress": "Haak / Boost-adres",
+    "prizeVaultAddress": "Kluisadres"
   },
   "Abbreviations": {
     "days": "dagen",
@@ -370,6 +390,12 @@
       "checkingPermissions": "Toestemmingen controleren...",
       "refreshPermissions": "Rechten vernieuwen",
       "refreshing": "Controleren..."
+    },
+    "hooks": {
+      "setHooksSuccess": "Prijzenhaak succesvol geactiveerd! Je prijzen krijgen nu een boost van 5x.",
+      "setHooksError": "Het is niet gelukt om de prijshaak te activeren. Probeer het opnieuw.",
+      "resetHooksSuccess": "Prijzenhaak succesvol gereset. Je prijzen krijgen geen boost meer.",
+      "resetHooksError": "Het is niet gelukt om de prijshaak opnieuw in te stellen. Probeer het opnieuw."
     }
   }
 }

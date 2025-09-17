@@ -36,7 +36,16 @@
     "migrationRequired": "マイグレーションが必要",
     "notice": "お知らせ",
     "oldVaultBalance": "旧ボールト残高",
-    "toContinueWinning": "賞金を獲得し続けるには、新しい金庫に預金を移行する必要があります。"
+    "toContinueWinning": "賞金を獲得し続けるには、新しい金庫に預金を移行する必要があります。",
+    "activateButtonCta": "5倍賞金ブーストの発動",
+    "prizeHookIsSet": "賞品ブーストは正しく設定されています。在庫がある限り、5倍の賞品をお楽しみください！",
+    "activating": "活性化 ...",
+    "prizeBoostHookNeedToBeVerified": "5倍賞品を有効にするには、World Verified IDが必要です。",
+    "hookStipulationOne": "最大{boostTotalPerAccount}まで。アカウントあたりのWLD。",
+    "hookStipulationTwo": "在庫がなくなり次第終了。",
+    "activateHookTitle": "賞金5倍！",
+    "hookActivationDescription": "完全に認証されたワールドIDの預金者として、5倍の賞金を獲得することができる！",
+    "hideThis": "これを隠す"
   },
   "Navigation": {
     "home": "ホーム",
@@ -279,7 +288,18 @@
     "enableInSettings": "通知を有効にするには、端末の設定でこのアプリの通知を許可してください。",
     "notificationsEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。",
     "notificationsHaveBeenEnabled": "素晴らしい！あなたの金庫、賞品、その他の活動に関する重要な最新情報が届きます。",
-    "dontShowAgain": "二度と見せるな"
+    "dontShowAgain": "二度と見せるな",
+    "prizeHook": "賞金ブースト",
+    "prizeHookSettings": "賞金ブースト設定",
+    "prizeHookStatus": "賞金ブースト状況",
+    "prizeHookEnabled": "有効",
+    "prizeHookDisabled": "無効",
+    "prizeHookActiveDescription": "5倍の賞金ブーストが有効になり、賞金がアップします！",
+    "prizeHookInactiveDescription": "5倍賞金ブーストが有効になっていません。賞金をアップさせるために有効にしてください！",
+    "resetHooks": "リセット・ブースト",
+    "resettingHooks": "リセット...",
+    "prizeHookAddress": "フック／ブーストアドレス",
+    "prizeVaultAddress": "金庫の住所"
   },
   "Abbreviations": {
     "days": "日",
@@ -364,6 +384,12 @@
       "checkingPermissions": "パーミッションのチェック...",
       "refreshPermissions": "アクセス許可の更新",
       "refreshing": "チェック..."
+    },
+    "hooks": {
+      "setHooksSuccess": "賞金フックが正常に作動しました！賞金が5倍になります。",
+      "setHooksError": "賞金フックの起動に失敗しました。もう一度お試しください。",
+      "resetHooksSuccess": "賞金フックのリセットに成功しました。賞品がブーストされなくなります。",
+      "resetHooksError": "賞金フックのリセットに失敗しました。もう一度お試しください。"
     }
   }
 }

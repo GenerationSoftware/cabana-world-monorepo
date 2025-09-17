@@ -37,7 +37,16 @@
     "migrationRequired": "Migration erforderlich",
     "notice": "Hinweis",
     "oldVaultBalance": "Alter Tresor Saldo",
-    "toContinueWinning": "Um weiterhin Preise zu gewinnen, müssen Sie Ihr Guthaben in den neuen Tresorraum transferieren"
+    "toContinueWinning": "Um weiterhin Preise zu gewinnen, müssen Sie Ihr Guthaben in den neuen Tresorraum transferieren",
+    "activateButtonCta": "5x Preisboost aktivieren",
+    "prizeHookIsSet": "Der Preisboost ist richtig eingestellt. Genießen Sie 5x Preise, solange der Vorrat reicht!",
+    "activating": "Aktivieren ...",
+    "prizeBoostHookNeedToBeVerified": "Sie benötigen eine World Verified ID, um 5x Preise zu aktivieren.",
+    "hookStipulationOne": "Bis zu {boostTotalPerAccount} WLD pro Konto.",
+    "hookStipulationTwo": "Solange der Vorrat reicht.",
+    "activateHookTitle": "5x Ihre Preise!",
+    "hookActivationDescription": "Als vollständig verifizierter World ID-Einzahler können Sie 5x die Preise verdienen!",
+    "hideThis": "verbergen"
   },
   "Navigation": {
     "home": "Startseite",
@@ -322,7 +331,18 @@
     "enableInSettings": "Um sie zu aktivieren, gehen Sie bitte zu den Einstellungen Ihres Geräts und erlauben Sie Benachrichtigungen für diese App.",
     "notificationsEnabled": "Großartig! Sie erhalten wichtige Informationen über Ihre Tresore, Preise und andere Aktivitäten.",
     "notificationsHaveBeenEnabled": "Großartig! Sie erhalten wichtige Informationen über Ihre Tresore, Preise und andere Aktivitäten.",
-    "dontShowAgain": "Zeigen Sie das nicht mehr"
+    "dontShowAgain": "Zeigen Sie das nicht mehr",
+    "prizeHook": "Preisschub",
+    "prizeHookSettings": "Preiserhöhungseinstellungen",
+    "prizeHookStatus": "Preiserhöhungsstatus",
+    "prizeHookEnabled": "Aktiviert",
+    "prizeHookDisabled": "Behinderte",
+    "prizeHookActiveDescription": "Ihr 5x-Preis-Boost ist aktiv und erhöht Ihre Preise!",
+    "prizeHookInactiveDescription": "Ihr 5x-Gewinn-Boost ist nicht aktiv. Aktivieren Sie ihn, um Ihre Preise zu erhöhen!",
+    "resetHooks": "Boost zurücksetzen",
+    "resettingHooks": "Zurücksetzen...",
+    "prizeHookAddress": "Hook / Boost Adresse",
+    "prizeVaultAddress": "Tresor Adresse"
   },
   "Abbreviations": {
     "days": "Tg",
@@ -423,6 +443,12 @@
       "checkingPermissions": "Überprüfen der Berechtigungen...",
       "refreshPermissions": "Berechtigungen aktualisieren",
       "refreshing": "Prüfen..."
+    },
+    "hooks": {
+      "setHooksSuccess": "Preishaken erfolgreich aktiviert! Ihre Preise werden nun um das 5-fache erhöht.",
+      "setHooksError": "Preishaken konnte nicht aktiviert werden. Bitte versuchen Sie es erneut.",
+      "resetHooksSuccess": "Preishaken erfolgreich zurückgesetzt. Ihre Preise werden nicht mehr aufgewertet.",
+      "resetHooksError": "Der Preishaken konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
     }
   }
 }
