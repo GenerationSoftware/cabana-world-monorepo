@@ -260,7 +260,8 @@
     "minimumReceived": "Minimum ontvangen",
     "migrateTx": "{Symbool} Migreren",
     "migrating": "{tokens} migreren...",
-    "migrated": "Je hebt je {tokens} depot gemigreerd"
+    "migrated": "Je hebt je {tokens} depot gemigreerd",
+    "wldDepositWarning": "Waarschuwing: Storten van minder dan 1 WLD kan resulteren in zeer lage winkansen. Overweeg om minstens 1 WLD te storten voor betere prijskansen."
   },
   "Footer": {
     "titles": {

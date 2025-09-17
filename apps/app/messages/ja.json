@@ -254,7 +254,8 @@
     "minimumReceived": "最低受取額",
     "migrateTx": "{シンボル｝移行",
     "migrating": "トークン}の移行...",
-    "migrated": "トークン預金を移行した"
+    "migrated": "トークン預金を移行した",
+    "wldDepositWarning": "警告1WLD未満のデポジットでは、当選確率が非常に低くなる可能性があります。より良い賞金チャンスを得るために、最低1WLDのデポジットをご検討ください。"
   },
   "Footer": {
     "titles": {

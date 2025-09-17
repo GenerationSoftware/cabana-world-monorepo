@@ -108,6 +108,11 @@ export const ZAP_TOKEN_OPTIONS: { [chainId: number]: Address[] } = {
 }
 
 /**
+ * WLD token address
+ */
+export const WLD_TOKEN_ADDRESS = '0x2cFc85d8E48F8EAB294be644d9E25C3030863003' as const
+
+/**
  * Amount of native assets to suggest not spending (for gas purposes)
  */
 export const NATIVE_ASSET_IGNORE_AMOUNT: { [chainId: number]: bigint } = {

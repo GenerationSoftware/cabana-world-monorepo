@@ -254,7 +254,8 @@
     "minimumReceived": "最低接收量",
     "migrateTx": "{符号｝迁移",
     "migrating": "迁移{标记}...",
-    "migrated": "你迁移了你的{图元}存款"
+    "migrated": "你迁移了你的{图元}存款",
+    "wldDepositWarning": "警告：存款少于 1 WLD 可能导致极低的中奖机会。请考虑存入至少 1 WLD 以获得更好的中奖机会。"
   },
   "Footer": {
     "titles": {

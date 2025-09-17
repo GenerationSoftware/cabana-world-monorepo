@@ -254,7 +254,8 @@
     "minimumReceived": "Mínimo recebido",
     "migrateTx": "{símbolo} Migrar",
     "migrating": "Migração de {tokens}...",
-    "migrated": "Migrou o seu depósito de {tokens}"
+    "migrated": "Migrou o seu depósito de {tokens}",
+    "wldDepositWarning": "Aviso: Depositar menos de 1 WLD pode resultar em hipóteses de ganhar muito baixas. Considere depositar pelo menos 1 WLD para obter melhores oportunidades de prémio."
   },
   "Footer": {
     "titles": {

@@ -254,7 +254,8 @@
     "minimumReceived": "Alınan Minimum",
     "migrateTx": "{sembol} Göç",
     "migrating": "{tokenler} taşınıyor...",
-    "migrated": "{tokenler} depozitonuzu taşıdınız"
+    "migrated": "{tokenler} depozitonuzu taşıdınız",
+    "wldDepositWarning": "Uyarı 1 WLD'den daha az para yatırmak çok düşük kazanma şansıyla sonuçlanabilir. Daha iyi ödül fırsatları için en az 1 WLD yatırmayı düşünün."
   },
   "Footer": {
     "titles": {

@@ -264,7 +264,8 @@
     "minimumReceived": "Minimo ricevuto",
     "migrateTx": "{simbolo} Migrare",
     "migrating": "Migrazione di {tokens}...",
-    "migrated": "Hai migrato il tuo deposito di {token}"
+    "migrated": "Hai migrato il tuo deposito di {token}",
+    "wldDepositWarning": "Attenzione: Depositare meno di 1 WLD può comportare possibilità di vincita molto basse. Considerate di depositare almeno 1 WLD per ottenere migliori opportunità di vincita."
   },
   "Footer": {
     "titles": {

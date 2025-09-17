@@ -282,7 +282,8 @@
     "findingZapRoute": "Finding zap route...",
     "noZapRouteFound": "No zap route available",
     "priceImpact": "Price Impact",
-    "minimumReceived": "Minimum Received"
+    "minimumReceived": "Minimum Received",
+    "wldDepositWarning": "Warning: Depositing less than 1 WLD may result in very low win chances. Consider depositing at least 1 WLD for better prize opportunities."
   },
   "Footer": {
     "titles": {

@@ -37,7 +37,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { getRoundedDownFormattedTokenAmount } from 'src/utils'
 import { Address, formatUnits, parseUnits } from 'viem'
-import { ZAP_PRIORITIES } from '@constants/config'
+import { WLD_TOKEN_ADDRESS, ZAP_PRIORITIES } from '@constants/config'
 import { useZapTokenOptions } from '@hooks/useZapTokenOptions'
 import { isValidFormInput, TxFormInput, TxFormValues } from '../TxFormInput'
 
@@ -165,6 +165,23 @@ export const DepositForm = (props: DepositFormProps) => {
       ? parseUnits(formTokenAmount, token.decimals)
       : 0n
   }, [formTokenAmount, token])
+
+  // Warning for if the deposit amount is less than 1 WLD
+  const isWldVault = useMemo(() => {
+    return !!tokenAddress && lower(tokenAddress) === lower(WLD_TOKEN_ADDRESS)
+  }, [tokenAddress])
+
+  const showWldWarning = useMemo(() => {
+    if (
+      !isWldVault ||
+      !formTokenAmount ||
+      !isValidFormInput(formTokenAmount, token?.decimals ?? 18)
+    ) {
+      return false
+    }
+    const depositAmountInWld = parseFloat(formTokenAmount)
+    return depositAmountInWld > 0 && depositAmountInWld < 1
+  }, [isWldVault, formTokenAmount, token?.decimals])
 
   const { amountOut: zapAmountOut, isFetchingZapArgs } = useSendDepositZapTransaction(
     { address: token?.address!, decimals: token?.decimals!, amount: depositAmount },
@@ -390,6 +407,14 @@ export const DepositForm = (props: DepositFormProps) => {
           inputClassName={classNames({ '!text-pt-purple-200': isZapping })}
           disabledCoverClassName={classNames({ '!backdrop-brightness-100': isZapping })}
         />
+        {showWldWarning && (
+          <div className='flex flex-col p-3 text-sm text-orange-200 bg-orange-500/10 border border-orange-500/20 rounded-lg mt-2'>
+            <div className='flex items-center gap-2'>
+              <span className='text-orange-400 font-semibold'>⚠️</span>
+              <span className='font-semibold'>{t_txModals('wldDepositWarning')}</span>
+            </div>
+          </div>
+        )}
         {isZappingAndSwapping && !!depositAmount && (
           <div className='flex flex-col p-2 text-xs text-pt-purple-100'>
             <div className='flex gap-2 items-center'>
