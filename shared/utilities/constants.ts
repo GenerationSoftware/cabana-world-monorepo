@@ -449,7 +449,7 @@ export const LINKS = {
   depositDelegator: `${DOMAINS.tools_v4}/delegate`,
   prizeTierController: `${DOMAINS.tools_v4}/prize-tier-controller`,
   communityCalendar: `${DOMAINS.notion}/Community-Calendar-4ce3024241dd464db96215e6729a78e0`,
-  worldPrizeHookPost: 'https://pooltogether.mirror.xyz/',
+  worldPrizeHookPost: 'https://pooltogether.mirror.xyz/fHlxF-9311Q0FxK-kLUb65fgGnpZvRlTrYX_4t3-afc',
   brandKit: `https://www.figma.com/community/file/1212805243917604494`,
   twitter: `https://twitter.com/PoolTogether_`,
   github: `https://github.com/orgs/GenerationSoftware/repositories?q=pooltogether+sort%3Astars`,
