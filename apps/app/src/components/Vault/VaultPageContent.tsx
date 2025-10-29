@@ -30,8 +30,6 @@ import { VaultPagePrizesSection } from './VaultPagePrizesSection'
 import { VaultPageRecentWinnersCard } from './VaultPageRecentWinnersCard'
 import { VaultPagePoolStakingContent } from './VaultPageStakingContent'
 
-// import { VaultPageVaultListWarning } from './VaultPageVaultListWarning'
-
 interface VaultPageContentProps {
   queryParams: ParsedUrlQuery
   onFetchedVaultName?: (name: string) => void

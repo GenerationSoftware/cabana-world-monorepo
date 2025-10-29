@@ -33,16 +33,6 @@ export const VaultButtons = (props: VaultButtonsProps) => {
 
   return (
     <div className={classNames('flex items-center gap-2', className)}>
-      {/* {isDelegateButtonShown && (
-        <DelegateButton
-          vault={vault}
-          extraOnClick={() => {}}
-          color='transparent'
-          className='w-full'
-        >
-          <GiftIcon className='w-4 h-4 my-0.5' />
-        </DelegateButton>
-      )} */}
       {isWithdrawButtonShown && (
         <WithdrawButton
           vault={vault}

@@ -1,6 +1,6 @@
 import { Vault } from '@generationsoftware/hyperstructure-client-js'
 import { useAccount } from '@shared/generic-react-hooks'
-import { DelegateButton, DepositButton, WithdrawButton } from '@shared/react-components'
+import { DepositButton, WithdrawButton } from '@shared/react-components'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 
@@ -27,11 +27,6 @@ export const VaultPageButtons = (props: VaultPageButtonsProps) => {
       <WithdrawButton vault={vault} extraOnClick={() => {}} color='transparent'>
         {t_common('withdraw')}
       </WithdrawButton>
-      {/* {!!userAddress && (
-        <DelegateButton vault={vault} extraOnClick={() => {}} color='transparent'>
-          {t_common('delegate')}
-        </DelegateButton>
-      )} */}
     </div>
   )
 }
