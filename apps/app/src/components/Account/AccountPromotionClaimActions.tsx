@@ -14,7 +14,6 @@ import { useMemo, useState } from 'react'
 import { claimPoolWideRewards, claimRewards, type ClaimRewardsTxOptions } from 'src/minikit_txs'
 import { addRecentTransaction, signInWithWallet } from 'src/utils'
 import { Address, formatUnits } from 'viem'
-// import { useCapabilities } from 'wagmi'
 import { useUserClaimablePoolWidePromotions } from '@hooks/useUserClaimablePoolWidePromotions'
 import { useUserClaimablePromotions } from '@hooks/useUserClaimablePromotions'
 import { useUserClaimedPoolWidePromotions } from '@hooks/useUserClaimedPoolWidePromotions'
@@ -73,10 +72,6 @@ const ClaimRewardsButton = (props: ClaimRewardsButtonProps) => {
   const [isConfirming, setIsConfirming] = useState<boolean>(false)
   const [isSuccessful, setIsSuccessful] = useState<boolean>(false)
   const [txHash, setTxHash] = useState<string>('')
-
-  // const { openConnectModal } = useConnectModal()
-  // const { openChainModal } = useChainModal()
-  // const addRecentTransaction = useAddRecentTransaction()
 
   const { refetch: refetchClaimed } = useUserClaimedPromotions(userAddress)
   const { refetch: refetchPoolWideClaimed } = useUserClaimedPoolWidePromotions(userAddress)

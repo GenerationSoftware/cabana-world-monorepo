@@ -1,10 +1,4 @@
-// import { WORLD_API_KEY } from '$env/static/private'
-// import type { RequestHandler } from '@sveltejs/kit'
-// import { json } from '@sveltejs/kit'
-import { type MiniAppSendTransactionSuccessPayload } from '@worldcoin/minikit-js'
 import { NextRequest, NextResponse } from 'next/server'
-
-// import { getChainIdFromParams, getPublicClient } from './utils'
 
 export interface MinikitTxReceiptApiParams {
   transactionId: string
@@ -13,7 +7,6 @@ export interface MinikitTxReceiptApiParams {
 const MINIKIT_TX_API_BASE_URL = `https://developer.worldcoin.org/api/v2/minikit/transaction`
 const APP_ID = process.env.NEXT_PUBLIC_MINIKIT_APP_ID
 
-// TODO: Could use exponential backoff
 const DEFAULT_RETRY_ATTEMPTS = 8
 const DEFAULT_RETRY_INTERVAL = 3
 
@@ -100,7 +93,3 @@ async function waitForWorldMinikitTransactionHash(transactionId: string): Promis
 function delay(time: number): Promise<void> {
   return new Promise<void>((resolve) => setTimeout(resolve, time * 1000))
 }
-
-// mock tx ID
-// 0x41261977427158cd3a70ef4315ad5648b71ef1111df8104f35bd2bed5c9bdc19
-// 0xba83ae52d046b190c4063be7627b86a0b2c5597f960cf632b855582ebefe6e58

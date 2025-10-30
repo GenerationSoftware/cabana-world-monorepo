@@ -1,7 +1,6 @@
 import { calculatePercentageOfBigInt, lower, sToMs } from '@shared/utilities'
 import { useQuery } from '@tanstack/react-query'
 import { Address } from 'viem'
-// import { usePublicClient } from 'wagmi'
 import { useWorldPublicClient } from '../blockchain/useClients'
 
 interface ParaSwapPricesResponse {
@@ -72,7 +71,6 @@ export const useSwapTx = (swapData: {
 }) => {
   const { chainId, from, to, userAddress, options } = swapData ?? {}
 
-  // const publicClient = usePublicClient({ chainId })
   const publicClient = useWorldPublicClient()
 
   const slippage = options?.slippage ?? 100

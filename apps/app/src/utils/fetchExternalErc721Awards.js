@@ -1,7 +1,5 @@
 import { batch, contract } from '@pooltogether/etherplex'
-
 import ERC721Abi from 'lib/../abis/CustomERC721'
-
 import { axiosInstance } from 'lib/axiosInstance'
 
 const _tryMetadataMethod = async (
@@ -17,11 +15,6 @@ const _tryMetadataMethod = async (
     tokenValues = await batch(provider, etherplexTokenContract[method](tokenId))
 
     return tokenValues[contractAddress][method][0]
-  } catch (e) {
-    // console.warn(
-    //   `NFT with tokenId ${tokenId} likely does not support metadata using method: ${method}():`,
-    //   e.message
-    // )
   }
 }
 
@@ -46,14 +39,6 @@ export const fetchExternalErc721Awards = async ({
     const erc721Address = award.address
 
     etherplexTokenContract = contract(erc721Address, ERC721Abi, erc721Address)
-
-    // batchCalls.push(
-    //   etherplexTokenContract
-    //     .balanceOf(balanceOfAddress)
-    //     .name()
-    //     .symbol()
-    //     .ownerOf()
-    // )
 
     // TODO: split up the batching so we can query if metadata is supported by each NFT
     //       or better yet, store the check to see if tokenURI/tokenMetadata is implemented on the Subgraph

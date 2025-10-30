@@ -20,7 +20,6 @@ export const useLpToken = (
   lpToken: { chainId: number; address: Address },
   options?: { enabled?: boolean }
 ) => {
-  // const publicClient = usePublicClient({ chainId: lpToken?.chainId })
   const publicClient = useWorldPublicClient()
 
   return useQuery({

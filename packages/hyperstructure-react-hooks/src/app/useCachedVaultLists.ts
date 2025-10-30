@@ -1,11 +1,8 @@
 import { VaultList } from '@shared/types'
 import { atom, useAtom } from 'jotai'
-import { useEffect } from 'react'
-import { LOCAL_STORAGE_KEYS } from '../constants'
 
 const getInitialCachedVaultLists = (): { [id: string]: VaultList } => {
   if (typeof window === 'undefined') return {}
-  // const cachedVaultLists = localStorage.getItem(LOCAL_STORAGE_KEYS.cachedVaultLists)
   return JSON.parse('{}')
 }
 
@@ -37,18 +34,6 @@ export const useCachedVaultLists = () => {
   const clear = () => {
     setCachedVaultLists({})
   }
-
-  // Don't cache the vault list in localStorage ike the typical Cabana does
-  // all vaults will be loaded from the default list on every load
-  // This prevents cached / stale data from ending up in World user's browsers
-  // which is fine since custom vaults won't be able to be supported on World
-  // as we need to allow list each individual vault contract we want to interact with
-  // in the 'World Basic Dev Portal'
-  // useEffect(
-  //   () =>
-  //     localStorage.setItem(LOCAL_STORAGE_KEYS.cachedVaultLists, JSON.stringify(cachedVaultLists)),
-  //   [cachedVaultLists]
-  // )
 
   return {
     cachedVaultLists,

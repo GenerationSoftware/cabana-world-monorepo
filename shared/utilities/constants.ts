@@ -318,7 +318,6 @@ export const TOKEN_PRICES_API_URL = 'https://token-prices.api.cabana.fi'
  * Networks supported by the price caching API
  */
 export const TOKEN_PRICE_API_SUPPORTED_NETWORKS: NETWORK[] = [NETWORK.world]
-// export const TOKEN_PRICE_API_SUPPORTED_NETWORKS: NETWORK[] = []
 
 /**
  * Redirects for tokens without pricing data on the caching API
@@ -381,8 +380,6 @@ export const ZAP_SETTINGS: {
   [chainId: number]: { zapRouter: Address; zapTokenManager: Address }
 } = {
   // [NETWORK.gnosis]: {
-  //   zapRouter: '0x992Ccc9D9b8b76310E044660E96171116820F019',
-  //   zapTokenManager: '0xA59BB0da9565e03f53AeFC94fcC205c52Fc925B7'
   // }
 }
 

@@ -75,8 +75,6 @@ const NoWalletCard = (props: { className?: string }) => {
 
   const { setUserAddress } = useAccount()
 
-  // const { openConnectModal } = useConnectModal()
-
   return (
     <div className={classNames('flex flex-col max-w-md gap-6 items-center', className)}>
       <span className='text-center text-3xl font-averta font-medium md:text-5xl'>

@@ -1,4 +1,3 @@
-import { toast } from '@shared/ui'
 import { formatNumberForDisplay, NETWORK } from '@shared/utilities'
 import { MiniKit } from '@worldcoin/minikit-js'
 import deepmerge from 'deepmerge'
@@ -19,7 +18,6 @@ export const createCustomWagmiConfig = (networks: NETWORK[]) => {
 
   return createConfig({
     chains: supportedNetworks,
-    // connectors: options?.connectors ?? getWalletConnectors(),
     transports: getNetworkTransports(supportedNetworks.map((network) => network.id)),
     batch: { multicall: { batchSize: 1_024 * 1_024 } },
     ssr: true

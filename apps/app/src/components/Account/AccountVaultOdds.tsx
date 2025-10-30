@@ -11,7 +11,6 @@ import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { Address } from 'viem'
-// import { useEnsName } from 'wagmi'
 import { useSupportedPrizePools } from '@hooks/useSupportedPrizePools'
 
 interface AccountVaultOddsProps {
@@ -41,8 +40,6 @@ export const AccountVaultOdds = (props: AccountVaultOddsProps) => {
     userAddress as Address,
     { refetchOnWindowFocus: true }
   )
-
-  // const { data: ensName } = useEnsName({ chainId: NETWORK.mainnet, address: delegate })
 
   const prizePools = useSupportedPrizePools()
   const prizePool = Object.values(prizePools).find(

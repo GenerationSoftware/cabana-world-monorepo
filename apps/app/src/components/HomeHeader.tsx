@@ -51,7 +51,6 @@ export const HomeHeader = () => {
   )
 }
 
-// TODO: flip animations not working
 const TokenFlipper = (props: { className?: string }) => {
   const { className } = props
 
@@ -96,7 +95,6 @@ const TokenFlipper = (props: { className?: string }) => {
   }, [defaultVaultList])
 
   const [tokenIndex, _setTokenIndex] = useState<number>(0)
-  // const [isFlipping, setIsFlipping] = useState<boolean>(false)
 
   const setTokenIndex = (val: number) => {
     if (!tokens.length) return
@@ -122,24 +120,15 @@ const TokenFlipper = (props: { className?: string }) => {
     return <></>
   }
 
-  // const isNextIndex = (i: number) =>
-  //   i === tokenIndex + 1 || (i === 0 && tokenIndex === tokens.length - 1)
-
   return (
     <div className={classNames('w-8 h-8 shrink-0 isolate md:w-10 md:h-10', className)}>
       {tokens.map((token, i) => (
         <TokenIcon
           key={`${token.chainId}-${token.address}`}
           token={token}
-          className={classNames(
-            'absolute !w-8 !h-8 md:!w-10 md:!h-10',
-            // 'absolute !w-8 !h-8 md:!w-10 md:!h-10 [transform:perspective(1000px)] [transform-style:preserve-3d]',
-            {
-              invisible: i !== tokenIndex
-              // 'animate-[flip_0.5s_linear]': isFlipping && i === tokenIndex,
-              // 'animate-[unflip_0.5s_linear]': isFlipping && isNextIndex(i)
-            }
-          )}
+          className={classNames('absolute !w-8 !h-8 md:!w-10 md:!h-10', {
+            invisible: i !== tokenIndex
+          })}
           showSpinner={i === tokenIndex}
         />
       ))}

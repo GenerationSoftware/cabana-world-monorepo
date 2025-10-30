@@ -57,7 +57,6 @@ export const deposit = async (
   prizeVaultAssetAddress?: Address,
   options?: DepositTxOptions
 ) => {
-  // re-write all this and put it in some useSendWorlDepositTransaction hook so we don't have to do this janky stuff:
   if (!prizeVaultAssetAddress) {
     return
   }
@@ -137,8 +136,6 @@ export const sendDepositTx = async (
 
       if (txReceipt) {
         options?.onSuccess?.(txReceipt, txReceipt.transactionHash)
-      } else {
-        // throw new Error('Unable to get txReceipt')
       }
     }
   } catch (e) {
@@ -180,16 +177,6 @@ export const getTxReceipt = async (
 
   return txReceipt
 }
-
-// export const decodeWithdrawEvent = (
-//   prizeVaultAddress: Address,
-//   redeemTxReceipt: TransactionReceipt
-// ) => {
-//   const { topics, data } = redeemTxReceipt.logs.filter(
-//     (log) => lower(log.address) === lower(prizeVaultAddress)
-//   )[1]
-//   return decodeEventLog({ abi: vaultABI, eventName: 'Withdraw', topics, data, strict: true })
-// }
 
 export const redeem = async (
   amount: bigint,
@@ -233,7 +220,6 @@ export const withdrawAndDeposit = async (
   const nonce = Date.now().toString()
   const deadline = Math.floor((Date.now() + 30 * 60 * 1000) / 1000).toString()
 
-  // Create withdraw transaction
   const withdrawTx = {
     address: withdrawPrizeVaultAddress,
     abi: redeemABI,
@@ -241,7 +227,6 @@ export const withdrawAndDeposit = async (
     args: [amount.toString(), userAddress, userAddress]
   }
 
-  // Create deposit transaction
   const depositTx = {
     address: PERMIT_2_VAULT_DEPOSIT_ADDRESS,
     abi: permitDepositABI,
@@ -255,7 +240,6 @@ export const withdrawAndDeposit = async (
     ]
   }
 
-  // Create permit2 data for deposit
   const permit2 = {
     permitted: {
       token: prizeVaultAssetAddress,
@@ -284,10 +268,7 @@ export const withdrawAndDeposit = async (
       const txReceipt = await getTxReceipt(publicClient, finalPayload)
 
       if (txReceipt) {
-        // Both transactions are included in the same receipt
         options?.onSuccess?.(txReceipt.transactionHash)
-      } else {
-        // throw new Error('Unable to get txReceipt')
       }
     }
   } catch (e) {
@@ -334,8 +315,6 @@ export const sendTx = async (
 
       if (txReceipt) {
         options?.onSuccess?.(txReceipt.transactionHash)
-      } else {
-        // throw new Error('Unable to get txReceipt')
       }
     }
   } catch (e) {

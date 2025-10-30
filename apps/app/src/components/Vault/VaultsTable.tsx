@@ -161,7 +161,6 @@ export const VaultsTable = (props: VaultsTableProps) => {
             position: 'right'
           }
         }
-        // className: classNames({ '!bg-pt-purple-600': isPoolStakingVault })
       }
     })
   }

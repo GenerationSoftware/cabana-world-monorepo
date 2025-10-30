@@ -8,7 +8,6 @@ export function normalizeTo18Decimals(bn, decimals) {
     console.warn(
       'WARN: normalizeTo18Decimals: Number of decimals to adjust by needs to be passed in'
     )
-    // console.warn('normalizeTo18Decimals: Number of decimals to adjust by needs to be passed in')
   }
 
   if (typeof bn === 'string') {

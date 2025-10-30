@@ -54,10 +54,6 @@ export const DelegateTxButton = (props: DelegateTxButtonProps) => {
     }
   })
 
-  // const { data: walletCapabilities } = useCapabilities()
-  // const chainWalletCapabilities = walletCapabilities?.[vault.chainId] ?? {}
-  const chainWalletCapabilities = {}
-
   const sendTx = dataTx.sendDelegateTransaction
   const isWaitingDelegation = dataTx.isWaiting
   const isConfirmingDelegation = dataTx.isConfirming

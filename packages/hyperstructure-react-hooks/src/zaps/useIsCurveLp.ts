@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { Address } from 'viem'
 import { useWorldPublicClient } from '../blockchain/useClients'
 
-// TODO: enable this to be more general once `useLpToken` supports curve lps with 3+ tokens
 /**
  * Returns `true` or `false` depending on whether a token is a recognized curve-like LP token
  * @param token token to check

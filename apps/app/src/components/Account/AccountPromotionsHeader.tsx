@@ -78,10 +78,6 @@ const ClaimAllRewardsButton = (props: ClaimAllRewardsButtonProps) => {
   const t_common = useTranslations('Common')
   const t_account = useTranslations('Account')
 
-  // const { openConnectModal } = useConnectModal()
-  // const { openChainModal } = useChainModal()
-  // const addRecentTransaction = useAddRecentTransaction()
-
   const { refetch: refetchAllClaimed } = useUserClaimedPromotions(userAddress)
   const {
     data: allClaimable,

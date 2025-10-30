@@ -1,19 +1,10 @@
 import { find } from 'lodash'
 
-// import { DRIP_TOKENS } from 'lib/constants'
-
 export const extractPoolRewardsFromUserDrips = ({ poolAddresses, playerDrips }) => {
   const dripTokens = playerDrips?.dripTokens || []
 
   const balanceDrips = []
   const volumeDrips = []
-
-  // const balanceDrips = playerDrips?.balanceDrips.filter(drip => {
-  //   return poolAddresses.includes(drip.balanceDrip.prizePool.id)
-  // })
-  // const volumeDrips = playerDrips?.volumeDrips.filter(drip => {
-  //   return poolAddresses.includes(drip.volumeDrip.prizePool.id)
-  // })
 
   const playerRewards = {
     allDrips: [],
@@ -25,7 +16,6 @@ export const extractPoolRewardsFromUserDrips = ({ poolAddresses, playerDrips }) 
   dripTokens.forEach((drip) => {
     const [comptroller, dripToken, player] = drip.id.split('-')
     const dripTokenData = { name: 'Unknown', symbol: 'UNK' }
-    // const dripTokenData = DRIP_TOKENS[dripToken] || {name: 'Unknown', symbol: 'UNK'}
     let finalDripData = {
       dripToken: {
         address: dripToken,

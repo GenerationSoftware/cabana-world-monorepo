@@ -1,6 +1,5 @@
 export function translatedPoolName(t, name) {
   if (!name) {
-    // console.warn('missing translatedPoolName() name')
     return ''
   }
 

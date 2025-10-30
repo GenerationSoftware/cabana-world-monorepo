@@ -17,7 +17,6 @@ export const useVaultList = (
   src: string,
   options?: { localVaultLists?: { [id: string]: VaultList }; onSuccess?: (id: string) => void }
 ): UseQueryResult<VaultList | undefined> => {
-  // const publicClient = usePublicClient({ chainId: NETWORK.mainnet })
   const publicClient = useWorldPublicClient() as PublicClient
 
   const { select } = useSelectedVaultListIds()

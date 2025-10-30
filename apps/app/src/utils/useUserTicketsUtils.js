@@ -32,7 +32,6 @@ export const getUserDataRpc = async (
     }
 
     const pools = poolsKeyedByChainId[chainId]
-    // console.log(pools)
 
     pools.forEach((pool) => {
       const ticketAddress = pool.tokens.ticket.address
@@ -72,7 +71,6 @@ export const getUserDataRpc = async (
           totalSupply: formatUnits(ticket.totalSupply[0], ticket.decimals[0]),
           decimals: ticket.decimals[0],
           address
-          // name: ticket.name[0]
         })
 
         formattedTicketData[chainId].push(formatTicketObj(chainId, userTicketData, ticketAddress))
@@ -80,8 +78,6 @@ export const getUserDataRpc = async (
           formatTicketObj(chainId, userSponsorshipData, sponsorshipAddress)
         )
       })
-
-      //     numberOfHolders: token.controlledToken.numberOfHolders
     })
   }
 

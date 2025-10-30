@@ -1,7 +1,6 @@
 import { Vaults } from '@generationsoftware/hyperstructure-client-js'
 import { useAllVaultTokenAddresses, useHistoricalTokenPrices } from '..'
 
-// TODO: should support multiple chains at once
 /**
  * Returns historical token prices for all vaults' underlying tokens
  * @param chainId network to query for

@@ -6,9 +6,6 @@ import { stringWithPrecision } from './stringWithPrecision'
 
 const bn = ethers.BigNumber.from
 
-// TODO: Move this to it's own package and share between API and flagship
-
-// TODO: Use the block list everywhere!
 export const ERC20_BLOCK_LIST = ['0x6ca105d2af7095b1bceeb6a2113d168dddcd57cf']
 
 export const combineLootBoxDataWithPool = (pool, lootBoxData) => {
@@ -202,7 +199,6 @@ export const formatPoolGraphData = (prizePool, chainId) => {
     },
     reserve: {
       registry: {
-        // TODO: Remove. Hardcoded for a bug in the subgraph.
         address:
           prizePool.reserveRegistry === ethers.constants.Zero
             ? '0x3e8b9901dbfe766d3fe44b36c180a1bca2b9a295'

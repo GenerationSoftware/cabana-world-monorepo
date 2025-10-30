@@ -10,8 +10,6 @@ import {
   useAllVaultTokenAddresses
 } from '..'
 
-// TODO: should support multiple chains at once
-// TODO: this isn't entirely accurate since exchange rates might've been different in the past
 /**
  * Returns historical share prices for all given vaults
  * @param chainId network to query for

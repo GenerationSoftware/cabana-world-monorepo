@@ -1,11 +1,10 @@
 import { useAccount } from '@shared/generic-react-hooks'
 import { CurrencyValue } from '@shared/react-components'
 import { Spinner } from '@shared/ui'
-import { lower, NETWORK, shorten } from '@shared/utilities'
+import { lower, shorten } from '@shared/utilities'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { Address } from 'viem'
-// import { useEnsName } from 'wagmi'
 import { WALLET_NAMES } from '@constants/config'
 import { useUserTotalBalance } from '@hooks/useUserTotalBalance'
 
@@ -24,7 +23,6 @@ export const AccountDepositsHeader = (props: AccountDepositsHeaderProps) => {
 
   const isExternalUser = !!address && address.toLowerCase() !== _userAddress?.toLowerCase()
   const { data: totalBalance, isFetched: isFetchedTotalBalance } = useUserTotalBalance(userAddress!)
-  // const { data: ensName } = useEnsName({ chainId: NETWORK.mainnet, address: userAddress })
 
   return (
     <div className={classNames('flex flex-col items-center  md:gap-2', className)}>
