@@ -4,10 +4,10 @@ import {
   useSortedVaults
 } from '@generationsoftware/hyperstructure-react-hooks'
 import { Spinner } from '@shared/ui'
-import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useSupportedPrizePools } from '@hooks/useSupportedPrizePools'
 import { VaultCards } from './VaultCards'
-import { filteredVaultsAtom, filterIdAtom, vaultListFilterIdAtom } from './VaultFilters'
+import { filteredVaultsAtom } from './VaultFilters'
 import { VaultsTable } from './VaultsTable'
 
 export const VaultsDisplay = () => {

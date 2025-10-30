@@ -11,11 +11,9 @@ import { MiniKit } from '@worldcoin/minikit-js'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useState } from 'react'
 import { useNotificationPermission } from '@hooks/useNotificationPermission'
-import { useWalletId } from '@hooks/useWalletId'
 import { Footer } from './Footer'
 import { HookActivationBanner } from './HookActivationBanner'
 import { CheckPrizesModal } from './Modals/CheckPrizesModal'
@@ -76,23 +74,6 @@ export const Layout = (props: LayoutProps) => {
     })
   })
 
-  const searchParams = useSearchParams()
-  const { walletId, setWalletId } = useWalletId()
-
-  useEffect(() => {
-    if (!!searchParams) {
-      const utmSrc = searchParams.get('utm_source')?.toLowerCase()
-
-      if (!!utmSrc) {
-        if (utmSrc === 'imtoken') {
-          setWalletId('imToken')
-        } else if (utmSrc === 'exodus') {
-          setWalletId('exodus')
-        }
-      }
-    }
-  }, [searchParams])
-
   const pageTitles: { [href: string]: string } = {
     account: t_nav('account'),
     prizes: t_nav('prizes'),
@@ -138,7 +119,6 @@ export const Layout = (props: LayoutProps) => {
         onSuccessfulWithdrawal={() => {}}
         onSuccessfulWithdrawalWithZap={() => {}}
       />
-      {/* <DelegateModal onSuccessfulDelegation={() => {}} /> */}
       <CheckPrizesModal onWin={() => {}} onNoWin={() => {}} />
       <CaptchaModal
         hCaptchaSiteKey='11cdabde-af7e-42cb-ba97-76e35b7f7c39'

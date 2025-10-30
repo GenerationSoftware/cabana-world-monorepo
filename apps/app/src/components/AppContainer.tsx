@@ -51,7 +51,7 @@ export const AppContainer = (props: AppProps) => {
       }
     }
     initEruda()
-  })
+  }, [])
 
   useSelectedLanguage({
     onLanguageChange: (newLanguage) => {
@@ -74,13 +74,8 @@ export const AppContainer = (props: AppProps) => {
     <>
       <Flowbite>
         <Toaster expand={false} />
-        <NextIntlClientProvider
-          locale={locale || 'en'}
-          timeZone={'Etc/UCT'}
-          messages={pageProps.messages}
-        >
+        <NextIntlClientProvider locale={locale || 'en'} messages={pageProps.messages}>
           <div id='modal-root' />
-          {/* <RewardsBackdatedBanner /> */}
           {isReady && <Component {...pageProps} />}
         </NextIntlClientProvider>
       </Flowbite>

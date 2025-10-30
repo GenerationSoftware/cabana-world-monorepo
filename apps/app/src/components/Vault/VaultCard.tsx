@@ -10,7 +10,7 @@ import {
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { POOL_STAKING_VAULTS, TWAB_REWARDS_SETTINGS } from '@constants/config'
+import { TWAB_REWARDS_SETTINGS } from '@constants/config'
 import { useVaultImportedListSrcs } from '@hooks/useVaultImportedListSrcs'
 import { VaultBonusRewards } from './VaultBonusRewards'
 import { VaultButtons } from './VaultButtons'

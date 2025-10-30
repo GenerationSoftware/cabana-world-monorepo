@@ -1,8 +1,7 @@
 import { Vault } from '@generationsoftware/hyperstructure-client-js'
 import { useUserVaultShareBalance } from '@generationsoftware/hyperstructure-react-hooks'
-import { GiftIcon } from '@heroicons/react/24/solid'
 import { useAccount } from '@shared/generic-react-hooks'
-import { DelegateButton, DepositButton, WithdrawButton } from '@shared/react-components'
+import { DepositButton, WithdrawButton } from '@shared/react-components'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import { Address } from 'viem'
@@ -26,8 +25,6 @@ export const VaultButtons = (props: VaultButtonsProps) => {
   const { data: vaultBalance } = useUserVaultShareBalance(vault, userAddress as Address)
   const shareBalance = vaultBalance?.amount ?? 0n
 
-  const isDelegateButtonShown =
-    (shareBalance > 0n || forceShow?.includes('delegate')) && !forceHide?.includes('delegate')
   const isWithdrawButtonShown =
     (shareBalance > 0n || forceShow?.includes('withdraw')) && !forceHide?.includes('withdraw')
 
